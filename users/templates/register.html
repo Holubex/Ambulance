@@ -1,0 +1,12 @@
+{% block title %}
+
+    Registracia
+
+    <h1>Novy uzivatel</h1>
+    <form action="register.html" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button>Registrovat</button>
+    </form>
+
+{% endblock %}
