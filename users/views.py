@@ -8,6 +8,9 @@ from django.urls import reverse_lazy
 from users.models import User
 # Create your views here.
 
+def home(request):
+    return render(request, 'home.html',
+            {'title': 'Welcome to HollyMovies'})
 
 class UserForm(forms.ModelForm):
 
