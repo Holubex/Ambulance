@@ -1,12 +1,21 @@
-{% block title %}
-
-    Registracia
-
-    <h1>Novy uzivatel</h1>
-    <form action="register.html" method="post">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="post">
         {% csrf_token %}
-        {{ form }}
-        <button>Registrovat</button>
+        {{ form.as_p }}
+        <button type="submit">Register</button>
     </form>
-
-{% endblock %}
+    {% if form.errors %}
+        <div class="errors">
+            {{ form.errors }}
+        </div>
+    {% endif %}
+</body>
+</html>

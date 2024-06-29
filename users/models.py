@@ -10,8 +10,8 @@ class Sex(TextChoices):
 
 
 class Role(TextChoices):
-    DOCTOR = 'Doktor'
-    NURSE = 'Sestra'
+    DOCTOR = 'Doctor'
+    NURSE = 'Nurse'
     PATIENT = 'Pacient'
 
 class User(Model):
