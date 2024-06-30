@@ -12,7 +12,7 @@ from users.models import User
 
 def home(request):
     return render(request, 'home.html',
-            {'title': 'Welcome to HollyMovies'})
+                  {'title': 'Welcome to HollyMovies'})
 
 class UserForm(forms.ModelForm):
 
