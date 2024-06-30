@@ -10,9 +10,9 @@ class Sex(TextChoices):
 
 
 class Role(TextChoices):
-    DOCTOR = 'Doktor'
-    NURSE = 'Sestra'
-    PATIENT = 'Pacient'
+    DOCTOR = 'Doctor'
+    NURSE = 'Nurse'
+    PATIENT = 'Patient'
 
 class User(Model):
     name = models.CharField(max_length=120)

@@ -15,12 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+from medical_examination.views import MedicalExaminationListView
 from users.views import UserCreateView, UserListView, home
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
-    path('create-user/', UserCreateView.as_view() , name='create_user'),
+    path('create-user/', UserCreateView.as_view(), name='create_user'),
     path('user-list/', UserListView.as_view(), name='user_list'),
+
+    path('medical-examination-list/', MedicalExaminationListView.as_view(), name='medical_examination_list'),
 ]

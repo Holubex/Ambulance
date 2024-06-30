@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seznam lékařských vyšetření</title>
+</head>
+<body>
+    <h1>Seznam lékařských vyšetření:</h1>
+    <ul>
+        {% for examination in medical_examinations %}
+            <li>{{ examination }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
