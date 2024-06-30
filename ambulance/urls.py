@@ -20,6 +20,9 @@ from medical_examination.views import MedicalExaminationListView
 from users.views import UserCreateView, UserListView, home, register_view
 
 
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
@@ -28,4 +31,5 @@ urlpatterns = [
     path('user-list/', UserListView.as_view(), name='user_list'),
 
     path('medical-examination-list/', MedicalExaminationListView.as_view(), name='medical_examination_list'),
+
 ]
