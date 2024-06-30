@@ -12,7 +12,7 @@ class Sex(TextChoices):
 class Role(TextChoices):
     DOCTOR = 'Doctor'
     NURSE = 'Nurse'
-    PATIENT = 'Patient'
+    PATIENT = 'Pacient'
 
 class User(Model):
     name = models.CharField(max_length=120)

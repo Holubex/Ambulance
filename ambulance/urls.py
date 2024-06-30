@@ -21,7 +21,7 @@ from users.views import UserCreateView, UserListView, home, register_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
-    path('create-user/', UserCreateView.as_view() , name='create_user'),
-    path('user-list/', UserListView.as_view(), name='user_list'),
     path('register/', register_view, name='register'),
+    path('create_user/', UserCreateView.as_view(), name='create_user'),
+    path('user-list/', UserListView.as_view(), name='user_list'),
 ]
