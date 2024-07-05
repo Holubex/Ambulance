@@ -7,7 +7,12 @@
     <h1>Seznam lékařských vyšetření:</h1>
     <ul>
         {% for examination in medical_examinations %}
-            <li>{{ examination }}</li>
+            <li>
+                <a href="{% url 'medical_examination_detail' examination.id %}">
+                    Pacient {{ examination.patient }} byl vyšetřen lékařem {{ examination.doctor }} dne {{ examination.examination_date }}.
+                </a>
+            
+            </li>
         {% endfor %}
     </ul>
 </body>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulář Lékařského Vyšetření</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulář lékařského vyšetření:</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="patient">Pacient</label>
+                <select id="patient" name="patient">
+                    {% for patient in patients %}
+                        <option value="{{ patient.id }}">{{ patient.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nurse">Sestřička</label>
+                <select id="nurse" name="nurse">
+                    {% for nurse in nurses %}
+                        <option value="{{ nurse.id }}">{{ nurse.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="doctor">Lékař</label>
+                <select id="doctor" name="doctor">
+                    {% for doctor in doctors %}
+                        <option value="{{ doctor.id }}">{{ doctor.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="current_complaints">Nynější obtíže</label>
+                <textarea id="current_complaints" name="current_complaints" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="objective_findings">Objektivní stav</label>
+                <textarea id="objective_findings" name="objective_findings" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="diagnosis">Diagnóza</label>
+                <textarea id="diagnosis" name="diagnosis" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="prescription">Recept</label>
+                <textarea id="prescription" name="prescription" rows="4"></textarea>
+            </div>
+            <button type="submit">Uložit</button>
+        </form>
+    </div>
+</body>
+</html>
