@@ -15,7 +15,6 @@ def home(request):
                   {'title': 'Welcome to HollyMovies'})
 
 class UserForm(forms.ModelForm):
-
     class Meta:
         model = User
         fields = '__all__'
@@ -32,7 +31,7 @@ class UserCreateView(CreateView):
     model = User
     form_class = UserForm
     template_name = 'create_user.html'
-    # success_url = reverse_lazy('user_list')
+    success_url = reverse_lazy('user_list')
 
     def form_invalid(self, form):
         LOGGER.warning('User provided invalid data.')
