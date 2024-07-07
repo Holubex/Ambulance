@@ -1,9 +1,13 @@
 {% block content %}
 <h1>Ambulancia</h1>
 
-<a href="{% url 'create_user' %}">Vytvor uzivatela</a><br>
+{% if user.is_authenticated %}
+    {% if perms.user.add_user %}
+        <a href="{% url 'create_user' %}">Vytvor uzivatela</a><br>
+    {% endif %}
+{% endif %}
 <a href="{% url 'user_list' %}">Zoznam</a>
-<a href="{% url 'register' %}">Registrovat</a>
+
 
 <p> Vítejte v naši psychiatrické ambulanci Hnídek<p>
 <p>Nabízíme komplexní péči v oblasti duševního zdraví, sexuologie a adiktologie. <p>

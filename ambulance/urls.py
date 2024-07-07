@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from medical_examination.views import MedicalExaminationListView
+from users.views import UserCreateView, UserListView, home
+from accounts.views import SubmittableLoginView, RegistrationForm, RegisterView
 from medical_examination.views import (
     MedicalExaminationListView,
     MedicalExaminationCreateView,
@@ -39,4 +42,6 @@ urlpatterns = [
     path('medical-examination-detail/<pk>/', MedicalExaminationDetailView.as_view(), name='medical_examination_detail'),
 
 
+    path('accounts/register/', RegisterView.as_view(), name='register'),
+    path('accounts/login/', SubmittableLoginView.as_view(), name='login'),
 ]
