@@ -22,7 +22,6 @@ from accounts.views import SubmittableLoginView, RegistrationForm, RegisterView
 
 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
