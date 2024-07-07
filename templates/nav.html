@@ -1,0 +1,26 @@
+{% load static %}
+<header>
+    <div class="content-wrapper">
+        <div class="header-top">
+            <div class="logo">
+                <img src="{% static 'images/psychiatry_512.png' %}" alt="Logo Psychiatrie Hnídek" width="50">
+            </div>
+            <div class="address">
+                <p>Psychiatrie Hnídek s.r.o., Ronovská 846/3, 470 01 Česká Lípa, ambulance@psychiatrie-hnidek.cz</p>
+            </div>
+            <div class="login">
+                <a href="{% url 'login' %}">Login</a>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <nav class="menu">
+                <ul>
+                    <li><a href="{% url 'home' %}">Aktuality</a></li>
+                    <li><a href="#">Naše služby</a></li>
+                    <li><a href="#">Praktické informace</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

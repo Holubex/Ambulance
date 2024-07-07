@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+ .content-wrapper {
+   max-width: 1200px; /* nastavime sirku  dle potřeby 960px - max 1200px */
+   margin: 0 auto; /* vycentruje kontejner na strance */
+ }
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+}
+
+.logo {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.address {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between; /* Rozložení prvků od kraje ke kraji */
+    align-items: center; /* Zarovnání prvků na střed vertikálně */
+    padding: 10px 20px;
+    background-color: #f4f4f4; /* Barva horního pruhu */
+}
+
+.login {
+    /* Styly pro tlačítko Login */
+}
+
+.header-bottom {
+    background-color: #e6e6e6; /* Pastelově šedá barva */
+    padding: 10px;
+}
+
+.menu {
+    margin-left: auto; /* zde u menu zbytecne, ale pro jistotu */
+}
+
+.menu ul {
+    display: flex;
+    justify-content: center; /* Zarovnání prvků na střed */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    margin: 0 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.health-insurance-logos img {
+    max-height: 40px;
+    margin: 10px;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer .insurance-logos {
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu ul {
+        flex-direction: column;
+    }
+
+    .menu li {
+        margin: 5px 0;
+    }
+}

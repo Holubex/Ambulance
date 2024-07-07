@@ -1,4 +1,7 @@
+{% extends "base.html" %}
+
 {% block content %}
+<div class="content-wrapper">
 <h1>Ambulancia</h1>
 
 {% if user.is_authenticated %}
@@ -63,5 +66,5 @@
 <p>V 2. patře objektu se nachází i krajská poradna pro závislost:<p>
 <p>ADVAITA, z. ú. - Poradna pro závislosti Česká Lípa<p>
 <p>https://advaitaliberec.cz/program-ambulantniho-poradenstvi/poradny-pro-zavislosti/ </p>
-
+</div>
 {% endblock %}
