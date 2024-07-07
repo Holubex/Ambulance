@@ -1,4 +1,4 @@
-from concurrent.futures._base import LOGGER
+# from concurrent.futures._base import LOGGER
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import PermissionRequiredMixin
@@ -10,9 +10,11 @@ from django.urls import reverse_lazy
 from users.models import User
 # Create your views here.
 
+
 def home(request):
     return render(request, 'home.html',
                   {'title': 'Welcome to HollyMovies'})
+
 
 class UserForm(forms.ModelForm):
 
@@ -32,7 +34,7 @@ class UserCreateView(CreateView):
     model = User
     form_class = UserForm
     template_name = 'create_user.html'
-    # success_url = reverse_lazy('user_list')
+    success_url = reverse_lazy('user_list')
 
     def form_invalid(self, form):
         LOGGER.warning('User provided invalid data.')
