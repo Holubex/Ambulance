@@ -1,9 +1,16 @@
+{% extends "base.html" %}
+
 {% block content %}
+<div class="content-wrapper">
 <h1>Ambulancia</h1>
 
-<a href="{% url 'create_user' %}">Vytvor uzivatela</a><br>
+{% if user.is_authenticated %}
+    {% if perms.user.add_user %}
+        <a href="{% url 'create_user' %}">Vytvor uzivatela</a><br>
+    {% endif %}
+{% endif %}
 <a href="{% url 'user_list' %}">Zoznam</a>
-<a href="{% url 'register' %}">Registrovat</a>
+
 
 <p> Vítejte v naši psychiatrické ambulanci Hnídek<p>
 <p>Nabízíme komplexní péči v oblasti duševního zdraví, sexuologie a adiktologie. <p>
@@ -59,5 +66,5 @@
 <p>V 2. patře objektu se nachází i krajská poradna pro závislost:<p>
 <p>ADVAITA, z. ú. - Poradna pro závislosti Česká Lípa<p>
 <p>https://advaitaliberec.cz/program-ambulantniho-poradenstvi/poradny-pro-zavislosti/ </p>
-
+</div>
 {% endblock %}
