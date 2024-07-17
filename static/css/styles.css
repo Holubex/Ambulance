@@ -1,96 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
+    line-height: 1.6;
+    color: #555;
 }
 
  .content-wrapper {
    max-width: 1200px; /* nastavime sirku  dle potřeby 960px - max 1200px */
    margin: 0 auto; /* vycentruje kontejner na strance */
+   padding: 0 20px;
+   width: 100%;
+   box-sizing: border-box;
  }
 
-.header-content {
+.header-top {
+    background-color: #f4f4f4; /* Barva horního pruhu */
+    padding: 10px 0;
+}
+
+/*.header-top {*/
+/*    display: flex;*/
+/*    justify-content: space-between; !* Rozložení prvků od kraje ke kraji *!*/
+/*    align-items: center; !* Zarovnání prvků na střed vertikálně *!*/
+/*    padding: 10px 20px;*/
+/*    background-color: #f4f4f4; !* Barva horního pruhu *!*/
+/*}*/
+
+.header-top .content-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f4f4f4;
-    padding: 10px 20px;
 }
 
-.logo {
-    margin-right: 10px;
+.logo-name {
     display: flex;
     align-items: center;
 }
 
-.logo img {
-    height: 50px;
+.logo-name img {
+    margin-right: 10px;
 }
 
-.address {
+.logo-name span {
     font-size: 0.9em;
     color: #555;
 }
 
-.header-top {
-    display: flex;
-    justify-content: space-between; /* Rozložení prvků od kraje ke kraji */
-    align-items: center; /* Zarovnání prvků na střed vertikálně */
-    padding: 10px 20px;
-    background-color: #f4f4f4; /* Barva horního pruhu */
-}
+/*.logo img {*/
+/*    height: 50px;*/
+/*}*/
+
+/*.address {*/
+/*    font-size: 0.9em;*/
+/*    color: #555;*/
+/*}*/
 
 .login {
-    /* Styly pro tlačítko Login */
+    margin-left: auto;
+}
+
+.login a {  /* Styly pro tlačítko Login */
+    display: flex;
+    align-items: center;
+    color: #FF9C99;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login i {
+    margin-right: 5px;
 }
 
 .header-bottom {
     background-color: #e6e6e6; /* Pastelově šedá barva */
-    padding: 10px;
+    width: 100%;
 }
 
-.menu {
-    margin-left: auto; /* zde u menu zbytecne, ale pro jistotu */
-}
+/*.menu {*/
+/*    margin-left: auto; !* zde u menu zbytecne, ale pro jistotu *!*/
+/*}*/
 
 .menu ul {
     display: flex;
-    justify-content: center; /* Zarovnání prvků na střed */
+    justify-content: space-between; /* Zarovnání prvků na střed */
     list-style-type: none;
     margin: 0;
-    padding: 0;
-    display: flex;
+    padding: 10px 0;
 }
 
-.menu li {
-    margin: 0 15px;
-}
+/*.menu li {*/
+/*    margin: 0 15px;*/
+/*}*/
 
 .menu a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
 }
 
 .menu a:hover {
-    text-decoration: underline;
+    background-color: #FF9C99;
+    color: white;
+    /*text-decoration: underline;*/
 }
 
 main {
-    padding: 20px;
+    padding: 20px 0;
 }
 
 footer {
     background-color: #333;
     color: white;
-    text-align: center;
+    /*text-align: center;*/
     padding: 20px 0;
-    position: relative;
+    /*position: relative;*/
 }
 
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .health-insurance-logos img {
@@ -98,22 +132,36 @@ footer {
     margin: 10px;
 }
 
-footer p {
-    margin: 10px 0;
+.footer-credits{
+    background-color: #e6e6e6;
+    color: #333;
+    padding: 10px 0;
+    font-size: 0.8em;
+    text-align: center;
 }
 
-footer .insurance-logos {
-    margin-top: 20px;
-}
+/*footer p {*/
+/*    margin: 10px 0;*/
+/*}*/
+
+/*footer .insurance-logos {*/
+/*    margin-top: 20px;*/
+/*}*/
 
 @media (max-width: 768px) {
-    .header-content {
+    .header-content .content-wrapper {
         flex-direction: column;
         text-align: center;
     }
 
+        .login {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
     .menu ul {
         flex-direction: column;
+        align-items: center;
     }
 
     .menu li {
