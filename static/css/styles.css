@@ -6,19 +6,23 @@ body {
     padding: 0;
     line-height: 1.6;
     color: #555;
+    background-color: #f4f4f4;
 }
 
  .content-wrapper {
    max-width: 1200px; /* nastavime sirku  dle potřeby 960px - max 1200px */
    margin: 0 auto; /* vycentruje kontejner na strance */
-   padding: 0 20px;
+   padding: 20px;
    width: 100%;
    box-sizing: border-box;
+   background-color: #fff;
  }
 
 .header-top {
-    background-color: #f4f4f4; /* Barva horního pruhu */
+    background-color: ivory; /* Barva horního pruhu */
     padding: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /*.header-top {*/
@@ -33,6 +37,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo-name {
@@ -42,6 +48,7 @@ body {
 
 .logo-name img {
     margin-right: 10px;
+    margin-left: 10px; /* mezera od levého okraje */
 }
 
 .logo-name span {
@@ -58,16 +65,17 @@ body {
 /*    color: #555;*/
 /*}*/
 
-.login {
-    margin-left: auto;
-}
+/*.login {*/
+/*    margin-left: auto;*/
+/*}*/
 
 .login a {  /* Styly pro tlačítko Login */
     display: flex;
     align-items: center;
-    color: #FF9C99;
+    color: #acc8d7;
     text-decoration: none;
     font-weight: bold;
+    margin-right: 10px;
 }
 
 .login i {
@@ -75,8 +83,12 @@ body {
 }
 
 .header-bottom {
-    background-color: #e6e6e6; /* Pastelově šedá barva */
+    /*background-color: #e6e6e6; !* Pastelově šedá barva *!*/
+    /*background-color: #C4d8e2;*/
+    background-color: #ffd9B3;
     width: 100%;
+    padding: 0;
+    box-sizing: 100%;
 }
 
 /*.menu {*/
@@ -85,28 +97,35 @@ body {
 
 .menu ul {
     display: flex;
-    justify-content: space-between; /* Zarovnání prvků na střed */
+    /*justify-content: space-between; !* Zarovnání prvků na střed *!*/
+    justify-content: center;
     list-style-type: none;
     margin: 0;
     padding: 10px 0;
+    width: 100%;
 }
 
-/*.menu li {*/
-/*    margin: 0 15px;*/
-/*}*/
+.menu li {
+    margin: 0 15px;
+}
 
 .menu a {
     text-decoration: none;
-    color: #333;
+    color: #446879;
     font-weight: bold;
     padding: 5px 10px;
     transition: background-color 0.3s;
 }
 
 .menu a:hover {
-    background-color: #FF9C99;
-    color: white;
+    background-color: #ffffcc;
+    color: black;
     /*text-decoration: underline;*/
+}
+
+h1, h2 {
+    color: #acc8d7; /* Nastavíme barvu nadpisů */
+    text-align: center; /* Zarovnáme nadpisy na střed */
 }
 
 main {
@@ -133,9 +152,9 @@ footer {
 }
 
 .footer-credits{
-    background-color: #e6e6e6;
+    background-color: #7393B3;
     color: #333;
-    padding: 10px 0;
+    padding: 6px 0;
     font-size: 0.8em;
     text-align: center;
 }
