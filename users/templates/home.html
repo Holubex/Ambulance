@@ -15,6 +15,9 @@
         {% if perms.medical_examination.view_medicalexamination %}
             <a href="{% url 'medical_examination_list' %}" class="button">Diagnozy</a>
         {% endif %}
+        {% if perms.announcement.add_announcement %}
+        <a href="{% url 'announcement_create' %}" class="button">Přidat oznam</a>
+        {% endif %}
     {% endif %}
 
     <section class="welcome">

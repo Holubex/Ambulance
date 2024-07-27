@@ -22,7 +22,11 @@ from accounts.views import SubmittableLoginView, RegistrationForm, RegisterView
 from medical_examination.views import (
     MedicalExaminationListView,
     MedicalExaminationCreateView,
-    MedicalExaminationDetailView
+    MedicalExaminationDetailView,
+    AnnouncementListView,
+    AnnouncementCreateView,
+    AnnouncementUpdateView,
+    AnnouncementDeleteView,
 )
 from users.views import UserCreateView, UserListView, home
 
@@ -46,4 +50,9 @@ urlpatterns = [
     path('accounts/register/', RegisterView.as_view(), name='register'),
     path('accounts/login/', SubmittableLoginView.as_view(), name='login'),
     path('accounts/logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
+
+    path('announcements/', AnnouncementListView.as_view(), name='announcement_list'),
+    path('announcements/new/', AnnouncementCreateView.as_view(), name='announcement_create'),
+    path('announcements/<pk>/edit/', AnnouncementUpdateView.as_view(), name='announcement_edit'),
+    path('announcements/<pk>/delete/', AnnouncementDeleteView.as_view(), name='announcement_delete'),
 ]

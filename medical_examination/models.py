@@ -20,12 +20,20 @@ class MedicalExamination(Model):
 
     class Meta:
         ordering = ['examination_date']
-        permissions = [
-            ("add_medical_examination", "Can add medical examination"),
-            ("view_medical_examination", "Can view medical examination"),
-        ]
+        
 
     def __str__(self):
         return f"Pacient {self.patient} byl vyšetřen lékařem {self.doctor} dne {self.examination_date}."
 
-# narozen {self.User.birth_date}
+
+class Announcement(Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        
+
+    def __str__(self):
+        return self.title
