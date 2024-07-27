@@ -15,35 +15,26 @@ body {
    padding: 20px;
    width: 100%;
    box-sizing: border-box;
-   background-color: #fff;
+   background-color: white; /* pozadi obsahu */
  }
 
 .header-top {
     background-color: ivory; /* Barva horního pruhu */
-    padding: 10px 0;
     width: 100%;
+    padding: 10px 0;
     box-sizing: border-box;
-}
-
-/*.header-top {*/
-/*    display: flex;*/
-/*    justify-content: space-between; !* Rozložení prvků od kraje ke kraji *!*/
-/*    align-items: center; !* Zarovnání prvků na střed vertikálně *!*/
-/*    padding: 10px 20px;*/
-/*    background-color: #f4f4f4; !* Barva horního pruhu *!*/
-/*}*/
-
-.header-top .content-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Zarovnání prvků od kraje ke kraji */
     align-items: center;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; /* vycentruje kontejner na strance */
 }
 
 .logo-name {
+    order: 1; /* umisteni loga nalevo */
     display: flex;
     align-items: center;
+    margin-left: 10px;
 }
 
 .logo-name img {
@@ -56,18 +47,10 @@ body {
     color: #555;
 }
 
-/*.logo img {*/
-/*    height: 50px;*/
-/*}*/
-
-/*.address {*/
-/*    font-size: 0.9em;*/
-/*    color: #555;*/
-/*}*/
-
-/*.login {*/
-/*    margin-left: auto;*/
-/*}*/
+.login {
+    order: 2; /* Umístí login napravo stranu */
+    margin-right: 15px;
+}
 
 .login a {  /* Styly pro tlačítko Login */
     display: flex;
@@ -75,7 +58,12 @@ body {
     color: #acc8d7;
     text-decoration: none;
     font-weight: bold;
-    margin-right: 10px;
+    /*margin-right: 10px;  !* eliminujeme mezeru - prouzek *!*/
+}
+
+.login a:hover {
+    background-color: #ffffcc;
+    color: black;
 }
 
 .login i {
@@ -87,13 +75,18 @@ body {
     /*background-color: #C4d8e2;*/
     background-color: #ffd9B3;
     width: 100%;
-    padding: 0;
-    box-sizing: 100%;
+    padding: 10px 0;
+    box-sizing: border-box;
+    margin: 0 auto;
+    /*height: 50px;*/  /*pouzili jsme padding misto pevne vysky*/
+    display: flex;
+    justify-content: center;  /* vycentrovani obsahu */
+    align-items: center;
 }
 
-/*.menu {*/
-/*    margin-left: auto; !* zde u menu zbytecne, ale pro jistotu *!*/
-/*}*/
+.menu {
+    width: 100%;
+}
 
 .menu ul {
     display: flex;
@@ -101,20 +94,28 @@ body {
     justify-content: center;
     list-style-type: none;
     margin: 0;
-    padding: 10px 0;
+    padding: 0;
     width: 100%;
+    height: 100%; /* Zajistí, že ul roste dle obsahu */
+    /*min-height: 50px;*/
+    box-sizing: border-box;
 }
 
 .menu li {
     margin: 0 15px;
+    height: 100%;
 }
 
 .menu a {
     text-decoration: none;
     color: #446879;
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 10px 15px;
     transition: background-color 0.3s;
+    display: flex;  /*zobrazi odkaz jako blokovy element pokud zadame 'block'*/
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;/* sirska odkazu navaze na rodicovskou sirku*/
 }
 
 .menu a:hover {
@@ -123,13 +124,19 @@ body {
     /*text-decoration: underline;*/
 }
 
-h1, h2 {
+h1 {
+    /*color: #446879; !* Nastavíme barvu nadpisů *!*/
+    color: #608FB7;
+    text-align: center; /* Zarovnáme nadpisy na střed */
+}
+
+h2 {
     color: #acc8d7; /* Nastavíme barvu nadpisů */
     text-align: center; /* Zarovnáme nadpisy na střed */
 }
 
 main {
-    padding: 20px 0;
+    padding: 0; /* Zrušení paddingu na main pro eliminaci mezery !!!! */
 }
 
 footer {
@@ -154,18 +161,11 @@ footer {
 .footer-credits{
     background-color: #7393B3;
     color: #333;
-    padding: 6px 0;
-    font-size: 0.8em;
+    padding: 3px 0;
+    font-size: 0.9em;
     text-align: center;
+    line-height: 1.4;
 }
-
-/*footer p {*/
-/*    margin: 10px 0;*/
-/*}*/
-
-/*footer .insurance-logos {*/
-/*    margin-top: 20px;*/
-/*}*/
 
 @media (max-width: 768px) {
     .header-content .content-wrapper {
@@ -181,9 +181,20 @@ footer {
     .menu ul {
         flex-direction: column;
         align-items: center;
+        min-height: auto;
+        width: 100%
     }
 
     .menu li {
+        width: 100%;
         margin: 5px 0;
+        /*height: auto;*/
+    }
+
+    .menu a {
+        width: 100%;
+        padding: 10px 0;
+        justify-content: center;
+        /*height: auto;*/
     }
 }
