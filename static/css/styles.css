@@ -19,7 +19,7 @@ body {
  }
 
 .header-top {
-    background-color: ivory; /* Barva horního pruhu */
+    background-color: #fdfdd3; /* Barva horního pruhu */
     width: 100%;
     padding: 10px 0;
     box-sizing: border-box;
@@ -62,7 +62,6 @@ body {
 }
 
 .login a:hover {
-    background-color: #ffffcc;
     color: black;
 }
 
