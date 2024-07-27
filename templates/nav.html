@@ -1,26 +1,23 @@
 {% load static %}
 <header>
     <div class="header-top">
-        <div class="content-wrapper">
-            <div class="logo-name">
-                <img src="{% static 'images/psychiatry_512.png' %}" alt="Logo Psychiatrie Hnídek" width="50">
-                <span>Psychiatrie Hnídek s.r.o., Ronovská 846/3, 470 01 Česká Lípa, ambulance@psychiatrie-hnidek.cz</span>
-            </div>
-            <div class="login">
-                <a href="{% url 'login' %}"><i class="fas fa-user"></i> Login</a>
-            </div>
+
+        <div class="logo-name">
+            <img src="{% static 'images/psychiatry_512.png' %}" alt="Logo Psychiatrie Hnídek" width="50">
+            <span>Psychiatrie Hnídek s.r.o., Ronovská 846/3, 470 01 Česká Lípa, ambulance@psychiatrie-hnidek.cz</span>
+        </div>
+        <div class="login">
+            <a href="{% url 'login' %}"><i class="fas fa-user"></i> Login</a>
         </div>
     </div>
     <div class="header-bottom">
-
-            <nav class="menu">
-                <ul>
-                    <li><a href="{% url 'home' %}">Aktuality</a></li>
-                    <li><a href="#">Naše služby</a></li>
-                    <li><a href="#">Praktické informace</a></li>
-                    <li><a href="#">Kontakt</a></li>
-                </ul>
-            </nav>
-        </div>
-
+        <nav class="menu">
+            <ul>
+                <li><a href="{% url 'home' %}">Aktuality</a></li>
+                <li><a href="#">Naše služby</a></li>
+                <li><a href="#">Praktické informace</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
