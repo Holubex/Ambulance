@@ -5,7 +5,7 @@
     <h1>Psychiatrická ambulance Hnídek</h1>
 
     {% if user.is_authenticated %}
-        {% if perms.user.add_user %}
+        {% if perms.users.add_user %}
             <a href="{% url 'create_user' %}" class="button">Vytvoř nového uživatele</a>
             <a href="{% url 'user_list' %}" class="button">Seznam</a>
         {% endif %}
