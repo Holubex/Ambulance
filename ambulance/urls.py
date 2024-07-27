@@ -39,6 +39,7 @@ urlpatterns = [
 
     path('medical-examination-list/', MedicalExaminationListView.as_view(), name='medical_examination_list'),
     path('medical-examination-create/', MedicalExaminationCreateView.as_view(), name='medical_examination_create'),
+    path('medical-examinations/', MedicalExaminationCreateView.as_view(), name='medical_examination_list'),
     path('medical-examination-detail/<pk>/', MedicalExaminationDetailView.as_view(), name='medical_examination_detail'),
 
 

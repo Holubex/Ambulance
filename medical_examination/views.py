@@ -10,7 +10,7 @@ class MedicalExaminationListView(ListView):
     template_name = 'medical_examination_list.html'
     model = MedicalExamination
     context_object_name = 'medical_examinations'
-
+    permission_required = 'medical_examination.view_medical_examination'
 
 class MedicalExaminationCreateView(CreateView):
     template_name = 'medical_examination_form.html'

@@ -22,6 +22,7 @@ class MedicalExamination(Model):
         ordering = ['examination_date']
         permissions = [
             ("add_medical_examination", "Can add medical examination"),
+            ("view_medical_examination", "Can view medical examination"),
         ]
 
     def __str__(self):
