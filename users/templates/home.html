@@ -7,9 +7,9 @@
     {% if user.is_authenticated %}
         {% if perms.user.add_user %}
             <a href="{% url 'create_user' %}" class="button">Vytvoř nového uživatele</a>
+            <a href="{% url 'user_list' %}" class="button">Seznam</a>
         {% endif %}
     {% endif %}
-    <a href="{% url 'user_list' %}" class="button">Seznam</a>
 
     <section class="welcome">
         <h2>Vítejte v naši psychiatrické ambulanci</h2>

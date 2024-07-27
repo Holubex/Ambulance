@@ -1,4 +1,4 @@
-# from concurrent.futures._base import LOGGER
+from concurrent.futures._base import LOGGER
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import PermissionRequiredMixin

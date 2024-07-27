@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.contrib.auth import views as auth_views
 from medical_examination.views import MedicalExaminationListView
 from users.views import UserCreateView, UserListView, home
 from accounts.views import SubmittableLoginView, RegistrationForm, RegisterView
@@ -44,4 +44,5 @@ urlpatterns = [
 
     path('accounts/register/', RegisterView.as_view(), name='register'),
     path('accounts/login/', SubmittableLoginView.as_view(), name='login'),
+    path('accounts/logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
 ]
