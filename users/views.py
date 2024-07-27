@@ -1,4 +1,4 @@
-# from concurrent.futures._base import LOGGER
+from concurrent.futures._base import LOGGER
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import PermissionRequiredMixin
@@ -26,7 +26,7 @@ class UserListView(PermissionRequiredMixin, ListView):
     model = User
     template_name = 'user_list.html'
     context_object_name = 'users'
-    permission_required = 'users.view_user'
+    permission_required = 'users.add_user'
 
 
 class UserCreateView(CreateView):
@@ -34,6 +34,7 @@ class UserCreateView(CreateView):
     form_class = UserForm
     template_name = 'create_user.html'
     success_url = reverse_lazy('user_list')
+    permission_required = 'users.add_user'
 
     def form_invalid(self, form):
         LOGGER.warning('User provided invalid data.')

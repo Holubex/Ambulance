@@ -7,7 +7,12 @@
                 <span>Psychiatrie Hnídek s.r.o., Ronovská 846/3, 470 01 Česká Lípa, ambulance@psychiatrie-hnidek.cz</span>
             </div>
             <div class="login">
-                <a href="{% url 'login' %}"><i class="fas fa-user"></i> Login</a>
+                {% if user.is_authenticated %}
+                    <span>Dobrý den, {{ user.username }}!</span>
+                    <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Odhlásit</a>
+                {% else %}
+                    <a href="{% url 'login' %}"><i class="fas fa-user"></i> Přihlásit</a>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -15,7 +20,7 @@
 
             <nav class="menu">
                 <ul>
-                    <li><a href="{% url 'home' %}">Aktuality</a></li>
+                    <li><a href="{% url 'announcement_list' %}">Aktuality</a></li>
                     <li><a href="#">Naše služby</a></li>
                     <li><a href="#">Praktické informace</a></li>
                     <li><a href="#">Kontakt</a></li>

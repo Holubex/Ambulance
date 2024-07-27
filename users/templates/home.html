@@ -5,11 +5,20 @@
     <h1>Psychiatrická ambulance Hnídek</h1>
 
     {% if user.is_authenticated %}
-        {% if perms.user.add_user %}
+        {% if perms.users.add_user %}
             <a href="{% url 'create_user' %}" class="button">Vytvoř nového uživatele</a>
+            <a href="{% url 'user_list' %}" class="button">Seznam</a>
+        {% endif %}
+        {% if perms.medical_examination.add_medical_examination %}
+            <a href="{% url 'medical_examination_create' %}" class="button">Vytvor diagnozu</a>
+        {% endif %}
+        {% if perms.medical_examination.view_medicalexamination %}
+            <a href="{% url 'medical_examination_list' %}" class="button">Diagnozy</a>
+        {% endif %}
+        {% if perms.announcement.add_announcement %}
+        <a href="{% url 'announcement_create' %}" class="button">Přidat oznam</a>
         {% endif %}
     {% endif %}
-    <a href="{% url 'user_list' %}" class="button">Seznam</a>
 
     <section class="welcome">
         <h2>Vítejte v naši psychiatrické ambulanci</h2>

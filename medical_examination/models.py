@@ -18,7 +18,22 @@ class MedicalExamination(Model):
     examination_date = DateField(auto_now_add=True)
     prescription = TextField(blank=True, null=True)
 
+    class Meta:
+        ordering = ['examination_date']
+        
+
     def __str__(self):
         return f"Pacient {self.patient} byl vyšetřen lékařem {self.doctor} dne {self.examination_date}."
 
-# narozen {self.User.birth_date}
+
+class Announcement(Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        
+
+    def __str__(self):
+        return self.title

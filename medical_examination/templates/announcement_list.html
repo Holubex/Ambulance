@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content-wrapper">
+    <h1>Aktuality</h1>
+    <ul>
+        {% for announcement in announcements %}
+            <li>
+                <h2>{{ announcement.title }}</h2>
+                <p>{{ announcement.content }}</p>
+                <p><small>{{ announcement.created_at }}</small></p>
+                {% if perms.announcement.change_announcement %}
+                    <a href="{% url 'announcement_edit' announcement.pk %}">Edit</a>
+                {% endif %}
+                {% if perms.announcement.delete_announcement %}
+                    <a href="{% url 'announcement_delete' announcement.pk %}">Delete</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
