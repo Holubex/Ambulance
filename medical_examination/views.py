@@ -16,6 +16,7 @@ class MedicalExaminationCreateView(CreateView):
     template_name = 'medical_examination_form.html'
     form_class = MedicalExaminationForm
     success_url = reverse_lazy('medical_examination_list')
+    permission_required = 'medical_examination.add_medical_examination'
 
 
 class MedicalExaminationDetailView(DetailView):

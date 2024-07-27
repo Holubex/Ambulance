@@ -18,6 +18,12 @@ class MedicalExamination(Model):
     examination_date = DateField(auto_now_add=True)
     prescription = TextField(blank=True, null=True)
 
+    class Meta:
+        ordering = ['examination_date']
+        permissions = [
+            ("add_medical_examination", "Can add medical examination"),
+        ]
+
     def __str__(self):
         return f"Pacient {self.patient} byl vyšetřen lékařem {self.doctor} dne {self.examination_date}."
 

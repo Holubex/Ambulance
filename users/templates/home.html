@@ -9,6 +9,9 @@
             <a href="{% url 'create_user' %}" class="button">Vytvoř nového uživatele</a>
             <a href="{% url 'user_list' %}" class="button">Seznam</a>
         {% endif %}
+        {% if perms.medical_examination.add_medical_examination %}
+            <a href="{% url 'medical_examination_create' %}" class="button">Vytvor objednávku</a>
+        {% endif %}
     {% endif %}
 
     <section class="welcome">
