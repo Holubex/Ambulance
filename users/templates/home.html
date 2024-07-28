@@ -18,6 +18,9 @@
         {% if perms.medical_examination.add_announcement %}
         <a href="{% url 'announcement_create' %}" class="button">Přidat oznam</a>
         {% endif %}
+        {% if perms.objednavkovy_kalendar.view_appointment %}
+        <a href="{% url 'appointment_list' %}" class="button">Kalendář</a>
+        {% endif %}
     {% endif %}
 
     <section class="welcome">

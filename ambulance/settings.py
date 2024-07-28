@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     'medical_examination',
     'accounts',
+    'objednavkovy_kalendar',
 ]
 
 MIDDLEWARE = [
