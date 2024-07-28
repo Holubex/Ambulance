@@ -21,8 +21,8 @@ class User(Model):
     birth_date = models.DateField()
     birth_number = models.CharField(max_length=20, blank=True)
     insurance = models.IntegerField()
-    gender = role = models.CharField(max_length=10, choices=Sex.choices)
-    role = models.TextField(choices=Role.choices)
+    gender = models.CharField(max_length=10, choices=Sex.choices)
+    role_patient = models.TextField(choices=Role.choices)
     address = models.TextField()
     contact = models.TextField()
 
