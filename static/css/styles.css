@@ -28,6 +28,7 @@ body {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto; /* vycentruje kontejner na strance */
+    flex-wrap: wrap; /* Přidáno pro správné přizpůsobení obsahu */
 }
 
 .logo-name {
@@ -77,10 +78,11 @@ body {
     padding: 10px 0;
     box-sizing: border-box;
     margin: 0 auto;
-    /*height: 50px;*/  /*pouzili jsme padding misto pevne vysky*/
+    /*height: 45px;  !*pouzili jsme padding misto pevne vysky*!*/
     display: flex;
     justify-content: center;  /* vycentrovani obsahu */
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .menu {
@@ -95,9 +97,10 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%; /* Zajistí, že ul roste dle obsahu */
+    /*height: 100%; !* Zajistí, že ul roste dle obsahu *!*/
     /*min-height: 50px;*/
     box-sizing: border-box;
+    flex-wrap: wrap; /* pridano pro spravne prizpusobeni obsahu*/
 }
 
 .menu li {
@@ -113,7 +116,7 @@ body {
     transition: background-color 0.3s;
     display: flex;  /*zobrazi odkaz jako blokovy element pokud zadame 'block'*/
     align-items: center;
-    height: 100%;
+    /*height: 100%;*/
     box-sizing: border-box;/* sirska odkazu navaze na rodicovskou sirku*/
 }
 
@@ -140,7 +143,7 @@ main {
 
 footer {
     background-color: #333;
-    color: white;
+    color: #ffffcc;
     /*text-align: center;*/
     padding: 20px 0;
     /*position: relative;*/
@@ -167,7 +170,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .header-content .content-wrapper {
+    .header-top {
         flex-direction: column;
         text-align: center;
     }
@@ -180,7 +183,7 @@ footer {
     .menu ul {
         flex-direction: column;
         align-items: center;
-        min-height: auto;
+        /*min-height: auto;*/
         width: 100%
     }
 

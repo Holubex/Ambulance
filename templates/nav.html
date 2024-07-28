@@ -1,21 +1,21 @@
 {% load static %}
 <header>
     <div class="header-top">
-        <div class="content-wrapper">
-            <div class="logo-name">
-                <img src="{% static 'images/psychiatry_512.png' %}" alt="Logo Psychiatrie Hnídek" width="50">
-                <span>Psychiatrie Hnídek s.r.o., Ronovská 846/3, 470 01 Česká Lípa, ambulance@psychiatrie-hnidek.cz</span>
-            </div>
-            <div class="login">
-                {% if user.is_authenticated %}
-                    <span>Dobrý den, {{ user.username }}!</span>
-                    <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Odhlásit</a>
-                {% else %}
-                    <a href="{% url 'login' %}"><i class="fas fa-user"></i> Přihlásit</a>
-                {% endif %}
-            </div>
+
+        <div class="logo-name">
+            <img src="{% static 'images/psychiatry_512.png' %}" alt="Logo Psychiatrie Hnídek" width="50">
+            <span>Psychiatrie Hnídek s.r.o., Ronovská 846/3, 470 01 Česká Lípa, ambulance@psychiatrie-hnidek.cz</span>
         </div>
-    </div>
+        <div class="login">
+            {% if user.is_authenticated %}
+                <span>Dobrý den, {{ user.username }}!</span>
+                <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Odhlásit</a>
+            {% else %}
+                <a href="{% url 'login' %}"><i class="fas fa-user"></i> Přihlásit</a>
+            {% endif %}
+        </div>
+        </div>
+
     <div class="header-bottom">
         <nav class="menu">
             <ul>
