@@ -13,3 +13,7 @@ class AnnouncementForm(ModelForm):
     class Meta:
         model = Announcement
         fields = ['title', 'content']
+        labels = {
+            'title': 'Nadpis',
+            'content': 'Obsah',
+        }

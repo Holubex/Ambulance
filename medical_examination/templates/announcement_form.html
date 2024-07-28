@@ -2,11 +2,11 @@
 
 {% block content %}
 <div class="content-wrapper">
-    <h1>{% if form.instance.pk %}Edit Announcement{% else %}Add Announcement{% endif %}</h1>
+    <h1>{% if form.instance.pk %}Upravit oznam{% else %}Pridat oznam{% endif %}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">{% if form.instance.pk %}Update{% else %}Add{% endif %}</button>
+        <button type="submit">{% if form.instance.pk %}Aktualizovať{% else %}Pridať{% endif %}</button>
     </form>
 </div>
 {% endblock %}
