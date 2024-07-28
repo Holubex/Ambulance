@@ -5,46 +5,7 @@
     <h1>Formulář lékařského vyšetření</h1>
     <form method="post">
         {% csrf_token %}
-        <div class="form-group">
-            <label for="patient">Pacient</label>
-            <select id="patient" name="patient">
-                {% for patient in patients %}
-                    <option value="{{ patient.id }}">{{ patient.username }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="nurse">Sestřička</label>
-            <select id="nurse" name="nurse">
-                {% for nurse in nurses %}
-                    <option value="{{ nurse.id }}">{{ nurse.username }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="doctor">Lékař</label>
-            <select id="doctor" name="doctor">
-                {% for doctor in doctors %}
-                    <option value="{{ doctor.id }}">{{ doctor.username }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="current_complaints">Nynější obtíže</label>
-            <textarea id="current_complaints" name="current_complaints" rows="4"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="objective_findings">Objektivní stav</label>
-            <textarea id="objective_findings" name="objective_findings" rows="4"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="diagnosis">Diagnóza</label>
-            <textarea id="diagnosis" name="diagnosis" rows="4"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="prescription">Recept</label>
-            <textarea id="prescription" name="prescription" rows="4"></textarea>
-        </div>
+        <table>{{ form }}</table>
         <button type="submit">Uložit</button>
     </form>
 </div>

@@ -169,6 +169,7 @@ footer {
     line-height: 1.4;
 }
 
+/* Styly pro formulare, napr.pro 'medical_examination_form.html' */
 .form-group {
     margin-bottom: 15px;
 }
@@ -201,6 +202,64 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+/* Styly pro tabulku, napr.pro 'medical_examination_list.html' */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+table a:hover {
+    text-decoration: underline;
+}
+
+/*'announcment_list.html'*/
+.announcement-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.announcement-item {
+    margin-bottom: 20px;
+}
+
+.announcement-item h2 {
+    color: orange;
+    text-transform: uppercase; /* Převést text na velká písmena */
+    text-align: left; /* Zarovnat text doleva */
+    margin-bottom: 10px;
+}
+
+.announcement-item p {
+    margin: 0 0 10px 0;
+}
+
+.announcement-item small {
+    display: block;
+    margin-bottom: 10px;
+    color: #777;
 }
 
 

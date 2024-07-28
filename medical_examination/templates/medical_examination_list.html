@@ -1,19 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Seznam lékařských vyšetření</title>
-</head>
-<body>
-    <h1>Seznam lékařských vyšetření:</h1>
-    <ul>
-        {% for examination in medical_examinations %}
-            <li>
-                <a href="{% url 'medical_examination_detail' examination.id %}">
-                    Pacient {{ examination.patient }} byl vyšetřen lékařem {{ examination.doctor }} dne {{ examination.examination_date }}.
-                </a>
-            
-            </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content-wrapper">
+    <h1>Seznam lékařských vyšetření</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Pacient</th>
+                <th>Sestřička</th>
+                <th>Lékař</th>
+                <th>Datum vyšetření</th>
+                <th>Akce</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for examination in examinations %}
+                <tr>
+                    <td>{{ examination.patient }}</td>
+                    <td>{{ examination.nurse }}</td>
+                    <td>{{ examination.doctor }}</td>
+                    <td>{{ examination.examination_date }}</td>
+                    <td>
+                        <a href="{% url 'medical_examination_detail' examination.id %}">Detail</a>
+                        {% if perms.medical_examination.change_medicalexamination %}
+                            <a href="{% url 'medical_examination_edit' examination.id %}">Upravit</a>
+                        {% endif %}
+                        {% if perms.medical_examination.delete_medicalexamination %}
+                            <a href="{% url 'medical_examination_delete' examination.id %}">Smazat</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

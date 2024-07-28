@@ -30,4 +30,4 @@ class User(Model):
         ordering = ['birth_date']
 
     def __str__(self):
-        return f'{self.name} {self.surname} : {self.role}'
+        return f'{self.name} {self.surname} : {self.role_patient}'
