@@ -19,6 +19,9 @@ def home(request):
 
 # Definice formuláře pro model User pomocí ModelForm
 class UserForm(forms.ModelForm):
+
+    birth_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Datum narození')
+
     class Meta:
         model = User # Určuje model, který se použije
         fields = '__all__'
