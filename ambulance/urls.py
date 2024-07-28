@@ -29,6 +29,12 @@ from medical_examination.views import (
     AnnouncementDeleteView,
 )
 from users.views import UserCreateView, UserListView, home
+from objednavkovy_kalendar.views import (
+    AppointmentListView, 
+    AppointmentCreateView, 
+    AppointmentUpdateView, 
+    AppointmentDeleteView
+)
 
 
 
@@ -55,4 +61,9 @@ urlpatterns = [
     path('announcements/new/', AnnouncementCreateView.as_view(), name='announcement_create'),
     path('announcements/<pk>/edit/', AnnouncementUpdateView.as_view(), name='announcement_edit'),
     path('announcements/<pk>/delete/', AnnouncementDeleteView.as_view(), name='announcement_delete'),
+
+    path('objednavka/', AppointmentListView.as_view(), name='appointment_list'),
+    path('objednavka/new/', AppointmentCreateView.as_view(), name='appointment_create'),
+    path('objednavka/<pk>/edit/', AppointmentUpdateView.as_view(), name='appointment_edit'),
+    path('objednavka/<pk>/delete/', AppointmentDeleteView.as_view(), name='appointment_delete'),
 ]
