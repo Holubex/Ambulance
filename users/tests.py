@@ -1,75 +1,89 @@
-from django.shortcuts import render, redirect
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
-from .models import Appointment
-from .forms import AppointmentForm
-from django.http import JsonResponse
+from django.test import TestCase
+from .models import User, Sex, Role
+from datetime import date
 
-class AppointmentListView(ListView):
-    model = Appointment  # Určuje model, který se použije
-    template_name = 'appointment_list.html'  # Určuje šablonu, která se vykreslí
-    context_object_name = 'appointments'  # Název kontextové proměnné, která se použije v šabloně
+class UserModelTests(TestCase):
 
-    # Přepis metody get, aby zpracovávala jak běžné, tak AJAXové požadavky
-    def get(self, request, *args, **kwargs):
-        if request.headers.get('x-requested-with') == 'XMLHttpRequest':  # Kontroluje, zda je požadavek AJAXový
-            appointments = list(Appointment.objects.select_related('doctor', 'patient').values(
-                'id', 'doctor__username', 'patient__username', 'service', 'day', 'time', 'time_ordered'
-            ))  # Načítá appointments s příbuznými údaji o doktorovi a pacientovi
+    def setUp(self):
+        # Vytvoření několika uživatelů pro testy
+        self.user1 = User.objects.create(
+            name="John",
+            surname="Doe",
+            email="john@example.com",
+            birth_date=date(1990, 1, 1),
+            birth_number="123456",
+            insurance=123456,
+            gender=Sex.MAN,
+            role_patient=Role.PATIENT,
+            address="123 Main St",
+            contact="123-456-7890"
+        )
 
-            # Převádí pole day a time na start a end pro JSON odpověď
-            for appointment in appointments:
-                appointment['start'] = appointment.pop('day').isoformat()
-                appointment['end'] = appointment.pop('time')
-            return JsonResponse(appointments, safe=False)  # Vrací data jako JSON pro AJAXové požadavky
-        return super().get(request, *args, **kwargs)  # Zpracovává neAJAXové požadavky pomocí výchozího chování ListView
+        self.user2 = User.objects.create(
+            name="Jane",
+            surname="Doe",
+            email="jane@example.com",
+            birth_date=date(1985, 5, 5),
+            birth_number="654321",
+            insurance=654321,
+            gender=Sex.WOMAN,
+            role_patient=Role.DOCTOR,
+            address="456 Main St",
+            contact="098-765-4321"
+        )
 
-# Tato view založená na třídách zpracovává vytvoření nového objektu Appointment
-class AppointmentCreateView(CreateView):
-    model = Appointment  # Určuje model, který se použije
-    form_class = AppointmentForm  # Určuje formulář, který se použije
-    template_name = 'appointment_form.html'  # Určuje šablonu, která se vykreslí
-    success_url = reverse_lazy('appointment_list')  # URL, na kterou se přesměruje po úspěšném odeslání formuláře
+    def test_create_user(self):
+        user = User.objects.create(
+            name="Alice",
+            surname="Smith",
+            email="alice@example.com",
+            birth_date=date(1995, 3, 3),
+            birth_number="987654",
+            insurance=987654,
+            gender=Sex.NON_BINARY,
+            role_patient=Role.NURSE,
+            address="789 Main St",
+            contact="111-222-3333"
+        )
+        self.assertEqual(user.name, "Alice")
+        self.assertEqual(user.surname, "Smith")
+        self.assertEqual(user.email, "alice@example.com")
 
-    # Přepis metody form_valid, aby zpracovávala AJAXové požadavky
-    def form_valid(self, form):
-        print("Form is valid")
-        print("Form data:", form.cleaned_data)
-        response = super().form_valid(form)
-        if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':  # Kontroluje, zda je požadavek AJAXový
-            appointment = form.save()
-            data = {
-                'status': 'success',
-                'appointment': {
-                    'id': appointment.id,
-                    'doctor': appointment.doctor.username,
-                    'service': appointment.service,
-                    'day': appointment.day,
-                    'time': appointment.time,
-                    'time_ordered': appointment.time_ordered,
-                }
-            }
-            return JsonResponse(data)  # Vrací data jako JSON pro AJAXové požadavky
-        return response  # Zpracovává neAJAXové požadavky pomocí výchozího chování
+    def test_unique_email(self):
+        with self.assertRaises(Exception):
+            User.objects.create(
+                name="Bob",
+                surname="Johnson",
+                email="john@example.com",  # Tento email už existuje
+                birth_date=date(1992, 4, 4),
+                birth_number="456789",
+                insurance=456789,
+                gender=Sex.MAN,
+                role_patient=Role.PATIENT,
+                address="101 Main St",
+                contact="444-555-6666"
+            )
 
-    # Přepis metody form_invalid, aby zpracovávala AJAXové požadavky
-    def form_invalid(self, form):
-        print("Form is invalid")
-        print("Form errors:", form.errors)
-        response = super().form_invalid(form)
-        if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':  # Kontroluje, zda je požadavek AJAXový
-            return JsonResponse({'status': 'error', 'errors': form.errors})  # Vrací chyby formuláře jako JSON
-        return response  # Zpracovává neAJAXové požadavky pomocí výchozího chování
+    def test_ordering_by_birth_date(self):
+        users = User.objects.all()
+        self.assertEqual(users[0], self.user2)  # Jane Doe (1985) by měla být první
+        self.assertEqual(users[1], self.user1)  # John Doe (1990) by měl být druhý
 
-# Tato view založená na třídách zpracovává aktualizaci existujícího objektu Appointment
-class AppointmentUpdateView(UpdateView):
-    model = Appointment  # Určuje model, který se použije
-    form_class = AppointmentForm  # Určuje formulář, který se použije
-    template_name = 'appointment_form.html'  # Určuje šablonu, která se vykreslí
-    success_url = reverse_lazy('appointment_list')  # URL, na kterou se přesměruje po úspěšné aktualizaci
+    def test_string_representation(self):
+        self.assertEqual(str(self.user1), "John Doe : Patient")
+        self.assertEqual(str(self.user2), "Jane Doe : Doctor")
 
-# Tato view založená na třídách zpracovává smazání existujícího objektu Appointment
-class AppointmentDeleteView(DeleteView):
-    model = Appointment  # Určuje model, který se použije
-    template_name = 'appointment_confirm_delete.html'  # Určuje šablonu, která se vykreslí
-    success_url = reverse_lazy('appointment_list')  # URL, na kterou se přesměruje po úspěšném smazání
+    def test_optional_fields(self):
+        user = User.objects.create(
+            name="Charlie",
+            surname="Brown",
+            email="charlie@example.com",
+            birth_date=date(1980, 7, 7),
+            insurance=123123,
+            gender=Sex.MAN,
+            role_patient=Role.PATIENT,
+            address="987 Other St",
+            contact="777-888-9999"
+        )
+        self.assertEqual(user.surname, "Brown")
+        self.assertEqual(user.birth_number, "")
