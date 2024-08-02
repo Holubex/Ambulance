@@ -2,9 +2,9 @@ from concurrent.futures._base import LOGGER
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import PermissionRequiredMixin
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django import forms
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
 
 from users.models import User
@@ -34,6 +34,23 @@ class UserListView(PermissionRequiredMixin, ListView):
     context_object_name = 'users'  # Název kontextové proměnné, která se použije v šabloně
     permission_required = 'users.add_user' # Oprávnění, které je vyžadováno pro zobrazení této view
 
+    def get_queryset(self):
+        # Filtrovat uživatele podle role, pokud je specifikována v GET parametru
+        role = self.request.GET.get('role')
+        if role:
+            return User.objects.filter(role_patient__iexact=role)
+        return User.objects.all()
+
+
+class UserDetailView(PermissionRequiredMixin, DetailView):
+    model = User
+    template_name = 'user_detail.html'
+    context_object_name = 'user'
+    permission_required = 'users.view_user'
+
+    def get_object(self):
+        # Načtení uživatele podle ID
+        return get_object_or_404(User, pk=self.kwargs['pk'])
 
 # Definice view pro vytvoření nového uživatele
 class UserCreateView(CreateView):
