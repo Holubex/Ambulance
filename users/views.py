@@ -11,39 +11,39 @@ from users.models import User
 # Create your views here.
 
 
-# Definice view pro úvodní stránku
 def home(request):
     return render(request, 'home.html',
                   {'title': 'Welcome to HollyMovies'})
 
 
-# Definice formuláře pro model User pomocí ModelForm
 class UserForm(forms.ModelForm):
-
-    birth_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Datum narození')
-
     class Meta:
-        model = User # Určuje model, který se použije
+        model = User
         fields = '__all__'
 
 
-# Definice view pro zobrazení seznamu uživatelů, vyžadující oprávnění
 class UserListView(PermissionRequiredMixin, ListView):
     model = User
-    template_name = 'user_list.html' # Určuje šablonu, která se vykreslí
-    context_object_name = 'users'  # Název kontextové proměnné, která se použije v šabloně
-    permission_required = 'users.add_user' # Oprávnění, které je vyžadováno pro zobrazení této view
+    template_name = 'user_list.html'
+    context_object_name = 'users'
+    permission_required = 'users.add_user'
 
 
-# Definice view pro vytvoření nového uživatele
 class UserCreateView(CreateView):
-    model = User 
-    form_class = UserForm  # Určuje formulář, který se použije
-    template_name = 'create_user.html'  
-    success_url = reverse_lazy('user_list')  # URL, na kterou se přesměruje po úspěšném odeslání formuláře
-    permission_required = 'users.add_user'  
+    model = User
+    form_class = UserForm
+    template_name = 'create_user.html'
+    success_url = reverse_lazy('user_list')
+    permission_required = 'users.add_user'
 
-    # Přepis metody form_invalid, která se volá, pokud je formulář neplatný
     def form_invalid(self, form):
-        LOGGER.warning('User provided invalid data.')  # Zaloguje varování
-        return super().form_invalid(form)  # Zavolá původní metodu form_invalid z třídy CreateView
+        LOGGER.warning('User provided invalid data.')
+        return super().form_invalid(form)
+
+from django.shortcuts import render
+
+def nase_sluzby(request):
+    return render(request, 'nase_sluzby.html', {'title': 'Naše služby'})
+
+
+
