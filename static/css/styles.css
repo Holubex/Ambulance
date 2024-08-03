@@ -63,7 +63,7 @@ body {
 }
 
 .login a:hover {
-    color: black;
+    color: orange;
 }
 
 .login i {
@@ -121,8 +121,8 @@ body {
 }
 
 .menu a:hover {
-    background-color: #ffffcc;
-    color: black;
+    background-color: orange;
+    color: #ffffcc;
     /*text-decoration: underline;*/
 }
 
@@ -189,18 +189,20 @@ input, textarea, select {
     box-sizing: border-box;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
+.button {
+    padding: 10px 15px;
+    border: none;
     background-color: #7393B3;
     color: white;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: inline-block;
+    text-align: center;
     font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-button:hover {
+.button:hover {
     background-color: orange;
     color: #ffffcc;
 }
@@ -371,17 +373,6 @@ button:hover {
         padding: 10px 0;
         justify-content: center;
         /*height: auto;*/
-    }
-    .filter {
-        /* Mění zarovnání na střed a přidává více prostoru mezi tlačítky */
-        text-align: center;
-    }
-
-    .filter button {
-        /* Upravování paddingu a šířky tlačítek na menších obrazovkách */
-        padding: 5px 10px;
-        margin: 5px 0; /* Vertikální mezery na menších obrazovkách */
-        max-width: 100%; /* Tlačítka se mohou roztáhnout na šířku kontejneru */
     }
 }
 

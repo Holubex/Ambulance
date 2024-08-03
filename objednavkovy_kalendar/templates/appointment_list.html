@@ -2,9 +2,9 @@
 
 {% block content %}
 <div class="content-wrapper">
-    <h1>Kalendář</h1>
+    <h1>Kalendář termínů objednání</h1>
     {% if perms.objednavkovy_kalendar.add_appointment %}
-        <a href="{% url 'appointment_create' %}" class="button">Vytvořit vyšetření</a>
+        <a href="{% url 'appointment_create' %}" class="button">Objednat pacienta</a>
     {% endif %}
     <ul>
         {% for appointment in appointments %}
