@@ -1,16 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User List</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
     <h1>User List</h1>
-    <ul>
+
+    <!-- Filtr na položky seznamu uživatelů -->
+    <div class="filter">
+        <button onclick="filterUsers('all')">Všichni uživatelé</button>
+        <button onclick="filterUsers('patient')">Pacienti</button>
+        <button onclick="filterUsers('doctor')">Lékaři</button>
+        <button onclick="filterUsers('nurse')">Sestry</button>
+    </div>
+
+    <!-- seznam uživatelů -->
+    <ul class="user-list">
         {% for user in users %}
-            <li>{{ user.name }} {{ user.surname }} - {{ user.role_patient }}</li>
-                    {% endfor %}
+            <li class="user-item {{ user.role_patient|lower }}">
+                <a href="{% url 'user_detail' user.id %}">
+                    <strong>{{ user.name }} {{ user.surname }}</strong>
+                </a> - {{ user.role_patient }}
+            </li>
+        {% endfor %}
     </ul>
-</body>
-</html>
+</div>
+
+<script>
+    function filterUsers(role) {
+        var items = document.querySelectorAll('.user-item');
+        items.forEach(function(item) {
+            if (role === 'all') {
+                item.style.display = 'block';
+            } else {
+                if (item.classList.contains(role)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            }
+        });
+    }
+</script>
+{% endblock %}

@@ -63,7 +63,7 @@ body {
 }
 
 .login a:hover {
-    color: black;
+    color: orange;
 }
 
 .login i {
@@ -121,8 +121,8 @@ body {
 }
 
 .menu a:hover {
-    background-color: #ffffcc;
-    color: black;
+    background-color: orange;
+    color: #ffffcc;
     /*text-decoration: underline;*/
 }
 
@@ -189,19 +189,22 @@ input, textarea, select {
     box-sizing: border-box;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
+.button {
+    padding: 10px 15px;
     border: none;
+    background-color: #7393B3;
+    color: white;
     border-radius: 5px;
     cursor: pointer;
+    display: inline-block;
+    text-align: center;
     font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-button:hover {
-    background-color: #0056b3;
+.button:hover {
+    background-color: orange;
+    color: #ffffcc;
 }
 
 /* Styly pro tabulku, napr.pro 'medical_examination_list.html' */
@@ -227,7 +230,7 @@ table tr:nth-child(even) {
 }
 
 table a {
-    color: #007bff;
+    color: darkorange;
     text-decoration: none;
 }
 
@@ -235,7 +238,7 @@ table a:hover {
     text-decoration: underline;
 }
 
-/*'announcment_list.html'*/
+/* Aktuální oznámení na webu - 'announcement_list.html'*/
 .announcement-list {
     list-style-type: none;
     padding: 0;
@@ -262,6 +265,84 @@ table a:hover {
     color: #777;
 }
 
+/* design user_list.html - zobrazení filtrování a tlačítka  */
+.container {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filter {
+    margin-bottom: 20px;
+    text-align: center; /* tlacitka budou na stred  */
+    white-space: nowrap; /* zabrani zalamovani tlacitek na novy radek */
+}
+
+/*.filter {*/
+/*    max-width: 100%; !* Ujisti se, že kontejner se přizpůsobí šířce formuláře *!*/
+/*    display: flex;*/
+/*    justify-content: center; !* Zarovnat tlačítka na střed *!*/
+/*    flex-wrap: wrap; !* Umožňuje tlačítkům přecházet na nový řádek, pokud je málo místa *!*/
+/*}*/
+
+.filter button {
+    padding: 5px 15px;
+    margin: 0 5px;
+    border: none;
+    background-color: #7393B3;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block; /* chci mit tlacitka vedle sebe */
+    max-width: 145px;
+    box-sizing: border-box; /* yde urcujeme, aby sirska zahrnula padding a border */
+}
+
+.filter button:hover,
+button:hover {
+    background-color: orange;
+    color: #ffffcc;
+}
+
+    /* Styly pro tlačítka při hoveru */
+/*.filter button:hover {*/
+/*    background-color: #003d80; !* Tmavší odstín při hoveru *!*/
+/*    color: white; !* Bílé písmo zůstává při hoveru *!*/
+/*}*/
+
+.user-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.user-item a {
+    text-decoration: none;
+    color: darkorange;
+}
+
+.user-item a:hover {
+    text-decoration: underline;
+}
+
+.user-item strong {
+    color: #333;
+    font-weight: bold;
+}
 
 @media (max-width: 768px) {
     .header-top {
@@ -294,3 +375,5 @@ table a:hover {
         /*height: auto;*/
     }
 }
+
+

@@ -9,8 +9,8 @@ SERVICE_CHOICES = (
     ("Vstupní vyšetření", "Vstupní vyšetření"),
     ("Kontrola", "Kontrola"),
     ("Recept", "Recept"),
-    ("potvrzení, výpis", "potvrzení, výpis"),
-    ("jiný důvod", "jiný důvod")
+    ("Potvrzení, výpis", "Potvrzení, výpis"),
+    ("Jiný důvod", "Jiný důvod")
 )
 
 # Definice možností pro čas v podobě dvojic (hodnota, zobrazený text)

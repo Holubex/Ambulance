@@ -5,7 +5,7 @@ from users.models import User as Patient
 
 class AppointmentForm(forms.ModelForm):
     doctor = forms.ModelChoiceField(
-        queryset=User.objects.filter(groups__name="test_doktor"),
+        queryset=User.objects.filter(groups__name="Doctor"),
         label="Doktor",
         widget=forms.Select,
         required=True
