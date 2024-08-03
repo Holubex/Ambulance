@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views import View
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
 from django.urls import reverse_lazy
 from .models import Appointment
 from .forms import AppointmentForm
@@ -73,3 +74,12 @@ class AppointmentDeleteView(DeleteView):
     model = Appointment  # Určuje model, který se použije
     template_name = 'appointment_confirm_delete.html'  # Určuje šablonu, která se vykreslí
     success_url = reverse_lazy('appointment_list')  # URL, na kterou se přesměruje po úspěšném smazání
+
+class Kontakt(TemplateView):
+    template_name = 'kontakt.html'
+
+class Nase_sluzby(TemplateView):
+    template_name = 'nase_sluzby.html'
+
+class Prakticke_informace(TemplateView):
+    template_name = 'prakticke_informace.html'
