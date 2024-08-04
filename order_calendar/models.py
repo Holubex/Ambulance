@@ -2,7 +2,7 @@
 from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
-from users.models import User as Patient
+from patients.models import User as Patient
 
 # Definice možností pro službu (service) v podobě dvojic (hodnota, zobrazený text)
 SERVICE_CHOICES = (

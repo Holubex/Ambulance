@@ -4,31 +4,13 @@
 <div class="content-wrapper">
     <h1>Psychiatrická ambulance Hnídek</h1>
 
-    {% if user.is_authenticated %}
-        {% if perms.users.add_user %}
-            <a href="{% url 'create_user' %}" class="button">Nový pacient</a>
-            <a href="{% url 'user_list' %}" class="button">Seznam pacientů</a>
-        {% endif %}
-        {% if perms.medical_examination.add_medical_examination %}
-            <a href="{% url 'medical_examination_create' %}" class="button">Vytvoř lékařské vyšetření</a>
-        {% endif %}
-        {% if perms.medical_examination.view_medicalexamination %}
-            <a href="{% url 'medical_examination_list' %}" class="button">Seznam vyšetření</a>
-        {% endif %}
-        {% if perms.medical_examination.add_announcement %}
-        <a href="{% url 'announcement_create' %}" class="button">Přidej aktualitu</a>
-        {% endif %}
-        {% if perms.objednavkovy_kalendar.view_appointment %}
-        <a href="{% url 'appointment_list' %}" class="button">Kalendář objednaných pacientů</a>
-        {% endif %}
-    {% endif %}
-
     <section class="welcome">
         <h2>Vítejte v naši psychiatrické ambulanci</h2>
         <p>Nabízíme komplexní péči v oblasti duševního zdraví, sexuologie a adiktologie. Náš tým zkušených odborníků je zde, aby vám poskytl profesionální a individuální přístup.</p>
     </section>
 
     <section class="services">
+        <h2>PROMAZAT !!!!!!!!!!</h2>
         <h2>Co můžete očekávat:</h2>
         <ul>
             <li>Odborná psychiatrická péče</li>

@@ -7,7 +7,7 @@ from django import forms
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
 
-from users.models import User
+from patients.models import User
 # Create your views here.
 
 
@@ -25,8 +25,8 @@ class UserForm(forms.ModelForm):
 class UserListView(PermissionRequiredMixin, ListView):
     model = User
     template_name = 'user_list.html'
-    context_object_name = 'users'
-    permission_required = 'users.add_user'
+    context_object_name = 'patients'
+    permission_required = 'patients.add_user'
 
     def get_queryset(self):
         # Filtrovat uživatele podle role, pokud je specifikována v GET parametru
@@ -40,7 +40,7 @@ class UserDetailView(PermissionRequiredMixin, DetailView):
     model = User
     template_name = 'user_detail.html'
     context_object_name = 'user'
-    permission_required = 'users.view_user'
+    permission_required = 'patients.view_user'
 
     def get_object(self):
         # Načtení uživatele podle ID
@@ -51,7 +51,7 @@ class UserCreateView(CreateView):
     form_class = UserForm
     template_name = 'create_user.html'
     success_url = reverse_lazy('user_list')
-    permission_required = 'users.add_user'
+    permission_required = 'patients.add_user'
 
     def form_invalid(self, form):
         LOGGER.warning('User provided invalid data.')
