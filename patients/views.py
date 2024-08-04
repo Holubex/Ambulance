@@ -13,13 +13,28 @@ from patients.models import User
 
 def home(request):
     return render(request, 'home.html',
-                  {'title': 'Welcome to HollyMovies'})
+                  {'title': 'Vítejte na stránkách psychiatrie Hnídek'})
 
 
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = '__all__'
+        labels = {
+            'name': 'Jméno',
+            'surname': 'Příjmení',
+            'email': 'Email',
+            'birth_date': 'Datum narození',
+            'birth_number': 'Rodné číslo',
+            'insurance': 'Pojišťovna',
+            'gender': 'Pohlaví',
+            'role_patient': 'Role pacienta',
+            'address': 'Adresa',
+            'contact': 'Kontakt'
+        }
+        help_texts = {
+            'birth_date': 'Zadejte datum ve formátu RRRR-MM-DD.'
+        }
 
 
 class UserListView(PermissionRequiredMixin, ListView):

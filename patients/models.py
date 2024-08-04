@@ -4,15 +4,15 @@ from django.db.models import Model, TextChoices
 
 # Create your models here.
 class Sex(TextChoices):
-    MAN = 'man'
-    WOMAN = 'woman'
-    NON_BINARY = 'non-binary'
+    MAN = 'man', 'muž'
+    WOMAN = 'woman', 'žena'
+    NON_BINARY = 'non-binary', 'nebinární'
 
 
 class Role(TextChoices):
-    DOCTOR = 'Doctor'
-    NURSE = 'Nurse'
-    PATIENT = 'Patient'
+    DOCTOR = 'Doctor', 'doktor'
+    NURSE = 'Nurse', 'zdravotní sestra'
+    PATIENT = 'Patient', 'pacient'
 
 class User(Model):
     name = models.CharField(max_length=120)

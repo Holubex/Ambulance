@@ -7,6 +7,15 @@ class MedicalExaminationForm(ModelForm):
     class Meta:
         model = MedicalExamination
         fields = '__all__'
+        labels = {
+            'patient': 'Pacient',
+            'nurse': 'Zdravotní sestra',
+            'doctor': 'Doktor',
+            'current_complaints': 'Aktuální obtíže',
+            'objective_findings': 'Objektivní nález',
+            'diagnosis': 'Diagnóza',
+            'prescription': 'Recept',
+        }
 
 
 class AnnouncementForm(ModelForm):

@@ -2,11 +2,11 @@
 
 {% block content %}
 <div class="content-wrapper">
-    <h1>Create User</h1>
+    <h1>Nový pacient</h1>
 
     {% if form.errors %}
         <div class="alert alert-danger">
-            <strong>Error!</strong> Please correct the following errors:
+            <strong>Chyba!</strong> Prosím, opravte následující chyby:
             <ul>
                 {% for field, errors in form.errors.items %}
                     {% for error in errors %}
@@ -20,7 +20,7 @@
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="button" type="submit">Create</button>
+        <button class="button" type="submit">Vytvořit</button>
     </form>
 </div>
 {% endblock %}
