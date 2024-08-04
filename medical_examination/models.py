@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models import Model, CASCADE, ForeignKey, TextField, DateField
 
-from users.models import User
+from patients.models import User
 
 
 class MedicalExamination(Model):

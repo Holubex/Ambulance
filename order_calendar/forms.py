@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User, Group
 from .models import Appointment
-from users.models import User as Patient
+from patients.models import User as Patient
 
 
 class AppointmentForm(forms.ModelForm):
