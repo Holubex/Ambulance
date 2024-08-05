@@ -137,6 +137,11 @@ h2 {
     text-align: center; /* Zarovnáme nadpisy na střed */
 }
 
+h3 {
+    color: #454654;
+    text-align: center;
+}
+
 main {
     padding: 0; /* Zrušení paddingu na main pro eliminaci mezery !!!! */
 }
@@ -342,6 +347,18 @@ button:hover {
 .user-item strong {
     color: #333;
     font-weight: bold;
+}
+
+.doctor-info {
+    margin-bottom: 30px;  /* spodní okraj nastavíme na 30px, aby mezi lékaři byla mezera */
+}
+
+.doctor-info h2 {
+    color: darkorange;
+}
+
+.doctor-info h3 {
+    color: #555;
 }
 
 @media (max-width: 768px) {
