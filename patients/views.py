@@ -8,13 +8,9 @@ from django.views.generic import CreateView, ListView, UpdateView, DeleteView, D
 from django.urls import reverse_lazy
 
 from patients.models import User
+
+
 # Create your views here.
-
-
-def home(request):
-    return render(request, 'home.html',
-                  {'title': 'Vítejte na stránkách psychiatrie Hnídek'})
-
 
 class UserForm(forms.ModelForm):
     class Meta:
@@ -61,6 +57,7 @@ class UserDetailView(PermissionRequiredMixin, DetailView):
         # Načtení uživatele podle ID
         return get_object_or_404(User, pk=self.kwargs['pk'])
 
+
 class UserCreateView(CreateView):
     model = User
     form_class = UserForm
@@ -71,11 +68,3 @@ class UserCreateView(CreateView):
     def form_invalid(self, form):
         LOGGER.warning('User provided invalid data.')
         return super().form_invalid(form)
-
-from django.shortcuts import render
-
-def nase_sluzby(request):
-    return render(request, 'nase_sluzby.html', {'title': 'Naše služby'})
-
-
-

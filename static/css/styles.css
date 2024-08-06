@@ -9,6 +9,20 @@ body {
     background-color: #f4f4f4;
 }
 
+.doctor-info {
+    margin-bottom: 30px;  /* spodní okraj nastavíme na 30px, aby byla mezera */
+}
+
+.doctor-info h2 {
+    color: darkorange;
+    text-align: left;
+}
+
+.doctor-info h3 {
+    color: #555;
+    text-align: left;
+}
+
  .content-wrapper {
    max-width: 1200px; /* nastavime sirku  dle potřeby 960px - max 1200px */
    margin: 0 auto; /* vycentruje kontejner na strance */
@@ -138,7 +152,7 @@ h2 {
 }
 
 h3 {
-    color: #454654;
+    color: #555;
     text-align: center;
 }
 
@@ -347,18 +361,6 @@ button:hover {
 .user-item strong {
     color: #333;
     font-weight: bold;
-}
-
-.doctor-info {
-    margin-bottom: 30px;  /* spodní okraj nastavíme na 30px, aby mezi lékaři byla mezera */
-}
-
-.doctor-info h2 {
-    color: darkorange;
-}
-
-.doctor-info h3 {
-    color: #555;
 }
 
 @media (max-width: 768px) {

@@ -17,11 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
-from order_calendar.views import AppointmentListView, Kontakt, Nase_sluzby, Prakticke_informace, \
-    AppointmentCreateView, AppointmentUpdateView, AppointmentDeleteView
-from patients.views import UserCreateView, UserListView, home, nase_sluzby
-from accounts.views import SubmittableLoginView, RegisterView
-from patients.views import UserCreateView, UserListView, home, UserDetailView
+from patients.views import UserCreateView, UserListView, UserDetailView
 from accounts.views import SubmittableLoginView, RegistrationForm, RegisterView
 from medical_examination.views import (
     MedicalExaminationListView,
@@ -39,10 +35,7 @@ from order_calendar.views import (
     AppointmentUpdateView, 
     AppointmentDeleteView
 )
-
-
-
-
+from static_pages.views import ContactView, OurServicesView, PracticalInfoView, home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -71,7 +64,7 @@ urlpatterns = [
     path('objednavka/new/', AppointmentCreateView.as_view(), name='appointment_create'),
     path('objednavka/<pk>/edit/', AppointmentUpdateView.as_view(), name='appointment_edit'),
     path('objednavka/<pk>/delete/', AppointmentDeleteView.as_view(), name='appointment_delete'),
-    path('kontakt/', Kontakt.as_view(), name='kontakt'),
-    path('nase_sluzby/', Nase_sluzby.as_view(), name='nase_sluzby'),
-    path('prakticke_informace/', Prakticke_informace.as_view(), name='prakticke_informace'),
+    path('contact/', ContactView.as_view(), name='contact'),
+    path('our_services/', OurServicesView.as_view(), name='our_services'),
+    path('practical_info/', PracticalInfoView.as_view(), name='practical_info'),
 ]

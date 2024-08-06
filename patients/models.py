@@ -14,6 +14,7 @@ class Role(TextChoices):
     NURSE = 'Nurse', 'zdravotní sestra'
     PATIENT = 'Patient', 'pacient'
 
+
 class User(Model):
     name = models.CharField(max_length=120)
     surname = models.CharField(max_length=120, blank=True)

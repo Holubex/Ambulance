@@ -6,6 +6,7 @@ from .models import Appointment
 from .forms import AppointmentForm
 from django.http import JsonResponse
 
+
 class AppointmentListView(ListView):
     model = Appointment  # Určuje model, který se použije
     template_name = 'appointment_list.html'  # Určuje šablonu, která se vykreslí
@@ -24,6 +25,7 @@ class AppointmentListView(ListView):
                 appointment['end'] = appointment.pop('time')
             return JsonResponse(appointments, safe=False)  # Vrací data jako JSON pro AJAXové požadavky
         return super().get(request, *args, **kwargs)  # Zpracovává neAJAXové požadavky pomocí výchozího chování ListView
+
 
 # Tato view založená na třídách zpracovává vytvoření nového objektu Appointment
 class AppointmentCreateView(CreateView):
@@ -62,6 +64,7 @@ class AppointmentCreateView(CreateView):
             return JsonResponse({'status': 'error', 'errors': form.errors})  # Vrací chyby formuláře jako JSON
         return response  # Zpracovává neAJAXové požadavky pomocí výchozího chování
 
+
 # Tato view založená na třídách zpracovává aktualizaci existujícího objektu Appointment
 class AppointmentUpdateView(UpdateView):
     model = Appointment  # Určuje model, který se použije
@@ -69,17 +72,9 @@ class AppointmentUpdateView(UpdateView):
     template_name = 'appointment_form.html'  # Určuje šablonu, která se vykreslí
     success_url = reverse_lazy('appointment_list')  # URL, na kterou se přesměruje po úspěšné aktualizaci
 
+
 # Tato view založená na třídách zpracovává smazání existujícího objektu Appointment
 class AppointmentDeleteView(DeleteView):
     model = Appointment  # Určuje model, který se použije
     template_name = 'appointment_confirm_delete.html'  # Určuje šablonu, která se vykreslí
     success_url = reverse_lazy('appointment_list')  # URL, na kterou se přesměruje po úspěšném smazání
-
-class Kontakt(TemplateView):
-    template_name = 'kontakt.html'
-
-class Nase_sluzby(TemplateView):
-    template_name = 'nase_sluzby.html'
-
-class Prakticke_informace(TemplateView):
-    template_name = 'prakticke_informace.html'
