@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-    <h1>Detail uživatele</h1>
-    <p><strong>Jméno:</strong> {{ user.name }} {{ user.surname }}</p>
-    <p><strong>Role:</strong> {{ user.role_patient }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
-</div>
+    <div class="container">
+        <h1>Detail uživatele</h1>
+        <p><strong>Jméno:</strong> {{ user.name }} {{ user.surname }}</p>
+        <p><strong>Role:</strong> {{ user.role_patient }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+    </div>
 {% endblock %}

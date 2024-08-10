@@ -1,27 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="content-wrapper">
-    <h1>{% if form.instance.pk %}Upravit termín objednání{% else %}Objednat pacienta{% endif %}</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="button" type="submit">{% if form.instance.pk %}Upravit{% else %}Vytvořit{% endif %}</button>
-    </form>
-</div>
+    <div class="content-wrapper">
+        <h1>{% if form.instance.pk %}Upravit termín objednání{% else %}Objednat pacienta{% endif %}</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="button" type="submit">{% if form.instance.pk %}Upravit{% else %}Vytvořit{% endif %}</button>
+        </form>
+    </div>
 
-<!-- Include Flatpickr CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Include Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
-<!-- Include Flatpickr JS -->
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- Include Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        flatpickr("#id_day", {
-            enableTime: false,
-            dateFormat: "Y-m-d",
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            flatpickr("#id_day", {
+                enableTime: false,
+                dateFormat: "Y-m-d",
+            });
         });
-    });
-</script>
+    </script>
 {% endblock %}
