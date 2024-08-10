@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models import Model, TextChoices
+from django.db.models import Model, TextChoices, IntegerChoices
 
 
 # Create your models here.
@@ -15,13 +15,26 @@ class Role(TextChoices):
     PATIENT = 'Patient', 'pacient'
 
 
+class InsuranceChoices(IntegerChoices):
+    TYPE1 = 1, '1'
+    TYPE2 = 2, '2'
+    TYPE3 = 3, '3'
+    TYPE4 = 4, '4'
+    TYPE5 = 5, '5'
+    TYPE6 = 6, '6'
+    TYPE7 = 7, '7'
+
+
 class User(Model):
     name = models.CharField(max_length=120)
     surname = models.CharField(max_length=120, blank=True)
     email = models.EmailField(unique=True)
     birth_date = models.DateField()
     birth_number = models.CharField(max_length=20, blank=True)
-    insurance = models.IntegerField()
+    insurance = models.PositiveSmallIntegerField(
+        choices=InsuranceChoices.choices,
+        default=InsuranceChoices.TYPE1
+    )
     gender = models.CharField(max_length=10, choices=Sex.choices)
     role_patient = models.TextField(choices=Role.choices)
     address = models.TextField()
