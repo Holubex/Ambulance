@@ -48,5 +48,8 @@ class Appointment(models.Model):
     time = models.CharField(max_length=10, choices=TIME_CHOICES, default="3 PM")
     time_ordered = models.DateTimeField(default=datetime.now, blank=True)
 
+    class Meta:
+        ordering = ['time']
+
     def __str__(self):
         return f"{self.user.username} | Doktor: {self.doctor.username} | den: {self.day} | čas: {self.time}"
