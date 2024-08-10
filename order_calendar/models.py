@@ -41,7 +41,7 @@ TIME_CHOICES = (
 
 # Definice modelu Appointment (schůzky)
 class Appointment(models.Model):
-    doctor = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name="appointments_as_doctor")
+    doctor = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True, blank=True, related_name="appointments_as_doctor")
     service = models.CharField(max_length=50, choices=SERVICE_CHOICES, default="Doctor care")
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True, blank=True, related_name="patient")
     day = models.DateField(default=datetime.now)
