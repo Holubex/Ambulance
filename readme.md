@@ -6,7 +6,16 @@
 
 ### Projekt je naprogramovaný v Djangu
 
-### 1. Po naklonování projektu spusťte projekt pomocí `python manage.py runserver`.
+# Kroky pro začátek
+- Klonovat projekt : ``` git clone https://github.com/deadly-panda/clinicApp.git ```
+- Přejděte do souboru projektu
+- Vytvoření virtuálního prostředí: ``` python -m venv myVenv ```
+- Aktivace virtuálního prostředí: ``` source myVenv/bin/activate ```
+- Instalace requirements : ``` pip install -r requirements.txt ```
+- Migrace : ``` python3 manage.py migrate ```
+- Spusť : ``` python3 manage.py runserver ```
+
+### 1. Po naklonování projektu spusťte projekt 
 
 Stránka by měla být spuštěna na http://127.0.0.1:8000/
 
