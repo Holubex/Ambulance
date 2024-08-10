@@ -35,13 +35,16 @@
                 <a href="{% url 'user_list' %}" class="button">Seznam pacientů</a>
             {% endif %}
             {% if perms.medical_examination.add_medical_examination %}
-                <a href="{% url 'medical_examination_create' %}" class="button">Vytvoř lékařské vyšetření</a>
+                <a href="{% url 'medical_examination_create' %}" class="button">Záznam vyšetření</a>
             {% endif %}
-            {% if perms.medical_examination.view_medicalexamination %}
-                <a href="{% url 'medical_examination_list' %}" class="button">Seznam vyšetření</a>
+            {% if perms.order_calendar.add_appointment %}
+                <a href="{% url 'appointment_create' %}" class="button">Objednat pacienta</a>
             {% endif %}
             {% if perms.medical_examination.add_announcement %}
                 <a href="{% url 'announcement_create' %}" class="button">Přidej aktualitu</a>
+            {% endif %}
+            {% if perms.medical_examination.view_medicalexamination %}
+                <a href="{% url 'medical_examination_list' %}" class="button">Seznam vyšetření</a>
             {% endif %}
             {% if perms.order_calendar %}
                 <a href="{% url 'appointment_list' %}" class="button">Kalendář objednaných pacientů</a>

@@ -3,6 +3,13 @@
 {% block content %}
     <div class="content-wrapper">
         <h1>Seznam lékařských vyšetření</h1>
+    
+        <div class="filter">
+            <form method="get" class="filter-form">
+                {{ filter_form.as_p }}
+                <button type="submit">Filtrovat</button>
+            </form>            
+        </div>
         <table>
             <thead>
             <tr>
@@ -10,7 +17,7 @@
                 <th>Sestřička</th>
                 <th>Lékař</th>
                 <th>Datum vyšetření</th>
-                <th>Akce</th>
+                <th>Editovat</th>
             </tr>
             </thead>
             <tbody>
@@ -29,6 +36,10 @@
                             <a href="{% url 'medical_examination_delete' examination.id %}">Smazat</a>
                         {% endif %}
                     </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">Žádná vyšetření nenalezena.</td>
                 </tr>
             {% endfor %}
             </tbody>
