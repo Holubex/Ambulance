@@ -16,13 +16,13 @@ class Role(TextChoices):
 
 
 class InsuranceChoices(IntegerChoices):
-    TYPE1 = 1, '1'
-    TYPE2 = 2, '2'
-    TYPE3 = 3, '3'
-    TYPE4 = 4, '4'
-    TYPE5 = 5, '5'
-    TYPE6 = 6, '6'
-    TYPE7 = 7, '7'
+    TYPE1 = 1, 'Všeobecná zdravotní pojišťovna (111)'
+    TYPE2 = 2, 'Vojenská zdravotní pojišťovna ČR (201)'
+    TYPE3 = 3, 'Česká průmyslová zdravotní pojišťovna (205)'
+    TYPE4 = 4, 'Oborová zdravotní poj. zam. bank, poj. a stav. (207)'
+    TYPE5 = 5, 'Zdravotní pojišťovna ministerstva vnitra ČR (211)'
+    TYPE6 = 6, 'Revírní bratrská pokladna, zdrav. pojišťovna (213)'
+    TYPE7 = 7, 'Zaměstnanecká pojišťovna Škoda (209)'
 
 
 class User(Model):

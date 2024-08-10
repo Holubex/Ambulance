@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="content-wrapper">
-    <h1>{% if form.instance.pk %}Upravit aktualitu{% else %}Přidat aktualitu{% endif %}</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="button" type="submit">{% if form.instance.pk %}Aktualizovat{% else %}Přidat{% endif %}</button>
-    </form>
-</div>
+    <div class="content-wrapper">
+        <h1>{% if form.instance.pk %}Upravit aktualitu{% else %}Přidat aktualitu{% endif %}</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="button" type="submit">{% if form.instance.pk %}Aktualizovat{% else %}
+                Přidat{% endif %}</button>
+        </form>
+    </div>
 {% endblock %}

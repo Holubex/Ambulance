@@ -1,25 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="content-wrapper">
-    <h1>Kalendář termínů objednaných pacientů</h1>
-    {% if perms.order_calendar.add_appointment %}
-        <a href="{% url 'appointment_create' %}" class="button">Objednat pacienta</a>
-    {% endif %}
-    <ul>
-        {% for appointment in appointments %}
-            <li>
-                <h2>{{ appointment.service }}</h2>
-                <p>Doktor: {{ appointment.doctor.username }}</p>
-                <p>Pacient: {{ appointment.patient.name }} {{ appointment.patient.surname }}</p>
-                <p>{{ appointment.day }} at {{ appointment.time }}</p>
-                <p>Vytvořeno: {{ appointment.time_ordered }}</p>
-                {% if perms.order_calendar.change_appointment %}
-                    <a href="{% url 'appointment_edit' appointment.pk %}">Upravit</a>
-                    <a href="{% url 'appointment_delete' appointment.pk %}">Smazat</a>
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
-</div>
+    <div class="content-wrapper">
+        <h1>Kalendář termínů objednaných pacientů</h1>
+        {% if perms.order_calendar.add_appointment %}
+            <a href="{% url 'appointment_create' %}" class="button">Objednat pacienta</a>
+        {% endif %}
+        <ul>
+            {% for appointment in appointments %}
+                <li>
+                    <h2>{{ appointment.service }}</h2>
+                    <p>Doktor: {{ appointment.doctor.username }}</p>
+                    <p>Pacient: {{ appointment.patient.name }} {{ appointment.patient.surname }}</p>
+                    <p>{{ appointment.day }} at {{ appointment.time }}</p>
+                    <p>Vytvořeno: {{ appointment.time_ordered }}</p>
+                    {% if perms.order_calendar.change_appointment %}
+                        <a href="{% url 'appointment_edit' appointment.pk %}">Upravit</a>
+                        <a href="{% url 'appointment_delete' appointment.pk %}">Smazat</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

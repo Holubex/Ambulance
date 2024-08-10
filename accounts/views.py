@@ -15,18 +15,17 @@ class SubmittableLoginView(LoginView):
 
 class RegistrationForm(UserCreationForm):
     birth_date = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}))
-    biography = forms.CharField(required=False, widget=forms.Textarea)
 
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2', 'email', 'birth_date', 'biography']
+        fields = ['username', 'password1', 'password2', 'email', 'birth_date']
 
     def save(self, commit=True):
         user = super().save(commit=False)
         user.email = self.cleaned_data['email']
         if commit:
             user.save()
-            profile = Profile(user=user, birth_date=self.cleaned_data['birth_date'], biography=self.cleaned_data['biography'])
+            profile = Profile(user=user, birth_date=self.cleaned_data['birth_date'])
             profile.save()
         return user
 
