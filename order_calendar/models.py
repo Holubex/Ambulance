@@ -10,7 +10,7 @@ SERVICE_CHOICES = (
     ("Kontrola", "Kontrola"),
     ("Recept", "Recept"),
     ("Potvrzení, výpis", "Potvrzení, výpis"),
-    ("Jiný důvod", "Jiný důvod")
+    ("Jiný důvod", "Jiný důvod"),
 )
 
 # Definice možností pro čas v podobě dvojic (hodnota, zobrazený text)
@@ -41,15 +41,25 @@ TIME_CHOICES = (
 
 # Definice modelu Appointment (schůzky)
 class Appointment(models.Model):
-    doctor = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True, blank=True, related_name="appointments_as_doctor")
-    service = models.CharField(max_length=50, choices=SERVICE_CHOICES, default="Doctor care")
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True, blank=True, related_name="patient")
+    doctor = models.ForeignKey(
+        Patient,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="appointments_as_doctor",
+    )
+    service = models.CharField(
+        max_length=50, choices=SERVICE_CHOICES, default="Doctor care"
+    )
+    patient = models.ForeignKey(
+        Patient, on_delete=models.CASCADE, null=True, blank=True, related_name="patient"
+    )
     day = models.DateField(default=datetime.now)
     time = models.CharField(max_length=10, choices=TIME_CHOICES, default="3 PM")
     time_ordered = models.DateTimeField(default=datetime.now, blank=True)
 
     class Meta:
-        ordering = ['day']
+        ordering = ["day"]
 
     def save(self, *args, **kwargs):
         self.delete_past_appointments()
@@ -61,4 +71,4 @@ class Appointment(models.Model):
 
 
 def __str__(self):
-        return f"{self.user.username} | Doktor: {self.doctor.username} | den: {self.day} | čas: {self.time}"
+    return f"{self.user.username} | Doktor: {self.doctor.username} | den: {self.day} | čas: {self.time}"

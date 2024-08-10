@@ -9,26 +9,26 @@ class AppointmentForm(forms.ModelForm):
         queryset=Patient.objects.filter(role_patient="Doctor"),
         label="Doktor",
         widget=forms.Select,
-        required=True
+        required=True,
     )
 
     patient = forms.ModelChoiceField(
         queryset=Patient.objects.all(),
         label="Pacient",
         widget=forms.Select,
-        required=True
+        required=True,
     )
 
     class Meta:
         model = Appointment
-        fields = ['doctor', 'patient', 'service', 'day', 'time']
+        fields = ["doctor", "patient", "service", "day", "time"]
         labels = {
-            'doctor': 'Doktor',
-            'service': 'Důvod objednání',
-            'day': 'Den',
-            'time': 'Čas',
-            'patient': 'Pacient',
+            "doctor": "Doktor",
+            "service": "Důvod objednání",
+            "day": "Den",
+            "time": "Čas",
+            "patient": "Pacient",
         }
         widgets = {
-            'day': forms.DateInput(attrs={'type': 'date'}),
+            "day": forms.DateInput(attrs={"type": "date"}),
         }
