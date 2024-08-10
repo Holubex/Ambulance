@@ -56,3 +56,4 @@ Celý projekt se skládá z následujících aplikací:
         - order_calendar - je to aplikace, která vytváří schůzky pro pacienty. (v našem případě mají práva k této databázi pouze zdravotní sestry).
         - medical_examination - aplikace, která vytváří lékařská vyšetření. (v našem případě mají práva k této databázi pouze lékaři).
         - accounts - registrace
+        - static_pages - statické stránky 
