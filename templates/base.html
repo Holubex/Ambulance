@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    {% include 'nav.html' %}
-    <main>
-        <div class="content-wrapper">
-            {% block content %}
-            {% endblock %}
-        </div>
-    </main>
-    {% include 'footer.html' %}
+{% include 'nav.html' %}
+<main>
+    <div class="content-wrapper">
+        {% block content %}
+        {% endblock %}
+    </div>
+</main>
+{% include 'footer.html' %}
 </body>
 </html>

@@ -10,7 +10,7 @@ body {
 }
 
 .doctor-info {
-    margin-bottom: 30px;  /* spodní okraj nastavíme na 30px, aby byla mezera */
+    margin-bottom: 30px; /* spodní okraj nastavíme na 30px, aby byla mezera */
 }
 
 .doctor-info h2 {
@@ -23,14 +23,14 @@ body {
     text-align: left;
 }
 
- .content-wrapper {
-   max-width: 1200px; /* nastavime sirku  dle potřeby 960px - max 1200px */
-   margin: 0 auto; /* vycentruje kontejner na strance */
-   padding: 20px;
-   width: 100%;
-   box-sizing: border-box;
-   background-color: white; /* pozadi obsahu */
- }
+.content-wrapper {
+    max-width: 1200px; /* nastavime sirku  dle potřeby 960px - max 1200px */
+    margin: 0 auto; /* vycentruje kontejner na strance */
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white; /* pozadi obsahu */
+}
 
 .header-top {
     background-color: #fdfdd3; /* Barva horního pruhu */
@@ -67,7 +67,7 @@ body {
     margin-right: 15px;
 }
 
-.login a {  /* Styly pro tlačítko Login */
+.login a { /* Styly pro tlačítko Login */
     display: flex;
     align-items: center;
     color: #acc8d7;
@@ -94,7 +94,7 @@ body {
     margin: 0 auto;
     /*height: 45px;  !*pouzili jsme padding misto pevne vysky*!*/
     display: flex;
-    justify-content: center;  /* vycentrovani obsahu */
+    justify-content: center; /* vycentrovani obsahu */
     align-items: center;
     flex-wrap: wrap;
 }
@@ -128,10 +128,10 @@ body {
     font-weight: bold;
     padding: 10px 15px;
     transition: background-color 0.3s;
-    display: flex;  /*zobrazi odkaz jako blokovy element pokud zadame 'block'*/
+    display: flex; /*zobrazi odkaz jako blokovy element pokud zadame 'block'*/
     align-items: center;
     /*height: 100%;*/
-    box-sizing: border-box;/* sirska odkazu navaze na rodicovskou sirku*/
+    box-sizing: border-box; /* sirska odkazu navaze na rodicovskou sirku*/
 }
 
 .menu a:hover {
@@ -179,7 +179,7 @@ footer {
     margin: 10px;
 }
 
-.footer-credits{
+.footer-credits {
     background-color: #7393B3;
     color: #333;
     padding: 3px 0;
@@ -313,26 +313,52 @@ h1 {
 /*    flex-wrap: wrap; !* Umožňuje tlačítkům přecházet na nový řádek, pokud je málo místa *!*/
 /*}*/
 
-.filter button {
-    padding: 5px 15px;
-    margin: 0 5px;
+.button {
+    padding: 10px 15px;
     border: none;
     background-color: #7393B3;
     color: white;
     border-radius: 5px;
     cursor: pointer;
-    display: inline-block; /* chci mit tlacitka vedle sebe */
-    max-width: 145px;
-    box-sizing: border-box; /* yde urcujeme, aby sirska zahrnula padding a border */
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.filter button:hover,
-button:hover {
+.button:hover {
     background-color: orange;
     color: #ffffcc;
 }
 
-    /* Styly pro tlačítka při hoveru */
+.errors {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/*.filter button {*/
+/*    padding: 5px 15px;*/
+/*    margin: 0 5px;*/
+/*    border: none;*/
+/*    background-color: #7393B3;*/
+/*    color: white;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*    display: inline-block; !* chci mit tlacitka vedle sebe *!*/
+/*    max-width: 145px;*/
+/*    box-sizing: border-box; !* yde urcujeme, aby sirska zahrnula padding a border *!*/
+/*}*/
+
+/*.filter button:hover,*/
+/*button:hover {*/
+/*    background-color: orange;*/
+/*    color: #ffffcc;*/
+/*}*/
+/*/
+/* Styly pro tlačítka při hoveru */
 /*.filter button:hover {*/
 /*    background-color: #003d80; !* Tmavší odstín při hoveru *!*/
 /*    color: white; !* Bílé písmo zůstává při hoveru *!*/
@@ -369,7 +395,7 @@ button:hover {
         text-align: center;
     }
 
-        .login {
+    .login {
         margin-left: 0;
         margin-top: 10px;
     }

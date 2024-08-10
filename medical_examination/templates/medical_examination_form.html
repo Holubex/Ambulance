@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="content-wrapper">
-    <h1>Formulář lékařského vyšetření</h1>
-    <form method="post">
-        {% csrf_token %}
-        <table>{{ form }}</table>
-        <button class="button" type="submit">Uložit</button>
-    </form>
-</div>
+    <div class="content-wrapper">
+        <h1>Formulář lékařského vyšetření</h1>
+        <form method="post">
+            {% csrf_token %}
+            <table>{{ form }}</table>
+            <button class="button" type="submit">Uložit</button>
+        </form>
+    </div>
 {% endblock %}

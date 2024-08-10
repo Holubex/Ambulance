@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="content-wrapper">
-    <h1>Vymazat termín objednání</h1>
-    <p>Jste si jistí, že chcete tento termín objednání odstranit?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button class="button" type="submit">Potvrdit</button>
-        <a href="{% url 'appointment_list' %}">Zrušit</a>
-    </form>
-</div>
+    <div class="content-wrapper">
+        <h1>Vymazat termín objednání</h1>
+        <p>Jste si jistí, že chcete tento termín objednání odstranit?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button class="button" type="submit">Potvrdit</button>
+            <a href="{% url 'appointment_list' %}">Zrušit</a>
+        </form>
+    </div>
 {% endblock %}
