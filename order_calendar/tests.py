@@ -3,34 +3,35 @@ from .models import Appointment
 from patients.models import User as Patient
 from datetime import date, datetime
 
+
 class AppointmentModelTests(TestCase):
 
     def setUp(self):
         # Vytvorenie pacienta a doktora pre testy
         self.patient = Patient.objects.create(
-            name="John",
-            surname="Doe",
-            email="john@example.com",
-            birth_date=date(1990, 1, 1),
+            name="Tomas",
+            surname="Tomasovsky",
+            email="tomas@email.com",
+            birth_date=date(1994, 11, 14),
             birth_number="123456",
             insurance=123456,
-            gender='man',
-            role_patient='Patient',
-            address="123 Main St",
-            contact="123-456-7890"
+            gender="man",
+            role_patient="Patient",
+            address="123 Ulica",
+            contact="123-456-7890",
         )
 
         self.doctor = Patient.objects.create(
-            name="Dr. Smith",
-            surname="Smith",
-            email="dr.smith@example.com",
+            name="Dr. Pavol",
+            surname="Pavolsky",
+            email="pavolsky@email.com",
             birth_date=date(1980, 2, 2),
             birth_number="654321",
             insurance=654321,
-            gender='man',
-            role_patient='Doctor',
-            address="456 Oak St",
-            contact="987-654-3210"
+            gender="man",
+            role_patient="Doctor",
+            address="456 Ulica",
+            contact="987-654-3210",
         )
 
     def test_create_appointment(self):
@@ -40,7 +41,7 @@ class AppointmentModelTests(TestCase):
             service="Kontrola",
             patient=self.patient,
             day=date(2024, 8, 10),
-            time="10:00"
+            time="10:00",
         )
         self.assertEqual(appointment.doctor, self.doctor)
         self.assertEqual(appointment.patient, self.patient)
@@ -56,7 +57,7 @@ class AppointmentModelTests(TestCase):
             service="Kontrola",
             patient=self.patient,
             day=date(2023, 8, 1),
-            time="10:00"
+            time="10:00",
         )
 
         # Vytvorenie záznamu s dátumom v budúcnosti
@@ -65,7 +66,7 @@ class AppointmentModelTests(TestCase):
             service="Kontrola",
             patient=self.patient,
             day=date(2024, 8, 10),
-            time="10:00"
+            time="10:00",
         )
 
         # Uloženie nového záznamu by malo vymazať záznam s dátumom 2023-08-01
@@ -73,4 +74,3 @@ class AppointmentModelTests(TestCase):
 
         # Overenie, že záznam s dátumom v minulosti bol vymazaný
         self.assertFalse(Appointment.objects.filter(day=date(2023, 8, 1)).exists())
-

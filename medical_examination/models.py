@@ -6,12 +6,24 @@ from patients.models import User
 
 class MedicalExamination(Model):
     # id = AutoField(primary_key=True)
-    patient = ForeignKey(User, limit_choices_to={'role_patient': 'Patient'}, on_delete=CASCADE,
-                         related_name='medical_examinations_as_patient')
-    nurse = ForeignKey(User, limit_choices_to={'role_patient': 'Nurse'}, on_delete=CASCADE,
-                       related_name='medical_examinations_as_nurse')
-    doctor = ForeignKey(User, limit_choices_to={'role_patient': 'Doctor'}, on_delete=CASCADE,
-                        related_name='medical_examinations_as_doctor')
+    patient = ForeignKey(
+        User,
+        limit_choices_to={"role_patient": "Patient"},
+        on_delete=CASCADE,
+        related_name="medical_examinations_as_patient",
+    )
+    nurse = ForeignKey(
+        User,
+        limit_choices_to={"role_patient": "Nurse"},
+        on_delete=CASCADE,
+        related_name="medical_examinations_as_nurse",
+    )
+    doctor = ForeignKey(
+        User,
+        limit_choices_to={"role_patient": "Doctor"},
+        on_delete=CASCADE,
+        related_name="medical_examinations_as_doctor",
+    )
     current_complaints = TextField(blank=True, null=True)
     objective_findings = TextField(blank=True, null=True)
     diagnosis = TextField(blank=True, null=True)
@@ -19,8 +31,7 @@ class MedicalExamination(Model):
     prescription = TextField(blank=True, null=True)
 
     class Meta:
-        ordering = ['examination_date']
-        
+        ordering = ["examination_date"]
 
     def __str__(self):
         return f"Pacient {self.patient} byl vyšetřen lékařem {self.doctor} dne {self.examination_date}."
@@ -32,8 +43,7 @@ class Announcement(Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['-created_at']
-
+        ordering = ["-created_at"]
 
     def __str__(self):
         return self.title
