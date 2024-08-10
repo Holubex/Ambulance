@@ -2,8 +2,8 @@
 
 {% block content %}
 <div class="content-wrapper">
-    <h1>Kalendář termínů objednání</h1>
-    {% if perms.objednavkovy_kalendar.add_appointment %}
+    <h1>Kalendář termínů objednaných pacientů</h1>
+    {% if perms.order_calendar.add_appointment %}
         <a href="{% url 'appointment_create' %}" class="button">Objednat pacienta</a>
     {% endif %}
     <ul>
@@ -14,7 +14,7 @@
                 <p>Pacient: {{ appointment.patient.name }} {{ appointment.patient.surname }}</p>
                 <p>{{ appointment.day }} at {{ appointment.time }}</p>
                 <p>Vytvořeno: {{ appointment.time_ordered }}</p>
-                {% if perms.objednavkovy_kalendar.change_appointment %}
+                {% if perms.order_calendar.change_appointment %}
                     <a href="{% url 'appointment_edit' appointment.pk %}">Upravit</a>
                     <a href="{% url 'appointment_delete' appointment.pk %}">Smazat</a>
                 {% endif %}

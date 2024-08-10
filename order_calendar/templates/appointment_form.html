@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="content-wrapper">
-    <h1>{% if form.instance.pk %}Upravit termínu objednání{% else %}Vytvořit objednání{% endif %}</h1>
+    <h1>{% if form.instance.pk %}Upravit termín objednání{% else %}Objednat pacienta{% endif %}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

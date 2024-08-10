@@ -43,7 +43,7 @@
         {% if perms.medical_examination.add_announcement %}
         <a href="{% url 'announcement_create' %}" class="button">Přidej aktualitu</a>
         {% endif %}
-        {% if perms.objednavkovy_kalendar.view_appointment %}
+        {% if perms.order_calendar %}
         <a href="{% url 'appointment_list' %}" class="button">Kalendář objednaných pacientů</a>
         {% endif %}
     {% endif %}
