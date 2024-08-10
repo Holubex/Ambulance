@@ -57,3 +57,7 @@ Celý projekt se skládá z následujících aplikací:
         - medical_examination - aplikace, která vytváří lékařská vyšetření. (v našem případě mají práva k této databázi pouze lékaři).
         - accounts - registrace
         - static_pages - statické stránky 
+
+### ER diagram
+
+![Cover image](static/images/ERdiagram.png)
