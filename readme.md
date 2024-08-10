@@ -7,7 +7,7 @@
 ### Projekt je naprogramovaný v Djangu
 
 # Kroky pro začátek
-- Klonovat projekt : ``` git clone https://github.com/deadly-panda/clinicApp.git ```
+- Klonovat projekt : ```  ```
 - Přejděte do souboru projektu
 - Vytvoření virtuálního prostředí: ``` python -m venv myVenv ```
 - Aktivace virtuálního prostředí: ``` source myVenv/bin/activate ```
