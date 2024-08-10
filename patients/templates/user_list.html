@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+{% endblock %}
 {% block content %}
     <div class="container">
         <h1>Seznam pacientů</h1>
@@ -14,7 +19,7 @@
 
         <!-- seznam uživatelů -->
         <ul class="user-list">
-            {% for user in users %}
+            {% for user in patients %}
                 <li class="user-item {{ user.role_patient|lower }}">
                     <a href="{% url 'user_detail' user.id %}">
                         <strong>{{ user.name }} {{ user.surname }}</strong>
