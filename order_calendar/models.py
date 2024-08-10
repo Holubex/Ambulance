@@ -1,6 +1,6 @@
 # Create your models here.
 from django.db import models
-from datetime import datetime
+from datetime import datetime, date
 from django.contrib.auth.models import User
 from patients.models import User as Patient
 
@@ -41,12 +41,24 @@ TIME_CHOICES = (
 
 # Definice modelu Appointment (schůzky)
 class Appointment(models.Model):
-    doctor = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name="appointments_as_doctor")
+    doctor = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True, blank=True, related_name="appointments_as_doctor")
     service = models.CharField(max_length=50, choices=SERVICE_CHOICES, default="Doctor care")
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True, blank=True, related_name="patient")
     day = models.DateField(default=datetime.now)
     time = models.CharField(max_length=10, choices=TIME_CHOICES, default="3 PM")
     time_ordered = models.DateTimeField(default=datetime.now, blank=True)
 
-    def __str__(self):
+    class Meta:
+        ordering = ['day']
+
+    def save(self, *args, **kwargs):
+        self.delete_past_appointments()
+
+    @staticmethod
+    def delete_past_appointments():
+        # Vymaže všetky záznamy s dátumom v minulosti
+        Appointment.objects.filter(day__lt=date.today()).delete()
+
+
+def __str__(self):
         return f"{self.user.username} | Doktor: {self.doctor.username} | den: {self.day} | čas: {self.time}"

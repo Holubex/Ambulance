@@ -10,7 +10,7 @@
             {% for appointment in appointments %}
                 <li>
                     <h2>{{ appointment.service }}</h2>
-                    <p>Doktor: {{ appointment.doctor.username }}</p>
+                    <p>Doktor: {{ appointment.doctor.surname }}</p>
                     <p>Pacient: {{ appointment.patient.name }} {{ appointment.patient.surname }}</p>
                     <p>{{ appointment.day }} at {{ appointment.time }}</p>
                     <p>Vytvořeno: {{ appointment.time_ordered }}</p>

@@ -7,7 +7,7 @@
 ### Projekt je naprogramovaný v Djangu
 
 # Kroky pro začátek
-- Klonovat projekt : ``` git clone https://github.com/deadly-panda/clinicApp.git ```
+- Klonovat projekt : ```  ```
 - Přejděte do souboru projektu
 - Vytvoření virtuálního prostředí: ``` python -m venv myVenv ```
 - Aktivace virtuálního prostředí: ``` source myVenv/bin/activate ```
@@ -56,3 +56,8 @@ Celý projekt se skládá z následujících aplikací:
         - order_calendar - je to aplikace, která vytváří schůzky pro pacienty. (v našem případě mají práva k této databázi pouze zdravotní sestry).
         - medical_examination - aplikace, která vytváří lékařská vyšetření. (v našem případě mají práva k této databázi pouze lékaři).
         - accounts - registrace
+        - static_pages - statické stránky 
+
+### ER diagram
+
+![Cover image](static/images/ERdiagram.png)

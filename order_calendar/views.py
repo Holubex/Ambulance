@@ -16,7 +16,7 @@ class AppointmentListView(ListView):
     def get(self, request, *args, **kwargs):
         if request.headers.get('x-requested-with') == 'XMLHttpRequest':  # Kontroluje, zda je požadavek AJAXový
             appointments = list(Appointment.objects.select_related('doctor', 'patient').values(
-                'id', 'doctor__username', 'patient__username', 'service', 'day', 'time', 'time_ordered'
+                'id', 'doctor__surname', 'patient__username', 'service', 'day', 'time', 'time_ordered'
             ))  # Načítá appointments s příbuznými údaji o doktorovi a pacientovi
 
             # Převádí pole day a time na start a end pro JSON odpověď
@@ -45,7 +45,7 @@ class AppointmentCreateView(CreateView):
                 'status': 'success',
                 'appointment': {
                     'id': appointment.id,
-                    'doctor': appointment.doctor.username,
+                    'doctor': appointment.doctor.surname,
                     'service': appointment.service,
                     'day': appointment.day,
                     'time': appointment.time,
