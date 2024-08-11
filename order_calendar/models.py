@@ -63,6 +63,7 @@ class Appointment(models.Model):
 
     def save(self, *args, **kwargs):
         self.delete_past_appointments()
+        super(Appointment, self).save(*args, **kwargs)
 
     @staticmethod
     def delete_past_appointments():
