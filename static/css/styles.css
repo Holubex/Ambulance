@@ -208,22 +208,53 @@ input, textarea, select {
     box-sizing: border-box;
 }
 
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.button-row:last-child {
+    margin-bottom: 0;
+}
+
+/* Výchozí styly tlačítka */
 .button {
-    padding: 10px 15px;
-    border: none;
+    margin: 0 5px;
+    padding: 10px 20px;
     background-color: #7393B3;
     color: white;
+    text-decoration: none;
     border-radius: 5px;
-    cursor: pointer;
-    display: inline-block;
-    text-align: center;
-    font-size: 16px;
     transition: background-color 0.3s, color 0.3s;
 }
 
-.button:hover {
-    background-color: orange;
-    color: #ffffcc;
+.content-wrapper .button-row:nth-child(1) .button:hover {
+    background-color: orange !important;
+    color: #ffffcc !important;
+}
+
+/* Specifické styly pro druhý řádek tlačítek */
+.button-row:nth-child(2) .button {
+    background-color: #a4bbd0 !important; /* Specifická barva pozadí pro druhý řádek */
+    color: white !important; /* Barva textu pro tlačítka druhého řádku */
+}
+
+/*!* Další specifikace pro cílení na nth-child *!*/
+/*.content-wrapper .button-row:nth-child(2) .button {*/
+/*    background-color: #f0b49f !important; !* Ujistěte se, že se aplikuje na správná tlačítka *!*/
+/*    color: #333333 !important;*/
+/*}*/
+
+.content-wrapper .button-row:nth-child(2) .button:hover {
+    background-color: orange !important;
+    color: #ffffcc !important;
 }
 
 /* Styly pro tabulku, napr.pro 'medical_examination_list.html' */
@@ -333,320 +364,18 @@ h1 {
     flex-shrink: 0;
 }
 
-body {
-    font-family: 'Roboto', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    color: #555;
-    background-color: #f4f4f4;
-}
-
-.doctor-info {
-    margin-bottom: 30px; /* spodní okraj nastavíme na 30px, aby byla mezera */
-}
-
-.doctor-info h2 {
-    color: darkorange;
-    text-align: left;
-}
-
-.doctor-info h3 {
-    color: #555;
-    text-align: left;
-}
-
-.content-wrapper {
-    max-width: 1200px; /* nastavime sirku  dle potřeby 960px - max 1200px */
-    margin: 0 auto; /* vycentruje kontejner na strance */
-    padding: 20px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: white; /* pozadi obsahu */
-}
-
-.header-top {
-    background-color: #fdfdd3; /* Barva horního pruhu */
-    width: 100%;
-    padding: 10px 0;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between; /* Zarovnání prvků od kraje ke kraji */
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto; /* vycentruje kontejner na strance */
-    flex-wrap: wrap; /* Přidáno pro správné přizpůsobení obsahu */
-}
-
-.logo-name {
-    order: 1; /* umisteni loga nalevo */
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-}
-
-.logo-name img {
-    margin-right: 10px;
-    margin-left: 10px; /* mezera od levého okraje */
-}
-
-.logo-name span {
-    font-size: 0.9em;
-    color: #555;
-}
-
-.login {
-    order: 2; /* Umístí login napravo stranu */
-    margin-right: 15px;
-}
-
-.login a { /* Styly pro tlačítko Login */
-    display: flex;
-    align-items: center;
-    color: #acc8d7;
-    text-decoration: none;
-    font-weight: bold;
-    /*margin-right: 10px;  !* eliminujeme mezeru - prouzek *!*/
-}
-
-.login a:hover {
-    color: orange;
-}
-
-.login i {
-    margin-right: 5px;
-}
-
-.header-bottom {
-    /*background-color: #e6e6e6; !* Pastelově šedá barva *!*/
-    /*background-color: #C4d8e2;*/
-    background-color: #ffd9B3;
-    width: 100%;
-    padding: 10px 0;
-    box-sizing: border-box;
-    margin: 0 auto;
-    /*height: 45px;  !*pouzili jsme padding misto pevne vysky*!*/
-    display: flex;
-    justify-content: center; /* vycentrovani obsahu */
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.menu {
-    width: 100%;
-}
-
-.menu ul {
-    display: flex;
-    /*justify-content: space-between; !* Zarovnání prvků na střed *!*/
-    justify-content: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    /*height: 100%; !* Zajistí, že ul roste dle obsahu *!*/
-    /*min-height: 50px;*/
-    box-sizing: border-box;
-    flex-wrap: wrap; /* pridano pro spravne prizpusobeni obsahu*/
-}
-
-.menu li {
-    margin: 0 15px;
-    height: 100%;
-}
-
-.menu a {
-    text-decoration: none;
-    color: #446879;
-    font-weight: bold;
-    padding: 10px 15px;
-    transition: background-color 0.3s;
-    display: flex; /*zobrazi odkaz jako blokovy element pokud zadame 'block'*/
-    align-items: center;
-    /*height: 100%;*/
-    box-sizing: border-box; /* sirska odkazu navaze na rodicovskou sirku*/
-}
-
-.menu a:hover {
-    background-color: orange;
-    color: #ffffcc;
-    /*text-decoration: underline;*/
-}
-
-h1 {
-    /*color: #446879; !* Nastavíme barvu nadpisů *!*/
-    color: #608FB7;
-    text-align: center; /* Zarovnáme nadpisy na střed */
-}
-
-h2 {
-    color: #acc8d7; /* Nastavíme barvu nadpisů */
-    text-align: center; /* Zarovnáme nadpisy na střed */
-}
-
-h3 {
-    color: #555;
-    text-align: center;
-}
-
-main {
-    padding: 0; /* Zrušení paddingu na main pro eliminaci mezery !!!! */
-}
-
-footer {
-    background-color: #333;
-    color: #ffffcc;
-    /*text-align: center;*/
-    padding: 20px 0;
-    /*position: relative;*/
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.health-insurance-logos img {
-    max-height: 40px;
-    margin: 10px;
-}
-
-.footer-credits {
-    background-color: #7393B3;
-    color: #333;
-    padding: 3px 0;
-    font-size: 0.9em;
-    text-align: center;
-    line-height: 1.4;
-}
-
-/* Styly pro formulare, napr.pro 'medical_examination_form.html' */
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-}
-
-input, textarea, select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-.button {
-    padding: 10px 15px;
-    border: none;
-    background-color: #7393B3;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    display: inline-block;
-    text-align: center;
-    font-size: 16px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.button:hover {
-    background-color: orange;
-    color: #ffffcc;
-}
-
-/* Styly pro tabulku, napr.pro 'medical_examination_list.html' */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-
-table th, table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-}
-
-table th {
-    background-color: #f4f4f4;
-    font-weight: bold;
-}
-
-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-table a {
-    color: darkorange;
-    text-decoration: none;
-}
-
-table a:hover {
-    text-decoration: underline;
-}
-
-/* Aktuální oznámení na webu - 'announcement_list.html'*/
-.announcement-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.announcement-item {
-    margin-bottom: 20px;
-}
-
-.announcement-item h2 {
-    color: orange;
-    text-transform: uppercase; /* Převést text na velká písmena */
-    text-align: left; /* Zarovnat text doleva */
-    margin-bottom: 10px;
-}
-
-.announcement-item p {
-    margin: 0 0 10px 0;
-}
-
-.announcement-item small {
-    display: block;
-    margin-bottom: 10px;
-    color: #777;
-}
-
-.errors {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
-}
-
-/* Styly pouze o design stránky users_list.html */
-.container {
-    margin: 20px auto;
-    max-width: 800px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #446879;
-}
+/*h1 {*/
+/*    font-size: 2em;*/
+/*    margin-bottom: 20px;*/
+/*    text-align: center;*/
+/*    color: #446879;*/
+/*}*/
 
 /* pouzijeme pro filtracni formular medical_examination_list */
 .filter {
     margin-bottom: 20px;
     text-align: center;
-    white-space: nowrap; /* <<<<????? */
+    /*white-space: nowrap; !* <<<<????? *!*/
 }
 
 .filter input, .filter select {
@@ -668,13 +397,7 @@ h1 {
     transition: background-color 0.3s, color 0.3s;
 }
 
-.filter button:hover {
-    background-color: orange;
-    color: #ffffcc;
-    /*opacity: 0.8;*/
-}
-
-/* Barvy pro různé filtry tlačítek */
+/* Adjust colors for specific buttons */
 .filter button:nth-child(1) {
     background-color: #fbf3bc;
     color: #333333;
@@ -693,6 +416,11 @@ h1 {
 .filter button:nth-child(4) {
     background-color: #9fb6ca;
     color: #333333;
+}
+
+.filter button:hover {
+    background-color: orange;
+    color: #ffffcc;
 }
 
 .user-list {
