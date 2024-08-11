@@ -1,0 +1,62 @@
+{% load static %}
+<header>
+    <div class="header-top">
+
+        <div class="logo-name">
+            <img src="{% static 'images/psychiatry_512.png' %}" alt="Logo Psychiatrie Hnídek" width="50">
+            <span>Psychiatrie Hnídek s.r.o., Ronovská 846/3, 470 01 Česká Lípa, ambulance@psychiatrie-hnidek.cz</span>
+        </div>
+        <div class="login">
+            {% if user.is_authenticated %}
+                <span>Dobrý den, {{ user.username }}!</span>
+                <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Odhlásit</a>
+            {% else %}
+                <a href="{% url 'login' %}"><i class="fas fa-user"></i> Přihlásit</a>
+                <a href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Registrovat</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="header-bottom">
+        <nav class="menu">
+            <ul>
+                <li><a href="{% url 'home' %}">Domovská stránka</a></li>
+                <li><a href="{% url 'announcement_list' %}">Aktuality</a></li>
+                <li><a href="{% url 'our_services' %}">Naše služby</a></li>
+                <li><a href="{% url 'practical_info' %}#">Praktické informace + FAQ</a></li>
+                <li><a href="{% url 'contact' %}">Kontakt a ordinační hodiny</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content-wrapper">
+        <div class="button-row">
+            {% if user.is_authenticated %}
+                {% if perms.users.add_user %}
+                    <a href="{% url 'create_user' %}" class="button">Nový pacient</a>
+                {% endif %}
+                {% if perms.medical_examination.add_medical_examination %}
+                    <a href="{% url 'medical_examination_create' %}" class="button">Záznam vyšetření</a>
+                {% endif %}
+                {% if perms.order_calendar.add_appointment %}
+                    <a href="{% url 'appointment_create' %}" class="button">Objednat pacienta</a>
+                {% endif %}
+                {% if perms.medical_examination.add_announcement %}
+                    <a href="{% url 'announcement_create' %}" class="button">Přidej aktualitu</a>
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="button-row">
+            {% if user.is_authenticated %}
+                {% if perms.users.add_user %}
+                    <a href="{% url 'user_list' %}" class="button">Seznam pacientů</a>
+                {% endif %}
+                {% if perms.medical_examination.view_medicalexamination %}
+                    <a href="{% url 'medical_examination_list' %}" class="button">Seznam vyšetření</a>
+                {% endif %}
+                {% if perms.order_calendar %}
+                    <a href="{% url 'appointment_list' %}" class="button">Kalendář objednaných pacientů</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</header>

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Potvrzení smazání</h1>
+<p>Opravdu chcete smazat toto vyšetření?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Ano, smazat</button>
+    <a href="{% url 'medical_examination_list' %}">Zpět</a>
+</form>
+{% endblock %}

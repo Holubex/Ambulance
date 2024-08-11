@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="content-wrapper">
+        <h1>Smazat oznámení</h1>
+        <p>Ste si istý, že chcete smazat oznámení?"{{ object }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Smazat</button>
+            <a href="{% url 'announcement_list' %}">Zrušit</a>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="content-wrapper">
+        <h1>Nový pacient</h1>
+
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                <strong>Chyba!</strong> Prosím, opravte následující chyby:
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="button" type="submit">Vytvořit</button>
+        </form>
+    </div>
+{% endblock %}
