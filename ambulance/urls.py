@@ -24,6 +24,8 @@ from medical_examination.views import (
     MedicalExaminationListView,
     MedicalExaminationCreateView,
     MedicalExaminationDetailView,
+    MedicalExaminationUpdateView,
+    MedicalExaminationDeleteView,
     AnnouncementListView,
     AnnouncementCreateView,
     AnnouncementUpdateView,
@@ -63,6 +65,16 @@ urlpatterns = [
         "medical-examination-detail/<pk>/",
         MedicalExaminationDetailView.as_view(),
         name="medical_examination_detail",
+    ),
+    path(
+        'medical-examination/edit/<pk>/',
+        MedicalExaminationUpdateView.as_view(),
+        name='medical_examination_edit'
+    ),
+    path(
+        'medical-examination/delete/<pk>/',
+         MedicalExaminationDeleteView.as_view(),
+         name='medical_examination_delete'
     ),
     path("accounts/register/", RegisterView.as_view(), name="register"),
     path("accounts/login/", SubmittableLoginView.as_view(), name="login"),

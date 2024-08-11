@@ -80,6 +80,31 @@ class MedicalExaminationDetailView(DetailView):
     context_object_name = 'medical_examination'
 
 
+class MedicalExaminationUpdateView(UpdateView):
+    template_name = 'medical_examination_form.html'
+    form_class = MedicalExaminationForm
+    model = MedicalExamination  # Pridajte model, aby vedel, ktorý záznam upraviť
+    success_url = reverse_lazy('medical_examination_list')
+    permission_required = 'medical_examination.change_medical_examination'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form_action'] = 'Upraviť vyšetření'
+        return context
+
+
+class MedicalExaminationDeleteView(DeleteView):
+    template_name = 'medical_examination_confirm_delete.html'
+    model = MedicalExamination  # Definuje model, ktorý bude zmazaný
+    success_url = reverse_lazy('medical_examination_list')
+    permission_required = 'medical_examination.delete_medical_examination'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form_action'] = 'Vymazat vyšetření'
+        return context
+
+
 class AnnouncementListView(ListView):
     template_name = 'announcement_list.html'
     model = Announcement
