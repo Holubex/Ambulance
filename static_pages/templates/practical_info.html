@@ -1,46 +1,58 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="content-wrapper">
-        <h1>Prakticke Informace a často kladené otázky</h1>
+    <div class="content-wrapper" style="text-align: center;">
+        <h1>Praktické Informace a často kladené otázky</h1>
 
-
-        <p style="text-align: center">Služby jsou hrazeny zdravotními pojišťovnami</p>
-        <p style="text-align: center">Není nutné doporučení od jiného lékaře</p>
-        <p style="text-align: center">Snadno dostupná lokalita</p>
-
-
+        <p>Služby jsou hrazeny zdravotními pojišťovnami</p>
+        <p>Není nutné doporučení od jiného lékaře</p>
+        <p>Snadno dostupná lokalita</p>
     </div>
-    <div>
-        <section class="insurance">
-            <h2>Smluvní zdravotní pojišťovny:</h2>
-            <ul>
-                <li>Všeobecná zdravotní pojišťovna (111)</li>
-                <li>Vojenská zdravotní pojišťovna ČR (201)</li>
-                <li>Česká průmyslová zdravotní pojišťovna (205)</li>
-                <li>Oborová zdravotní poj. zam. bank, poj. a stav. (207)</li>
-                <li>Zdravotní pojišťovna ministerstva vnitra ČR (211)</li>
-                <li>Revírní bratrská pokladna, zdrav. pojišťovna (213)</li>
-                <li>Zaměstnanecká pojišťovna Škoda (209)</li>
-            </ul>
-        </section>
 
-        <h2 style="color: orange;">UPOZORNĚNÍ - PARKOVÁNÍ:</h2>
+    <section class="insurance" style="text-align: center; margin-top: 40px;">
+        <h2>Smluvní zdravotní pojišťovny:</h2>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+            <li>
 
+                {#            <li>Všeobecná zdravotní pojišťovna (111)</li>#}
+                {#            <li>Vojenská zdravotní pojišťovna ČR (201)</li>#}
+                {#            <li>Česká průmyslová zdravotní pojišťovna (205)</li>#}
+                {#            <li>Oborová zdravotní poj. zam. bank, poj. a stav. (207)</li>#}
+                {#            <li>Zdravotní pojišťovna ministerstva vnitra ČR (211)</li>#}
+                {#            <li>Revírní bratrská pokladna, zdrav. pojišťovna (213)</li>#}
+                {#            <li>Zaměstnanecká pojišťovna Škoda (209)</li>#}
 
-        <p><b>POZOR:</b> Míst k parkování přímo u ambulance je jen několik.
-            Parkování na parkovišti u ředitelství policie je v pracovních dnech v době od 6.00 do 17.00
-            vyhrazeno pouze pro držitele parkovacích karet policie.
-            Využívejte prosím veřejné parkoviště u KD Crystal,
-            které má dostatečnou kapacitu.</p>
+            <li><a href="https://www.vzp.cz" target="_blank">Všeobecná zdravotní pojišťovna (111)</a></li>
+            <li><a href="https://www.vzp.cz" target="_blank">Vojenská zdravotní pojišťovna ČR (201)</a></li>
+            <li><a href="https://www.cpzp.cz" target="_blank">Česká průmyslová zdravotní pojišťovna (205)</a></li>
 
-        <p><b>POZNÁMKA:</b> Naše ambulance se nachází v budově bez výtahu.
-            Pokud máte jakékoli specifické potřeby týkající se přístupu, neváhejte nás kontaktovat předem.</p>
+            <li><a href="https://www.zpmvcr.cz" target="_blank">Zdravotní pojišťovna ministerstva vnitra ČR (211)</a>
+            </li>
+            <li><a href="https://www.rbp.cz" target="_blank">Revírní bratrská pokladna, zdravotní pojišťovna (213)</a>
+            </li>
+            <li><a href="https://www.zpskoda.cz" target="_blank">Zaměstnanecká pojišťovna Škoda (209)</a></li>
+            <li><a href="https://www.ozp.cz" target="_blank">Oborová zdravotní pojišťovna zaměstnanců bank, pojišťoven a
+                stavebnictví (207)</a></li>
+        </ul>
+    </section>
 
+    <div style="text-align: center; margin-top: 100px;">
+        <h2 style="color: red;">UPOZORNĚNÍ - PARKOVÁNÍ:</h2>
+
+        <h3 style="margin-bottom: 5px;">POZOR:</h3>
+        <p>Míst k parkování přímo u ambulance je jen několik.</p>
+        <p>Využívejte prosím veřejné parkoviště u KD Crystal, které má dostatečnou kapacitu.</p>
+        <p>Parkování na parkovišti u ředitelství policie je v pracovních dnech v době od 6.00 do 17.00
+            vyhrazeno pouze pro držitele parkovacích karet policie.</p>
+
+        <h3 style="margin-bottom: 5px;">POZNÁMKA:</h3>
+        <p>Naše ambulance se nachází v budově bez výtahu.</p>
+        <p>Pokud máte jakékoli specifické potřeby týkající se přístupu, neváhejte nás kontaktovat předem.</p>
     </div>
-    <div>
-        <h2>FAQ - Často kladené otázky</h2>
-        <ol>
+
+    <div style="margin-top: 100px;">
+        <h2 style="color: red; text-align: center;">FAQ - Často kladené otázky</h2>
+        <ol style="margin: 0; padding-left: 20px;">
             <li><strong>Jak dlouho trvá první návštěva?</strong></li>
             <p>Délka první návštěvy se liší dle individuálních potřeb pacienta, obvykle se však pohybuje okolo 40
                 minut.</p>
@@ -68,7 +80,7 @@
                 vhodnější alternativu.</p>
 
             <li><strong>Nabízíte i online konzultace?</strong></li>
-            <p>Ne, v současně době nenabízíme online konzultace.</p>
+            <p>Ne, v současné době nenabízíme online konzultace.</p>
 
             <li><strong>Jak postupovat v případě akutní krize mimo ordinační hodiny?</strong></li>
             <p>V případě akutní krize mimo ordinační hodiny kontaktujte linku první psychické pomoci na čísle 116 123
