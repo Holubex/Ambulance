@@ -51,7 +51,7 @@ class MedicalExaminationFilterForm(forms.Form):
 class MedicalExaminationListView(ListView):
     template_name = 'medical_examination_list.html'
     model = MedicalExamination
-    context_object_name = 'medical_examinations'
+    context_object_name = 'examinations'
     permission_required = 'medical_examination.view_medical_examination'
 
     def get_queryset(self):
@@ -76,7 +76,7 @@ class MedicalExaminationCreateView(CreateView):
 
 class MedicalExaminationDetailView(DetailView):
     template_name = 'medical_examination_detail.html'
-    form_class = MedicalExamination
+    model = MedicalExamination
     context_object_name = 'medical_examination'
 
 

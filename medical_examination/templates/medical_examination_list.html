@@ -30,10 +30,10 @@
                     <td>
                         <a href="{% url 'medical_examination_detail' examination.id %}">Detail</a>
                         {% if perms.medical_examination.change_medicalexamination %}
-                            <a href="{% url 'medical_examination_edit' examination.id %}">Upravit</a>
+                            <a href="{% url 'medical_examination_detail' examination.id %}">Upravit</a>
                         {% endif %}
                         {% if perms.medical_examination.delete_medicalexamination %}
-                            <a href="{% url 'medical_examination_delete' examination.id %}">Smazat</a>
+                            <a href="{% url 'medical_examination_detail' examination.id %}">Smazat</a>
                         {% endif %}
                     </td>
                 </tr>
