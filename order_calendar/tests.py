@@ -1,6 +1,6 @@
 from django.test import TestCase
 from .models import Appointment
-from patients.models import User as Patient
+from patients.models import Patients as Patient
 from datetime import date, datetime
 
 

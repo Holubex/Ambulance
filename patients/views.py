@@ -7,15 +7,16 @@ from django import forms
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
 
-from patients.models import User
+from patients.models import Patients
 
 
 # Create your views here.
 
 class UserForm(forms.ModelForm):
     class Meta:
-        model = User
+        model = Patients
         fields = '__all__'
+        # exclude = ['role_patient']
         labels = {
             'name': 'Jméno',
             'surname': 'Příjmení',
@@ -34,7 +35,7 @@ class UserForm(forms.ModelForm):
 
 
 class UserListView(PermissionRequiredMixin, ListView):
-    model = User
+    model = Patients
     template_name = 'user_list.html'
     context_object_name = 'patients'
     permission_required = 'patients.add_user'
@@ -43,23 +44,23 @@ class UserListView(PermissionRequiredMixin, ListView):
         # Filtrovat uživatele podle role, pokud je specifikována v GET parametru
         role = self.request.GET.get('role')
         if role:
-            return User.objects.filter(role_patient__iexact=role)
-        return User.objects.all()
+            return Patients.objects.filter(role_patient__iexact=role)
+        return Patients.objects.all()
 
 
 class UserDetailView(PermissionRequiredMixin, DetailView):
-    model = User
+    model = Patients
     template_name = 'user_detail.html'
     context_object_name = 'user'
     permission_required = 'patients.view_user'
 
     def get_object(self):
         # Načtení uživatele podle ID
-        return get_object_or_404(User, pk=self.kwargs['pk'])
+        return get_object_or_404(Patients, pk=self.kwargs['pk'])
 
 
 class UserCreateView(CreateView):
-    model = User
+    model = Patients
     form_class = UserForm
     template_name = 'create_user.html'
     success_url = reverse_lazy('user_list')

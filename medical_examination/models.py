@@ -1,25 +1,25 @@
 from django.db import models
 from django.db.models import Model, CASCADE, ForeignKey, TextField, DateField
 
-from patients.models import User
+from patients.models import Patients
 
 
 class MedicalExamination(Model):
     # id = AutoField(primary_key=True)
     patient = ForeignKey(
-        User,
+        Patients,
         limit_choices_to={"role_patient": "Patient"},
         on_delete=CASCADE,
         related_name="medical_examinations_as_patient",
     )
     nurse = ForeignKey(
-        User,
+        Patients,
         limit_choices_to={"role_patient": "Nurse"},
         on_delete=CASCADE,
         related_name="medical_examinations_as_nurse",
     )
     doctor = ForeignKey(
-        User,
+        Patients,
         limit_choices_to={"role_patient": "Doctor"},
         on_delete=CASCADE,
         related_name="medical_examinations_as_doctor",

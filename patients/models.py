@@ -1,5 +1,7 @@
 from django.db import models
-from django.db.models import Model, TextChoices, IntegerChoices
+from django.db.models import Model, TextChoices, IntegerChoices, ForeignKey, CASCADE
+
+from accounts.models import Profile
 
 
 # Create your models here.
@@ -25,7 +27,7 @@ class InsuranceChoices(IntegerChoices):
     TYPE7 = 7, 'Zaměstnanecká pojišťovna Škoda (209)'
 
 
-class User(Model):
+class Patients(Model):
     name = models.CharField(max_length=120)
     surname = models.CharField(max_length=120, blank=True)
     email = models.EmailField(unique=True)
@@ -39,6 +41,7 @@ class User(Model):
     role_patient = models.TextField(choices=Role.choices)
     address = models.TextField()
     contact = models.TextField()
+    user_profile = ForeignKey(Profile, null=True, blank=True, on_delete=CASCADE)
 
     class Meta:
         ordering = ['birth_date']

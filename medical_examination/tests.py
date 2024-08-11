@@ -1,13 +1,13 @@
 from django.test import TestCase
 from datetime import date
-from patients.models import User
+from patients.models import Patients
 from .models import MedicalExamination, Announcement
 
 class MedicalExaminationModelTests(TestCase):
 
     def setUp(self):
         # Vytvoření uživatelů (pacient, sestra, doktor) pro testy
-        self.patient = User.objects.create(
+        self.patient = Patients.objects.create(
             name="Jan",
             surname="Janovsky",
             email="jan@email.com",
@@ -20,7 +20,7 @@ class MedicalExaminationModelTests(TestCase):
             contact="123-456-7890"
         )
 
-        self.nurse = User.objects.create(
+        self.nurse = Patients.objects.create(
             name="Pavla",
             surname="Pavlovska",
             email="pavla@email.com",
@@ -33,7 +33,7 @@ class MedicalExaminationModelTests(TestCase):
             contact="098-765-4321"
         )
 
-        self.doctor = User.objects.create(
+        self.doctor = Patients.objects.create(
             name="MUDr. Tomáš",
             surname="Doktorovský",
             email="tomas@email.com",

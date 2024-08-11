@@ -1,12 +1,12 @@
 from django.test import TestCase
-from .models import User, Sex, Role
+from .models import Patients, Sex, Role
 from datetime import date
 
 class UserModelTests(TestCase):
 
     def setUp(self):
         # Vytvoření několika uživatelů pro testy
-        self.user1 = User.objects.create(
+        self.user1 = Patients.objects.create(
             name="Jakub",
             surname="Jakub",
             email="jakub@example.com",
@@ -19,7 +19,7 @@ class UserModelTests(TestCase):
             contact="123-456-7890"
         )
 
-        self.user2 = User.objects.create(
+        self.user2 = Patients.objects.create(
             name="Jana",
             surname="Jana",
             email="jana@example.com",
@@ -33,7 +33,7 @@ class UserModelTests(TestCase):
         )
 
     def test_create_user(self):
-        user = User.objects.create(
+        user = Patients.objects.create(
             name="Tomáš",
             surname="Tomáš",
             email="tomas@example.com",
@@ -51,7 +51,7 @@ class UserModelTests(TestCase):
 
     def test_unique_email(self):
         with self.assertRaises(Exception):
-            User.objects.create(
+            Patients.objects.create(
                 name="Jaroslav",
                 surname="Jaroslav",
                 email="jana@example.com",  # Tento email už existuje
@@ -65,7 +65,7 @@ class UserModelTests(TestCase):
             )
 
     def test_user_str(self):
-        user = User.objects.create(
+        user = Patients.objects.create(
             name="Pavel",
             surname="Novak",
             email="pavel@example.com",
@@ -80,12 +80,12 @@ class UserModelTests(TestCase):
         self.assertEqual(str(user), "Pavel Novak : Doctor")
 
     def test_ordering(self):
-        users = User.objects.all()
+        users = Patients.objects.all()
         self.assertEqual(users[0], self.user1)
         self.assertEqual(users[1], self.user2)
 
     def test_update_user(self):
-        user = User.objects.get(email="jakub@example.com")
+        user = Patients.objects.get(email="jakub@example.com")
         user.name = "Updated Name"
         user.save()
         self.assertEqual(user.name, "Updated Name")

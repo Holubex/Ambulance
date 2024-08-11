@@ -4,26 +4,26 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from medical_examination.forms import MedicalExaminationForm, AnnouncementForm
 from medical_examination.models import MedicalExamination, Announcement
-from patients.models import User, Role
+from patients.models import Patients, Role
 
 
 # medical_examination
 
 class MedicalExaminationFilterForm(forms.Form):
     patient = forms.ModelChoiceField(
-        queryset=User.objects.filter(role_patient=Role.PATIENT),  # Přizpůsobte filtrování
+        queryset=Patients.objects.filter(role_patient=Role.PATIENT),  # Přizpůsobte filtrování
         required=False,
         label='Pacient',
         widget=forms.Select(attrs={'class': 'form-control'})
     )
     nurse = forms.ModelChoiceField(
-        queryset=User.objects.filter(role_patient=Role.NURSE),  # Přizpůsobte filtrování
+        queryset=Patients.objects.filter(role_patient=Role.NURSE),  # Přizpůsobte filtrování
         required=False,
         label='Sestřička',
         widget=forms.Select(attrs={'class': 'form-control'})
     )
     doctor = forms.ModelChoiceField(
-        queryset=User.objects.filter(role_patient=Role.DOCTOR),  # Přizpůsobte filtrování
+        queryset=Patients.objects.filter(role_patient=Role.DOCTOR),  # Přizpůsobte filtrování
         required=False,
         label='Lékař',
         widget=forms.Select(attrs={'class': 'form-control'})
