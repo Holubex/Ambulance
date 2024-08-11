@@ -7,7 +7,7 @@
 ### Projekt je naprogramovaný v Djangu
 
 # Kroky pro začátek
-- Klonovat projekt : ```  ```
+- Klonovat projekt : ``` https://github.com/Holubex/Ambulance.git ```
 - Přejděte do souboru projektu
 - Vytvoření virtuálního prostředí: ``` python -m venv myVenv ```
 - Aktivace virtuálního prostředí: ``` source myVenv/bin/activate ```
