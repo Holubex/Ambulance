@@ -4,48 +4,52 @@
     <div class="content-wrapper">
         <h1>Podrobnosti vyšetření</h1>
         <div class="field-value">
-            <span class="field-label">Pacient:</span> {{ medical_examination.patient }}
+            <p><strong>Pacient:</strong> {{ medical_examination.patient }}</p>
         </div>
         <div class="field-value">
-            <span class="field-label">Sestřička:</span> {{ medical_examination.nurse }}
+            <p><strong>Sestřička:</strong> {{ medical_examination.nurse }}</p>
         </div>
         <div class="field-value">
-            <span class="field-label">Lékař:</span> {{ medical_examination.doctor }}
+            <p><strong>Lékař:</strong> {{ medical_examination.doctor }}</p>
         </div>
         <div class="field-value">
-            <span class="field-label">Nynější obtíže:</span>
-            {% if medical_examination.current_complaints %}
-                {{ medical_examination.current_complaints }}
-            {% else %}
-                <em>Žádné údaje</em>
-            {% endif %}
+            <p><strong>Nynější obtíže:</strong>
+                {% if medical_examination.current_complaints %}
+                    {{ medical_examination.current_complaints }}
+                {% else %}
+                    <em>Žádné údaje</em>
+                {% endif %}
+            </p>
         </div>
         <div class="field-value">
-            <span class="field-label">Objektivní stav:</span>
-            {% if medical_examination.objective_findings %}
-                {{ medical_examination.objective_findings }}
-            {% else %}
-                <em>Žádné údaje</em>
-            {% endif %}
+            <p><strong>Objektivní stav:</strong>
+                {% if medical_examination.objective_findings %}
+                    {{ medical_examination.objective_findings }}
+                {% else %}
+                    <em>Žádné údaje</em>
+                {% endif %}
+            </p>
         </div>
         <div class="field-value">
-            <span class="field-label">Diagnóza:</span>
-            {% if medical_examination.diagnosis %}
-                {{ medical_examination.diagnosis }}
-            {% else %}
-                <em>Žádné údaje</em>
-            {% endif %}
+            <p><strong>Diagnóza:</strong>
+                {% if medical_examination.diagnosis %}
+                    {{ medical_examination.diagnosis }}
+                {% else %}
+                    <em>Žádné údaje</em>
+                {% endif %}
+            </p>
         </div>
         <div class="field-value">
-            <span class="field-label">Datum vyšetření:</span> {{ medical_examination.examination_date }}
+            <p><strong>Datum vyšetření:</strong> {{ medical_examination.examination_date }}</p>
         </div>
         <div class="field-value">
-            <span class="field-label">Recept:</span>
-            {% if medical_examination.prescription %}
-                {{ medical_examination.prescription }}
-            {% else %}
-                <em>Žádné údaje</em>
-            {% endif %}
+            <p><strong>Recept:</strong>
+                {% if medical_examination.prescription %}
+                    {{ medical_examination.prescription }}
+                {% else %}
+                    <em>Žádné údaje</em>
+                {% endif %}
+            </p>
         </div>
     </div>
 {% endblock %}

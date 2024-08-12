@@ -11,7 +11,8 @@
 - Přejděte do souboru projektu
 - Vytvoření virtuálního prostředí: ``` python -m venv myVenv ```
 - Aktivace virtuálního prostředí: ``` source myVenv/bin/activate ```
-- Instalace requirements : ``` pip install -r requirements.txt ```
+- Instalace requirements : ``` pip install -r requirements.txt ``` anebo ```.\myVenv\Scripts\Activate.ps1
+``` 
 - Migrace : ``` python3 manage.py migrate ```
 - Spusť : ``` python3 manage.py runserver ```
 

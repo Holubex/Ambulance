@@ -4,7 +4,12 @@
     <div class="container">
         <h1>Detail uživatele</h1>
         <p><strong>Jméno:</strong> {{ user.name }} {{ user.surname }}</p>
-        <p><strong>Role:</strong> {{ user.role_patient }}</p>
+        <p><strong>Role uživatele:</strong> {{ user.get_role_patient_display }}</p>
         <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Kontakt (telefon):</strong> {{ user.contact }}</p>
+        <p><strong>Adresa:</strong> {{ user.address }}</p>
+        <p><strong>Datum narození:</strong> {{ user.birth_date }}</p>
+        <p><strong>Rodné číslo</strong> {{ user.birth_number }}</p>
+        <p><strong>Pojišťovna:</strong> {{ user.get_insurance_display }}</p>
     </div>
 {% endblock %}

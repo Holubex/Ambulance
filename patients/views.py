@@ -24,7 +24,7 @@ class UserForm(forms.ModelForm):
             'birth_number': 'Rodné číslo',
             'insurance': 'Pojišťovna',
             'gender': 'Pohlaví',
-            'role_patient': 'Role pacienta',
+            'role_patient': 'Role uživatele',
             'address': 'Adresa',
             'contact': 'Kontakt'
         }

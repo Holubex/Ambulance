@@ -23,7 +23,7 @@ class AppointmentListView(ListView):
     # Přepis metody get, aby zpracovávala jak běžné, tak AJAXové požadavky
     def get(self, request, *args, **kwargs):
         if (
-            request.headers.get("x-requested-with") == "XMLHttpRequest"
+                request.headers.get("x-requested-with") == "XMLHttpRequest"
         ):  # Kontroluje, zda je požadavek AJAXový
             appointments = list(
                 Appointment.objects.select_related("doctor", "patient").values(
@@ -64,7 +64,7 @@ class AppointmentCreateView(CreateView):
         print("Form data:", form.cleaned_data)
         response = super().form_valid(form)
         if (
-            self.request.headers.get("x-requested-with") == "XMLHttpRequest"
+                self.request.headers.get("x-requested-with") == "XMLHttpRequest"
         ):  # Kontroluje, zda je požadavek AJAXový
             appointment = form.save()
             data = {
@@ -87,7 +87,7 @@ class AppointmentCreateView(CreateView):
         print("Form errors:", form.errors)
         response = super().form_invalid(form)
         if (
-            self.request.headers.get("x-requested-with") == "XMLHttpRequest"
+                self.request.headers.get("x-requested-with") == "XMLHttpRequest"
         ):  # Kontroluje, zda je požadavek AJAXový
             return JsonResponse(
                 {"status": "error", "errors": form.errors}

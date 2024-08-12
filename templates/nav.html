@@ -1,7 +1,6 @@
 {% load static %}
 <header>
     <div class="header-top">
-
         <div class="logo-name">
             <img src="{% static 'images/psychiatry_512.png' %}" alt="Logo Psychiatrie Hnídek" width="50">
             <span>Psychiatrie Hnídek s.r.o., Ronovská 846/3, 470 01 Česká Lípa, ambulance@psychiatrie-hnidek.cz</span>
@@ -22,16 +21,17 @@
                 <li><a href="{% url 'home' %}">Domovská stránka</a></li>
                 <li><a href="{% url 'announcement_list' %}">Aktuality</a></li>
                 <li><a href="{% url 'our_services' %}">Naše služby</a></li>
-                <li><a href="{% url 'practical_info' %}#">Praktické informace + FAQ</a></li>
+                <li><a href="{% url 'practical_info' %}">Praktické informace + FAQ</a></li>
                 <li><a href="{% url 'contact' %}">Kontakt a ordinační hodiny</a></li>
             </ul>
         </nav>
     </div>
+
     <div class="content-wrapper">
         <div class="button-row">
             {% if user.is_authenticated %}
                 {% if perms.users.add_user %}
-                    <a href="{% url 'create_user' %}" class="button">Nový pacient</a>
+                    <a href="{% url 'create_user' %}" class="button">Nový uživatel</a>
                 {% endif %}
                 {% if perms.medical_examination.add_medical_examination %}
                     <a href="{% url 'medical_examination_create' %}" class="button">Záznam vyšetření</a>
@@ -46,13 +46,13 @@
         </div>
         <div class="button-row">
             {% if user.is_authenticated %}
-                {% if perms.users.add_user %}
-                    <a href="{% url 'user_list' %}" class="button">Seznam pacientů</a>
+                {% if perms.users.view_user %}
+                    <a href="{% url 'user_list' %}" class="button">Seznam uživatelů</a>
                 {% endif %}
                 {% if perms.medical_examination.view_medicalexamination %}
                     <a href="{% url 'medical_examination_list' %}" class="button">Seznam vyšetření</a>
                 {% endif %}
-                {% if perms.order_calendar %}
+                {% if perms.order_calendar.view_appointment %}
                     <a href="{% url 'appointment_list' %}" class="button">Kalendář objednaných pacientů</a>
                 {% endif %}
             {% endif %}
