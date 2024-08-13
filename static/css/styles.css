@@ -16,11 +16,55 @@ body {
 .doctor-info h2 {
     color: darkorange;
     text-align: left;
+    margin-bottom: 6px;
 }
 
 .doctor-info h3 {
-    color: #555;
+    color: #0756B5FF;
     text-align: left;
+    margin-top: 0;
+}
+
+.phone-number::after {
+    content: "";
+    display: block;
+    width: 110%; /* 100% width of the h3 plus 10px extra */
+    height: 1px; /* Thickness of the line */
+    background-color: #ddd; /* Light grey color */
+    margin: 10px auto; /* Vertical spacing */
+    transform: translateX(-5%); /* Centering adjustment */
+}
+
+
+.appointments-list {
+    /* Zajistí, že seznam nemá žádné předdefinované styly seznamu */
+}
+
+.appointment-item {
+    /* Styl pro každý jednotlivý záznam v seznamu */
+    margin-bottom: 20px; /* Můžete upravit podle potřeby */
+    border-bottom: 1px solid #ddd; /* Oddělení jednotlivých záznamů */
+    padding-bottom: 10px; /* Vzdálenost od spodního okraje */
+}
+
+.appointment-item h2{
+    /* Styl pro každý jednotlivý záznam v seznamu */
+    text-align: left !important; /* Explicitně zarovná text vlevo */
+    color: #acc8d7;
+}
+
+.appointment-actions {
+    margin-bottom: 50px; /* Adjust this value as needed for desired spacing */
+}
+
+.appointment-actions a {
+    margin-right: 10px; /* Space between "Upravit" and "Smazat" buttons */
+}
+
+.appointment-create {
+    display: flex;        /* Use flexbox for centering */
+    justify-content: center;  /* Center horizontally */
+    margin-top: 50px;     /* Space above the button */
 }
 
 .content-wrapper {
@@ -148,11 +192,11 @@ h1 {
 
 h2 {
     color: #acc8d7; /* Nastavíme barvu nadpisů */
-    text-align: center; /* Zarovnáme nadpisy na střed */
+    text-align: left; /* Zarovnáme nadpisy na střed */
 }
 
 h3 {
-    color: #555;
+    color: #7a97b6;
     text-align: center;
 }
 

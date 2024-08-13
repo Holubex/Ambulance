@@ -28,7 +28,7 @@ class AppointmentListView(ListView):
             appointments = list(
                 Appointment.objects.select_related("doctor", "patient").values(
                     "id",
-                    "doctor__surname",
+                    "doctor__username",
                     "patient__username",
                     "service",
                     "day",

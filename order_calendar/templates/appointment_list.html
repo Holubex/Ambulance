@@ -3,23 +3,27 @@
 {% block content %}
     <div class="content-wrapper">
         <h1>Kalendář termínů objednaných pacientů</h1>
-        {% if perms.order_calendar.add_appointment %}
-            <a href="{% url 'appointment_create' %}" class="button">Objednat pacienta</a>
-        {% endif %}
-        <ul>
+        <div class="appointments-list">
             {% for appointment in appointments %}
-                <li>
+                <div class="appointment-item">
                     <h2>{{ appointment.service }}</h2>
-                    <p>Doktor: {{ appointment.doctor.surname }}</p>
-                    <p>Pacient: {{ appointment.patient.name }} {{ appointment.patient.surname }}</p>
-                    <p>{{ appointment.day }} at {{ appointment.time }}</p>
+                    <p><strong>Doktor:</strong> {{ appointment.doctor.surname }} {{ appointment.doctor.name }}</p>
+                    <p><strong>Pacient:</strong> {{ appointment.patient.surname }} {{ appointment.patient.name }}</p>
+                    <p><strong>{{ appointment.day }} at {{ appointment.time }}</strong></p>
                     <p>Vytvořeno: {{ appointment.time_ordered }}</p>
                     {% if perms.order_calendar.change_appointment %}
-                        <a href="{% url 'appointment_edit' appointment.pk %}">Upravit</a>
-                        <a href="{% url 'appointment_delete' appointment.pk %}">Smazat</a>
+                        <div class="appointment-actions">
+                            <a href="{% url 'appointment_edit' appointment.pk %}">Upravit</a>
+                            <a href="{% url 'appointment_delete' appointment.pk %}">Smazat</a>
+                        </div>
                     {% endif %}
-                </li>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
+        {% if perms.order_calendar.add_appointment %}
+            <div class="appointment-create">
+                <a href="{% url 'appointment_create' %}" class="button">Objednat pacienta</a>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

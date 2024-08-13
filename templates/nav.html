@@ -30,10 +30,10 @@
     <div class="content-wrapper">
         <div class="button-row">
             {% if user.is_authenticated %}
-                {% if perms.users.add_user %}
+                {% if perms.patients.add_user %}
                     <a href="{% url 'create_user' %}" class="button">Nový uživatel</a>
                 {% endif %}
-                {% if perms.medical_examination.add_medical_examination %}
+                {% if perms.medical_examination.add_medicalexamination %}
                     <a href="{% url 'medical_examination_create' %}" class="button">Záznam vyšetření</a>
                 {% endif %}
                 {% if perms.order_calendar.add_appointment %}
@@ -46,7 +46,7 @@
         </div>
         <div class="button-row">
             {% if user.is_authenticated %}
-                {% if perms.users.view_user %}
+                {% if perms.patients.view_user %}
                     <a href="{% url 'user_list' %}" class="button">Seznam uživatelů</a>
                 {% endif %}
                 {% if perms.medical_examination.view_medicalexamination %}

@@ -1,6 +1,19 @@
+# Python
 __pycache__/
+# ignoruje celý adresář "__pycache__"
 *.pyc
-./db.sqlite3
+# vechny soubory .pyc - soubory jsou zkompilované Python bytecode soubory
+
+# Django
+# ./db.sqlite3 # Nebude ignorovat soubory db.sqlite3 v podadresářích
 db.sqlite3
+
+# Virtual environment
 myVenv
-/myVenv/
+# /myVenv/ #bude ignorovat pouze adresář "myVenv" v kořenovém adresáři projektu.
+
+# IDEs
+.idea/
+
+# Soubory s tajnými klíči
+# *.secret

@@ -61,10 +61,13 @@ TEMPLATES = [
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
-                "django.template.context_processors.debug",
-                "django.template.context_processors.request",
-                "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.debug",  # Pro ladění
+                "django.template.context_processors.request",  # Obsahuje objekt request
+                "django.contrib.auth.context_processors.auth",  # Obsahuje informace o uživateli a oprávněních
+                "django.contrib.messages.context_processors.messages",  # Pro zprávy
+                "django.template.context_processors.i18n",  # Pro mezinárodní podporu
+                "django.template.context_processors.tz",  # Pro podporu časových pásem
+                "django.template.context_processors.static",  # Obsahuje STATIC_URL
             ],
         },
     },
