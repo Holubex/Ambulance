@@ -3,10 +3,13 @@
 {% block content %}
     <div class="content-wrapper">
         <h1>Smazat oznámení</h1>
-        <p>Ste si istý, že chcete smazat oznámení?"{{ object }}"?</p>
+        <!-- Zobrazí se potvrzovací zpráva pro smazání oznámení -->
+        <p>Jste si jistý, že chcete smazat oznámení?"{{ object }}"?</p>
         <form method="post">
             {% csrf_token %}
+            <!-- Tlačítko pro odeslání formuláře a smazání oznámení -->
             <button type="submit">Smazat</button>
+            <!-- Odkaz pro zrušení akce a návrat na seznam oznámení -->
             <a href="{% url 'announcement_list' %}">Zrušit</a>
         </form>
     </div>

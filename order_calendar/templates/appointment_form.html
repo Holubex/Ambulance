@@ -1,25 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <!-- Definice bloku obsahu, který bude nahrazen v základní šabloně -->
     <div class="content-wrapper">
+        <!-- Kontejner pro obsah s třídou "content-wrapper" -->
         <h1>{% if form.instance.pk %}Upravit termín objednání{% else %}Objednat pacienta{% endif %}</h1>
+        <!-- Podmíněné zobrazení nadpisu na základě toho, zda je instance formuláře uložena v databázi -->
         <form method="post">
+            <!-- Začátek formuláře s metodou POST pro odeslání dat -->
             {% csrf_token %}
+            <!-- Zabezpečovací token proti CSRF útokům -->
             {{ form.as_p }}
+            <!-- Zobrazení formuláře s použitím tagu as_p, který formátuje pole jako odstavce -->
             <button class="button" type="submit">
                 {% if form.instance.pk %}
                     Upravit
                 {% else %}
                     Vytvořit
                 {% endif %}
+                <!-- Podmíněné zobrazení textu tlačítka na základě toho, zda je instance formuláře uložena v databázi -->
             </button>
         </form>
     </div>
 
-    <!-- Include Flatpickr CSS -->
+    <!-- Přidání Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
-    <!-- Include Flatpickr JS -->
+    <!-- Přidání Flatpickr JS -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <script>
@@ -28,6 +35,7 @@
                 enableTime: false,
                 dateFormat: "Y-m-d",
             });
+            <!-- Inicializace Flatpickr pro element s ID "id_day" s formátem data a bez možnosti nastavení času -->
         });
     </script>
 {% endblock %}

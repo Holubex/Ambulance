@@ -1,20 +1,34 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <!-- Definice bloku obsahu, který bude nahrazen v základní šabloně -->
     <div class="content-wrapper">
+        <!-- Kontejner pro obsah s třídou "content-wrapper" -->
         <h1>Kalendář termínů objednaných pacientů</h1>
+        <!-- Nadpis stránky -->
         <div class="appointments-list">
+            <!-- Kontejner pro seznam objednání -->
             {% for appointment in appointments %}
+                <!-- Smyčka pro iteraci přes všechny objednání -->
                 <div class="appointment-item">
+                    <!-- Kontejner pro jednotlivé objednání -->
                     <h2>{{ appointment.service }}</h2>
+                    <!-- Název služby objednání -->
                     <p><strong>Doktor:</strong> {{ appointment.doctor.surname }} {{ appointment.doctor.name }}</p>
+                    <!-- Informace o doktorovi -->
                     <p><strong>Pacient:</strong> {{ appointment.patient.surname }} {{ appointment.patient.name }}</p>
+                    <!-- Informace o pacientovi -->
                     <p><strong>{{ appointment.day }} at {{ appointment.time }}</strong></p>
+                    <!-- Datum a čas objednání -->
                     <p>Vytvořeno: {{ appointment.time_ordered }}</p>
+                    <!-- Datum vytvoření objednání -->
                     {% if perms.order_calendar.change_appointment %}
                         <div class="appointment-actions">
+                            <!-- Kontejner pro akce s objednáním -->
                             <a href="{% url 'appointment_edit' appointment.pk %}">Upravit</a>
+                            <!-- Odkaz pro úpravu objednání -->
                             <a href="{% url 'appointment_delete' appointment.pk %}">Smazat</a>
+                            <!-- Odkaz pro smazání objednání -->
                         </div>
                     {% endif %}
                 </div>
@@ -22,7 +36,9 @@
         </div>
         {% if perms.order_calendar.add_appointment %}
             <div class="appointment-create">
+                <!-- Kontejner pro vytvoření nového objednání -->
                 <a href="{% url 'appointment_create' %}" class="button">Objednat pacienta</a>
+                <!-- Odkaz pro vytvoření nového objednání -->
             </div>
         {% endif %}
     </div>

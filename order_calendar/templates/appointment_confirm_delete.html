@@ -1,13 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <!-- Definice bloku obsahu, který bude nahrazen v základní šabloně -->
     <div class="content-wrapper">
+        <!-- Kontejner pro obsah s třídou "content-wrapper" -->
         <h1>Vymazat termín objednání</h1>
+        <!-- Nadpis stránky -->
         <p>Jste si jistí, že chcete tento termín objednání odstranit?</p>
+        <!-- Text potvrzení pro uživatele -->
         <form method="post">
+            <!-- Začátek formuláře s metodou POST pro odeslání dat -->
             {% csrf_token %}
+            <!-- Zabezpečovací token proti CSRF útokům -->
             <button class="button" type="submit">Potvrdit</button>
+            <!-- Tlačítko pro potvrzení akce -->
             <a href="{% url 'appointment_list' %}">Zrušit</a>
+            <!-- Odkaz pro zrušení akce, vrací uživatele zpět na seznam termínů objednání -->
         </form>
     </div>
 {% endblock %}

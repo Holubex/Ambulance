@@ -5,10 +5,10 @@ from medical_examination.models import MedicalExamination, Announcement
 
 class MedicalExaminationForm(ModelForm):
     class Meta:
-        model = MedicalExamination
-        fields = '__all__'
+        model = MedicalExamination  # Specifikuje model, se kterým bude formulář pracovat
+        fields = '__all__'  # Zahrne všechna pole z modelu do formuláře
         labels = {
-            'patient': 'Pacient',
+            'patient': 'Pacient',  # Nastavuje český štítek pro pole 'patient'
             'nurse': 'Zdravotní sestra',
             'doctor': 'Doktor',
             'current_complaints': 'Aktuální obtíže',
@@ -20,9 +20,9 @@ class MedicalExaminationForm(ModelForm):
 
 class AnnouncementForm(ModelForm):
     class Meta:
-        model = Announcement
-        fields = ['title', 'content']
+        model = Announcement  # Specifikuje model, se kterým bude formulář pracovat
+        fields = ['title', 'content']  # Zahrne pouze pole 'title' a 'content' do formuláře
         labels = {
-            'title': 'Nadpis',
+            'title': 'Nadpis',  # Nastavuje český štítek pro pole 'title'
             'content': 'Obsah',
         }

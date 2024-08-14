@@ -1,28 +1,29 @@
 {% extends "base.html" %}
 
-{% load static %}
+{% load static %}  {# Načtení statických souborů #}
 
-{% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+{% block head %}  {# Začátek bloku pro hlavičku stránky #}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">  {# Přidání odkazu na CSS soubor #}
 {% endblock %}
-{% block content %}
+
+{% block content %}  {# Začátek bloku s obsahem #}
     <div class="container">
         <h1>Seznam uživatelů</h1>
 
         <!-- Filtr na položky seznamu uživatelů -->
         <div class="filter">
-            <button onclick="filterUsers('all')">Všichni uživatelé</button>
-            <button onclick="filterUsers('patient')">Pacienti</button>
-            <button onclick="filterUsers('doctor')">Lékaři</button>
-            <button onclick="filterUsers('nurse')">Sestry</button>
+            <button onclick="filterUsers('all')">Všichni uživatelé</button>  {# Tlačítko pro filtrování všech uživatelů #}
+            <button onclick="filterUsers('patient')">Pacienti</button>  {# Tlačítko pro filtrování pacientů #}
+            <button onclick="filterUsers('doctor')">Lékaři</button>  {# Tlačítko pro filtrování lékařů #}
+            <button onclick="filterUsers('nurse')">Sestry</button>  {# Tlačítko pro filtrování sester #}
         </div>
 
         <!-- seznam uživatelů -->
         <ul class="user-list">
-            {% for user in patients %}
-                <li class="user-item {{ user.role_patient|lower }}">
+            {% for user in patients %}  {# Prochází seznam uživatelů #}
+                <li class="user-item {{ user.role_patient|lower }}">  {# Zobrazení uživatele s třídou podle role #}
                     <a href="{% url 'user_detail' user.id %}">
-                        <strong>{{ user.surname }} {{ user.name }}</strong>
+                        <strong>{{ user.surname }} {{ user.name }}</strong>  {# Odkaz na detail uživatele #}
                     </a>
                 </li>
             {% endfor %}
@@ -34,12 +35,12 @@
             var items = document.querySelectorAll('.user-item');
             items.forEach(function (item) {
                 if (role === 'all') {
-                    item.style.display = 'block';
+                    item.style.display = 'block';  {# Zobrazení všech položek #}
                 } else {
                     if (item.classList.contains(role)) {
-                        item.style.display = 'block';
+                        item.style.display = 'block';  {# Zobrazení položek s vybranou rolí #}
                     } else {
-                        item.style.display = 'none';
+                        item.style.display = 'none';  {# Skrytí položek s jinou rolí #}
                     }
                 }
             });

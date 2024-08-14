@@ -1,19 +1,29 @@
 # Python
 __pycache__/
-# ignoruje celý adresář "__pycache__"
+# Ignoruje celý adresář "__pycache__", kde Python ukládá zkompilované soubory
+
 *.pyc
-# vechny soubory .pyc - soubory jsou zkompilované Python bytecode soubory
+# Ignoruje všechny soubory s příponou .pyc, což jsou zkompilované Python bytecode soubory
 
 # Django
-# ./db.sqlite3 # Nebude ignorovat soubory db.sqlite3 v podadresářích
+# ./db.sqlite3 # Nepoužíváme, protože by to ignorovalo db.sqlite3 pouze v aktuálním adresáři
 db.sqlite3
+# Ignoruje soubor db.sqlite3, což je SQLite databáze používaná Django (v kořenovém adresáři projektu)
 
 # Virtual environment
 myVenv
-# /myVenv/ #bude ignorovat pouze adresář "myVenv" v kořenovém adresáři projektu.
+# Ignoruje adresář "myVenv", což je název složky pro virtuální prostředí, které může být vytvořeno při instalaci balíčků
 
 # IDEs
 .idea/
+# Ignoruje adresář ".idea", který je vytvářen IDE (např. PyCharm) a obsahuje projektová nastavení a metadata
 
 # Soubory s tajnými klíči
 # *.secret
+# (Komentováno) Ignoruje všechny soubory s příponou .secret, které mohou obsahovat tajné klíče nebo citlivé informace
+
+*.imp
+# Ignoruje všechny soubory s příponou .imp, pokud jsou používány jako dočasné soubory nebo přechodné soubory
+
+*.xml
+# Ignoruje všechny soubory s příponou .xml, pokud nejsou potřebné v repozitáři

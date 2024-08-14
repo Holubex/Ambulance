@@ -3,15 +3,21 @@
 {% block content %}
     <div class="content-wrapper">
         <h1>Aktuality</h1>
+        <!-- Seznam všech aktualit -->
         <ul class="announcement-list">
             {% for announcement in announcements %}
                 <li class="announcement-item">
+                    <!-- Název aktuality -->
                     <h2>{{ announcement.title }}</h2>
+                    <!-- Obsah aktuality -->
                     <p>{{ announcement.content }}</p>
+                    <!-- Datum vytvoření aktuality -->
                     <p><small>{{ announcement.created_at }}</small></p>
+                    <!-- Odkaz pro úpravu aktuality, pokud má uživatel potřebná práva -->
                     {% if perms.medical_examination.change_announcement %}
                         <a href="{% url 'announcement_edit' announcement.pk %}">Upravit</a>
                     {% endif %}
+                    <!-- Odkaz pro smazání aktuality, pokud má uživatel potřebná práva -->
                     {% if perms.medical_examination.delete_announcement %}
                         <a href="{% url 'announcement_delete' announcement.pk %}">Smazat</a>
                     {% endif %}
@@ -20,3 +26,4 @@
         </ul>
     </div>
 {% endblock %}
+

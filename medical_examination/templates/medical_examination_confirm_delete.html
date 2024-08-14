@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Potvrzení smazání</h1>
-<p>Opravdu chcete smazat toto vyšetření?</p>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Ano, smazat</button>
-    <a href="{% url 'medical_examination_list' %}">Zpět</a>
-</form>
+    <!-- Nadpis pro potvrzení smazání -->
+    <h1>Potvrzení smazání</h1>
+    <!-- Potvrzovací zpráva pro smazání vyšetření -->
+    <p>Opravdu chcete smazat toto vyšetření?</p>
+    <form method="post">
+        {% csrf_token %}
+        <!-- Tlačítko pro potvrzení smazání vyšetření -->
+        <button type="submit">Ano, smazat</button>
+        <!-- Odkaz pro návrat na seznam vyšetření bez smazání -->
+        <a href="{% url 'medical_examination_list' %}">Zpět</a>
+    </form>
 {% endblock %}

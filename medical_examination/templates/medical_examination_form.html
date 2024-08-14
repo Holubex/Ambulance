@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{ form_action }}</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="button">Uložit</button>
-</form>
+    <!-- Nadpis se mění podle akce formuláře -->
+    <h1>{{ form_action }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <!-- Zobrazení formuláře -->
+        {{ form.as_p }}
+        <!-- Tlačítko pro uložení formuláře -->
+        <button type="submit" class="button">Uložit</button>
+    </form>
 {% endblock %}

@@ -2,17 +2,22 @@
 
 {% block content %}
     <div class="content-wrapper">
+        <!-- Nadpis pro podrobnosti vyšetření -->
         <h1>Podrobnosti vyšetření</h1>
         <div class="field-value">
+            <!-- Zobrazení jména pacienta -->
             <p><strong>Pacient:</strong> {{ medical_examination.patient }}</p>
         </div>
         <div class="field-value">
+            <!-- Zobrazení jména sestry -->
             <p><strong>Sestřička:</strong> {{ medical_examination.nurse }}</p>
         </div>
         <div class="field-value">
+            <!-- Zobrazení jména lékaře -->
             <p><strong>Lékař:</strong> {{ medical_examination.doctor }}</p>
         </div>
         <div class="field-value">
+            <!-- Zobrazení současných obtíží -->
             <p><strong>Nynější obtíže:</strong>
                 {% if medical_examination.current_complaints %}
                     {{ medical_examination.current_complaints }}
@@ -22,6 +27,7 @@
             </p>
         </div>
         <div class="field-value">
+            <!-- Zobrazení objektivních nálezů -->
             <p><strong>Objektivní stav:</strong>
                 {% if medical_examination.objective_findings %}
                     {{ medical_examination.objective_findings }}
@@ -31,6 +37,7 @@
             </p>
         </div>
         <div class="field-value">
+            <!-- Zobrazení diagnózy -->
             <p><strong>Diagnóza:</strong>
                 {% if medical_examination.diagnosis %}
                     {{ medical_examination.diagnosis }}
@@ -40,9 +47,11 @@
             </p>
         </div>
         <div class="field-value">
+            <!-- Zobrazení data vyšetření -->
             <p><strong>Datum vyšetření:</strong> {{ medical_examination.examination_date }}</p>
         </div>
         <div class="field-value">
+            <!-- Zobrazení předepsaného receptu -->
             <p><strong>Recept:</strong>
                 {% if medical_examination.prescription %}
                     {{ medical_examination.prescription }}

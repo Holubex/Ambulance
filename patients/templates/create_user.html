@@ -4,23 +4,23 @@
     <div class="content-wrapper">
         <h1>Nový uživatel</h1>
 
-        {% if form.errors %}
+        {% if form.errors %}  {# Kontrola, zda formulář obsahuje chyby #}
             <div class="alert alert-danger">
                 <strong>Chyba!</strong> Prosím, opravte následující chyby:
                 <ul>
-                    {% for field, errors in form.errors.items %}
-                        {% for error in errors %}
-                            <li>{{ error }}</li>
+                    {% for field, errors in form.errors.items %}  {# Prochází chyby ve formuláři #}
+                        {% for error in errors %}  {# Prochází jednotlivé chyby pro každé pole #}
+                            <li>{{ error }}</li>  {# Zobrazení jednotlivých chyb #}
                         {% endfor %}
                     {% endfor %}
                 </ul>
             </div>
         {% endif %}
 
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="button" type="submit">Vytvořit</button>
+        <form method="post">  {# Začátek formuláře, který odesílá data metodou POST #}
+            {% csrf_token %}  {# Zabezpečení formuláře proti CSRF útokům #}
+            {{ form.as_p }}  {# Zobrazení formuláře jako odstavců #}
+            <button class="button" type="submit">Vytvořit</button>  {# Tlačítko pro odeslání formuláře #}
         </form>
     </div>
 {% endblock %}

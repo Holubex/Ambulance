@@ -1,538 +1,543 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
+/* Globální nastavení fontu, barvy a pozadí */
 body {
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif; /* Nastavení písma */
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    color: #555;
-    background-color: #f4f4f4;
+    line-height: 1.6; /* Výška řádku */
+    color: #555; /* Barva textu */
+    background-color: #f4f4f4; /* Barva pozadí */
 }
 
+/* Styl pro informace o lékaři */
 .doctor-info {
-    margin-bottom: 30px; /* spodní okraj nastavíme na 30px, aby byla mezera */
+    margin-bottom: 30px; /* Mezera na spodní části */
 }
 
 .doctor-info h2 {
-    color: darkorange;
-    text-align: left;
-    margin-bottom: 6px;
+    color: darkorange; /* Barva nadpisu h2 */
+    text-align: left; /* Zarovnání textu vlevo */
+    margin-bottom: 6px; /* Mezera na spodní části */
 }
 
 .doctor-info h3 {
-    color: #0756B5FF;
-    text-align: left;
-    margin-top: 0;
+    color: #0756B5FF; /* Barva nadpisu h3 */
+    text-align: left; /* Zarovnání textu vlevo */
+    margin-top: 0; /* Žádná mezera na vrchu */
 }
 
+/* Styl pro čáru za telefonním číslem */
 .phone-number::after {
     content: "";
     display: block;
-    width: 110%; /* 100% width of the h3 plus 10px extra */
-    height: 1px; /* Thickness of the line */
-    background-color: #ddd; /* Light grey color */
-    margin: 10px auto; /* Vertical spacing */
-    transform: translateX(-5%); /* Centering adjustment */
+    width: 110%; /* Šířka čáry */
+    height: 1px; /* Výška čáry */
+    background-color: #ddd; /* Barva čáry */
+    margin: 10px auto; /* Mezery nad a pod čárou */
+    transform: translateX(-5%); /* Posunutí pro vycentrování */
 }
 
-
+/* Styl pro seznam schůzek */
 .appointments-list {
-    /* Zajistí, že seznam nemá žádné předdefinované styly seznamu */
+    /* Odstranění výchozího stylu seznamu */
 }
 
 .appointment-item {
-    /* Styl pro každý jednotlivý záznam v seznamu */
-    margin-bottom: 20px; /* Můžete upravit podle potřeby */
-    border-bottom: 1px solid #ddd; /* Oddělení jednotlivých záznamů */
-    padding-bottom: 10px; /* Vzdálenost od spodního okraje */
+    margin-bottom: 20px; /* Mezery mezi jednotlivými položkami */
+    border-bottom: 1px solid #ddd; /* Čára mezi položkami */
+    padding-bottom: 10px; /* Mezera na spodní části položky */
 }
 
-.appointment-item h2{
-    /* Styl pro každý jednotlivý záznam v seznamu */
-    text-align: left !important; /* Explicitně zarovná text vlevo */
-    color: #acc8d7;
+.appointment-item h2 {
+    text-align: left !important; /* Explicitní zarovnání textu vlevo */
+    color: #acc8d7; /* Barva nadpisu h2 */
 }
 
+/* Styl pro akce schůzky */
 .appointment-actions {
-    margin-bottom: 50px; /* Adjust this value as needed for desired spacing */
+    margin-bottom: 50px; /* Mezery na spodní části */
 }
 
 .appointment-actions a {
-    margin-right: 10px; /* Space between "Upravit" and "Smazat" buttons */
+    margin-right: 10px; /* Mezera mezi tlačítky */
 }
 
+/* Styl pro tlačítko vytvoření schůzky */
 .appointment-create {
-    display: flex;        /* Use flexbox for centering */
-    justify-content: center;  /* Center horizontally */
-    margin-top: 50px;     /* Space above the button */
+    display: flex; /* Použití flexboxu */
+    justify-content: center; /* Horizontální vycentrování */
+    margin-top: 50px; /* Mezery na vrchu */
 }
 
+/* Styl pro obalový kontejner */
 .content-wrapper {
-    max-width: 1200px; /* nastavime sirku  dle potřeby 960px - max 1200px */
-    margin: 0 auto; /* vycentruje kontejner na strance */
-    padding: 20px;
+    max-width: 1200px; /* Maximální šířka kontejneru */
+    margin: 0 auto; /* Vycentrování kontejneru */
+    padding: 20px; /* Vnitřní odsazení */
     width: 100%;
-    box-sizing: border-box;
-    background-color: white; /* pozadi obsahu */
+    box-sizing: border-box; /* Zahrnutí paddingu do šířky */
+    background-color: white; /* Barva pozadí kontejneru */
 }
 
+/* Styl pro horní část hlavičky */
 .header-top {
-    background-color: #fdfdd3; /* Barva horního pruhu */
+    background-color: #fdfdd3; /* Barva pozadí */
     width: 100%;
-    padding: 10px 0;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between; /* Zarovnání prvků od kraje ke kraji */
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto; /* vycentruje kontejner na strance */
-    flex-wrap: wrap; /* Přidáno pro správné přizpůsobení obsahu */
+    padding: 10px 0; /* Vnitřní odsazení */
+    box-sizing: border-box; /* Zahrnutí paddingu do šířky */
+    display: flex; /* Použití flexboxu */
+    justify-content: space-between; /* Rozložení prvků */
+    align-items: center; /* Vertikální vycentrování */
+    max-width: 1200px; /* Maximální šířka */
+    margin: 0 auto; /* Vycentrování */
+    flex-wrap: wrap; /* Přizpůsobení obsahu */
 }
 
+/* Styl pro logo a název */
 .logo-name {
-    order: 1; /* umisteni loga nalevo */
-    display: flex;
+    order: 1; /* Umístění vlevo */
+    display: flex; /* Flexbox pro zarovnání */
     align-items: center;
-    margin-left: 10px;
+    margin-left: 10px; /* Mezery vlevo */
 }
 
 .logo-name img {
-    margin-right: 10px;
-    margin-left: 10px; /* mezera od levého okraje */
+    margin-right: 10px; /* Mezera vpravo od obrázku */
+    margin-left: 10px; /* Mezera vlevo od obrázku */
 }
 
 .logo-name span {
-    font-size: 0.9em;
-    color: #555;
+    font-size: 0.9em; /* Velikost písma */
+    color: #555; /* Barva textu */
 }
 
+/* Styl pro přihlašovací sekci */
 .login {
-    order: 2; /* Umístí login napravo stranu */
-    margin-right: 15px;
+    order: 2; /* Umístění vpravo */
+    margin-right: 15px; /* Mezery vpravo */
 }
 
-.login a { /* Styly pro tlačítko Login */
-    display: flex;
+.login a { /* Styl pro přihlašovací odkaz */
+    display: flex; /* Flexbox pro zarovnání */
     align-items: center;
-    color: #acc8d7;
-    text-decoration: none;
-    font-weight: bold;
-    /*margin-right: 10px;  !* eliminujeme mezeru - prouzek *!*/
+    color: #acc8d7; /* Barva textu */
+    text-decoration: none; /* Odstranění podtržení */
+    font-weight: bold; /* Tučné písmo */
+    /*margin-right: 10px; !* Eliminace mezery *!*/
 }
 
 .login a:hover {
-    color: orange;
+    color: orange; /* Barva textu při hover */
 }
 
 .login i {
-    margin-right: 5px;
+    margin-right: 5px; /* Mezera vpravo od ikony */
 }
 
+/* Styl pro spodní část hlavičky */
 .header-bottom {
-    /*background-color: #e6e6e6; !* Pastelově šedá barva *!*/
-    /*background-color: #C4d8e2;*/
-    background-color: #ffd9B3;
+    background-color: #ffd9B3; /* Barva pozadí */
     width: 100%;
-    padding: 10px 0;
-    box-sizing: border-box;
-    margin: 0 auto;
-    /*height: 45px;  !*pouzili jsme padding misto pevne vysky*!*/
-    display: flex;
-    justify-content: center; /* vycentrovani obsahu */
-    align-items: center;
-    flex-wrap: wrap;
+    padding: 10px 0; /* Vnitřní odsazení */
+    box-sizing: border-box; /* Zahrnutí paddingu do šířky */
+    margin: 0 auto; /* Vycentrování */
+    display: flex; /* Flexbox pro zarovnání */
+    justify-content: center; /* Vycentrování obsahu */
+    align-items: center; /* Vertikální vycentrování */
+    flex-wrap: wrap; /* Přizpůsobení obsahu */
 }
 
+/* Styl pro menu */
 .menu {
     width: 100%;
 }
 
 .menu ul {
-    display: flex;
-    /*justify-content: space-between; !* Zarovnání prvků na střed *!*/
-    justify-content: center;
-    list-style-type: none;
+    display: flex; /* Flexbox pro položky */
+    justify-content: center; /* Vycentrování položek */
+    list-style-type: none; /* Odstranění výchozího stylu seznamu */
     margin: 0;
     padding: 0;
     width: 100%;
-    /*height: 100%; !* Zajistí, že ul roste dle obsahu *!*/
-    /*min-height: 50px;*/
-    box-sizing: border-box;
-    flex-wrap: wrap; /* pridano pro spravne prizpusobeni obsahu*/
+    box-sizing: border-box; /* Zahrnutí paddingu do šířky */
+    flex-wrap: wrap; /* Přizpůsobení obsahu */
 }
 
 .menu li {
-    margin: 0 15px;
+    margin: 0 15px; /* Mezery mezi položkami */
     height: 100%;
 }
 
 .menu a {
-    text-decoration: none;
-    color: #446879;
-    font-weight: bold;
-    padding: 10px 15px;
-    transition: background-color 0.3s;
-    display: flex; /*zobrazi odkaz jako blokovy element pokud zadame 'block'*/
+    text-decoration: none; /* Odstranění podtržení */
+    color: #446879; /* Barva textu */
+    font-weight: bold; /* Tučné písmo */
+    padding: 10px 15px; /* Vnitřní odsazení */
+    transition: background-color 0.3s; /* Přechod pro změnu barvy pozadí */
+    display: flex; /* Flexbox pro zarovnání */
     align-items: center;
-    /*height: 100%;*/
-    box-sizing: border-box; /* sirska odkazu navaze na rodicovskou sirku*/
+    box-sizing: border-box; /* Zahrnutí paddingu do šířky */
 }
 
 .menu a:hover {
-    background-color: orange;
-    color: #ffffcc;
-    /*text-decoration: underline;*/
+    background-color: orange; /* Barva pozadí při hover */
+    color: #ffffcc; /* Barva textu při hover */
+    /*text-decoration: underline; !* Podtržení při hover *!*/
 }
 
+/* Styl pro nadpisy h1, h2 a h3 */
 h1 {
-    /*color: #446879; !* Nastavíme barvu nadpisů *!*/
-    color: #608FB7;
-    text-align: center; /* Zarovnáme nadpisy na střed */
+    color: #608FB7; /* Barva nadpisu h1 */
+    text-align: center; /* Zarovnání na střed */
 }
 
 h2 {
-    color: #acc8d7; /* Nastavíme barvu nadpisů */
-    text-align: left; /* Zarovnáme nadpisy na střed */
+    color: #acc8d7; /* Barva nadpisu h2 */
+    text-align: left; /* Zarovnání vlevo */
 }
 
 h3 {
-    color: #7a97b6;
-    text-align: center;
+    color: #7a97b6; /* Barva nadpisu h3 */
+    text-align: center; /* Zarovnání na střed */
 }
 
+/* Styl pro hlavní obsah */
 main {
-    padding: 0; /* Zrušení paddingu na main pro eliminaci mezery !!!! */
+    padding: 0; /* Odstranění vnitřního odsazení */
 }
 
+/* Styl pro patičku */
 footer {
-    background-color: #333;
-    color: #ffffcc;
-    /*text-align: center;*/
-    padding: 20px 0;
-    /*position: relative;*/
+    background-color: #333; /* Barva pozadí */
+    color: #ffffcc; /* Barva textu */
+    padding: 20px 0; /* Vnitřní odsazení */
+    /*position: relative; !* Nastavení pozice, pokud je potřeba *!*/
 }
 
 .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
+    max-width: 1200px; /* Maximální šířka obsahu */
+    margin: 0 auto; /* Vycentrování obsahu */
+    text-align: center; /* Zarovnání textu na střed */
 }
 
 .health-insurance-logos img {
-    max-height: 40px;
-    margin: 10px;
+    max-height: 40px; /* Maximální výška loga */
+    margin: 10px; /* Mezery kolem loga */
 }
 
 .footer-credits {
-    background-color: #7393B3;
-    color: #333;
-    padding: 3px 0;
-    font-size: 0.9em;
-    text-align: center;
-    line-height: 1.4;
+    background-color: #7393B3; /* Barva pozadí */
+    color: #333; /* Barva textu */
+    padding: 3px 0; /* Vnitřní odsazení */
+    font-size: 0.9em; /* Velikost písma */
+    text-align: center; /* Zarovnání textu na střed */
+    line-height: 1.4; /* Výška řádku */
 }
 
-/* Styly pro formulare, napr.pro 'medical_examination_form.html' */
+/* Styly pro formuláře */
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Mezery mezi formulářovými skupinami */
 }
 
 label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
+    font-weight: bold; /* Tučné písmo */
+    margin-bottom: 5px; /* Mezera pod štítkem */
+    display: block; /* Blokový prvek */
 }
 
 input, textarea, select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+    width: 100%; /* Šířka prvku */
+    padding: 10px; /* Vnitřní odsazení */
+    margin-top: 5px; /* Mezera nad prvkem */
+    border: 1px solid #ccc; /* Okraj */
+    border-radius: 5px; /* Zaoblení rohů */
+    box-sizing: border-box; /* Zahrnutí paddingu do šířky */
 }
 
+/* Styl pro kontejnery tlačítek */
 .button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: flex; /* Flexbox pro zarovnání */
+    flex-direction: column; /* Sloupcové uspořádání */
+    align-items: center; /* Vycentrování */
 }
 
+/* Styl pro řádky tlačítek */
 .button-row {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5px;
+    display: flex; /* Flexbox pro zarovnání */
+    justify-content: center; /* Vycentrování */
+    margin-bottom: 5px; /* Mezera pod řádkem tlačítek */
 }
 
 .button-row:last-child {
-    margin-bottom: 0;
+    margin-bottom: 0; /* Odstranění mezery pod posledním řádkem */
 }
 
-/* Výchozí styly tlačítka */
+/* Výchozí styl pro tlačítka */
 .button {
-    margin: 0 5px;
-    padding: 10px 20px;
-    background-color: #7393B3;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    border: none; /* Odstranit defaultní okraje u button */
-    font-size: 16px; /* Nastavení velikosti písma */
-    transition: background-color 0.3s, color 0.3s;
+    margin: 0 5px; /* Mezery mezi tlačítky */
+    padding: 10px 20px; /* Vnitřní odsazení */
+    background-color: #7393B3; /* Barva pozadí */
+    color: white; /* Barva textu */
+    text-decoration: none; /* Odstranění podtržení */
+    border-radius: 5px; /* Zaoblení rohů */
+    border: none; /* Odstranění okrajů */
+    font-size: 16px; /* Velikost písma */
+    transition: background-color 0.3s, color 0.3s; /* Přechody pro změnu barvy */
 }
 
-/* Hover efekt pro všechna tlačítka */
+/* Hover efekt pro tlačítka */
 .button:hover {
-    background-color: orange !important;
-    color: #ffffcc !important;
+    background-color: orange !important; /* Barva pozadí při hover */
+    color: #ffffcc !important; /* Barva textu při hover */
 }
 
 div .button:hover {
-    background-color: orange;
-    color: #ffffcc;
+    background-color: orange; /* Barva pozadí při hover */
+    color: #ffffcc; /* Barva textu při hover */
 }
 
 .content-wrapper .button-row:nth-child(1) .button:hover {
-    background-color: orange !important;
-    color: #ffffcc !important;
+    background-color: orange !important; /* Barva pozadí při hover pro první řádek */
+    color: #ffffcc !important; /* Barva textu při hover pro první řádek */
 }
 
-/* Specifické styly pro druhý řádek tlačítek */
+/* Styl pro druhý řádek tlačítek */
 .button-row:nth-child(2) .button {
-    background-color: #a4bbd0 !important; /* Specifická barva pozadí pro druhý řádek */
-    color: white !important; /* Barva textu pro tlačítka druhého řádku */
+    background-color: #a4bbd0 !important; /* Barva pozadí pro druhý řádek */
+    color: white !important; /* Barva textu pro druhý řádek */
 }
 
-/*!* Další specifikace pro cílení na nth-child *!*/
-/*.content-wrapper .button-row:nth-child(2) .button {*/
-/*    background-color: #f0b49f !important; !* Ujistěte se, že se aplikuje na správná tlačítka *!*/
-/*    color: #333333 !important;*/
-/*}*/
-
+/* Specifické styly pro druhý řádek tlačítek při hover */
 .content-wrapper .button-row:nth-child(2) .button:hover {
-    background-color: orange !important;
-    color: #ffffcc !important;
+    background-color: orange !important; /* Barva pozadí při hover */
+    color: #ffffcc !important; /* Barva textu při hover */
 }
 
-/* Styly pro tabulku, napr.pro 'medical_examination_list.html' */
+/* Styl pro tabulky */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
+    width: 100%; /* Šířka tabulky */
+    border-collapse: collapse; /* Složit okraje */
+    margin: 20px 0; /* Mezery nad a pod tabulkou */
 }
 
 table th, table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
+    border: 1px solid #ccc; /* Okraj buněk */
+    padding: 10px; /* Vnitřní odsazení */
+    text-align: left; /* Zarovnání textu vlevo */
 }
 
 table th {
-    background-color: #f4f4f4;
-    font-weight: bold;
+    background-color: #f4f4f4; /* Barva pozadí hlaviček */
+    font-weight: bold; /* Tučné písmo */
 }
 
 table tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* Barva pozadí sudých řádků */
 }
 
 table a {
-    color: darkorange;
-    text-decoration: none;
+    color: darkorange; /* Barva textu odkazů */
+    text-decoration: none; /* Odstranění podtržení */
 }
 
 table a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Podtržení při hover */
 }
 
-/* Aktuální oznámení na webu - 'announcement_list.html'*/
+/* Styl pro oznámení */
 .announcement-list {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* Odstranění bulletů */
+    padding: 0; /* Odstranění paddingu */
 }
 
 .announcement-item {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Mezery mezi oznámeními */
 }
 
 .announcement-item h2 {
-    color: orange;
-    text-transform: uppercase; /* Převést text na velká písmena */
-    text-align: left; /* Zarovnat text doleva */
-    margin-bottom: 10px;
+    color: orange; /* Barva nadpisu oznámení */
+    text-transform: uppercase; /* Velká písmena */
+    text-align: left; /* Zarovnání vlevo */
+    margin-bottom: 10px; /* Mezera pod nadpisem */
 }
 
 .announcement-item p {
-    margin: 0 0 10px 0;
+    margin: 0 0 10px 0; /* Mezera pod odstavcem */
 }
 
 .announcement-item small {
-    display: block;
-    margin-bottom: 10px;
-    color: #777;
+    display: block; /* Blokový prvek */
+    margin-bottom: 10px; /* Mezera pod malým textem */
+    color: #777; /* Barva textu */
 }
 
+/* Styl pro chyby */
 .errors {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
+    background-color: #f8d7da; /* Barva pozadí */
+    color: #721c24; /* Barva textu */
+    padding: 10px; /* Vnitřní odsazení */
+    margin-top: 10px; /* Mezera nad chybou */
+    border-radius: 5px; /* Zaoblení rohů */
 }
 
-/* Styly pouze o design stránky users_list.html */
+/* Styl pro design stránky seznamu uživatelů */
 .container {
-    margin: 20px auto;
-    max-width: 800px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Mezery kolem kontejneru */
+    max-width: 800px; /* Maximální šířka kontejneru */
+    padding: 20px; /* Vnitřní odsazení */
+    background-color: #ffffff; /* Barva pozadí */
+    border-radius: 8px; /* Zaoblení rohů */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Stín kontejneru */
 }
 
 h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #446879;
+    font-size: 2em; /* Velikost písma */
+    margin-bottom: 20px; /* Mezera pod nadpisem */
+    text-align: center; /* Zarovnání na střed */
+    color: #446879; /* Barva textu */
 }
 
-/* pouzijeme pro filtracni formular medical_examination_list */
+/* Styl pro filtraci formuláře */
 .filter {
-    margin-bottom: 20px;
-    text-align: center;
-    white-space: nowrap; /* <<<<????? */
+    margin-bottom: 20px; /* Mezera pod filtrem */
+    text-align: center; /* Zarovnání na střed */
+    /*white-space: nowrap; !* Nezalamuje text do nového řádku *!*/
 }
 
 .filter-form {
-    display: flex;
+    display: flex; /* Flexbox pro zarovnání */
     /*flex-wrap: wrap;*/
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
+    gap: 10px; /* Mezery mezi prvky */
+    align-items: center; /* Vertikální zarovnání */
+    justify-content: center; /* Horizontální vycentrování */
 }
 
 .filter-form p {
-    margin: 0;
-    flex: 1;
+    margin: 0; /* Odstranění marginu */
+    flex: 1; /* Flexibilní šířka */
 }
 
 .filter-form button {
-    flex-shrink: 0;
+    flex-shrink: 0; /* Prevence zmenšování tlačítek */
 }
 
-/*h1 {*/
-/*    font-size: 2em;*/
-/*    margin-bottom: 20px;*/
-/*    text-align: center;*/
-/*    color: #446879;*/
-/*}*/
-
-/* pouzijeme pro filtracni formular medical_examination_list */
+/* Styl pro filtrační tlačítka */
 .filter {
-    margin-bottom: 20px;
-    text-align: center;
-    /*white-space: nowrap; !* <<<<????? *!*/
+    margin-bottom: 20px; /* Mezera pod filtrem */
+    text-align: center; /* Zarovnání na střed */
+    /*white-space: nowrap; !* Nezalamuje text do nového řádku *!*/
 }
 
 .filter input, .filter select {
-    margin: 0 5px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    margin: 0 5px; /* Mezery mezi prvky */
+    padding: 5px; /* Vnitřní odsazení */
+    border-radius: 5px; /* Zaoblení rohů */
+    border: 1px solid #ccc; /* Okraj */
 }
 
 .filter button {
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    color: white;
-    background-color: #7393B3;
-    transition: background-color 0.3s, color 0.3s;
+    padding: 10px 20px; /* Vnitřní odsazení */
+    margin: 5px; /* Mezery kolem tlačítka */
+    border: none; /* Odstranění okrajů */
+    border-radius: 5px; /* Zaoblení rohů */
+    cursor: pointer; /* Změna kurzoru na ruku */
+    font-size: 16px; /* Velikost písma */
+    color: white; /* Barva textu */
+    background-color: #7393B3; /* Barva pozadí */
+    transition: background-color 0.3s, color 0.3s; /* Přechody pro barvy */
 }
 
-/* Adjust colors for specific buttons */
+/* Barvy pro specifická filtrační tlačítka */
 .filter button:nth-child(1) {
-    background-color: #fbf3bc;
-    color: #333333;
+    background-color: #fbf3bc; /* Barva pozadí prvního tlačítka */
+    color: #333333; /* Barva textu prvního tlačítka */
 }
 
 .filter button:nth-child(2) {
-    background-color: #f0b49f;
-    color: #333333;
+    background-color: #f0b49f; /* Barva pozadí druhého tlačítka */
+    color: #333333; /* Barva textu druhého tlačítka */
 }
 
 .filter button:nth-child(3) {
-    background-color: #a486ad;
-    color: #333333;
+    background-color: #a486ad; /* Barva pozadí třetího tlačítka */
+    color: #333333; /* Barva textu třetího tlačítka */
 }
 
 .filter button:nth-child(4) {
-    background-color: #9fb6ca;
-    color: #333333;
+    background-color: #9fb6ca; /* Barva pozadí čtvrtého tlačítka */
+    color: #333333; /* Barva textu čtvrtého tlačítka */
 }
 
+/* Hover efekt pro filtrační tlačítka */
 .filter button:hover {
-    background-color: orange;
-    color: #ffffcc;
+    background-color: orange; /* Barva pozadí při hover */
+    color: #ffffcc; /* Barva textu při hover */
 }
 
+/* Styl pro seznam uživatelů */
 .user-list {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* Odstranění bulletů */
+    padding: 0; /* Odstranění paddingu */
 }
 
 .user-item {
-    padding: 10px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
+    padding: 10px; /* Vnitřní odsazení */
+    margin-bottom: 10px; /* Mezera pod položkou */
+    border-bottom: 1px solid #ccc; /* Okraj pod položkou */
 }
 
 .user-item a {
-    text-decoration: none;
-    color: darkorange;
+    text-decoration: none; /* Odstranění podtržení */
+    color: darkorange; /* Barva textu odkazu */
 }
 
 .user-item a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Podtržení odkazu při hover */
 }
 
 .user-item strong {
-    color: #333;
-    font-weight: bold;
+    color: #333; /* Barva textu */
+    font-weight: bold; /* Tučné písmo */
 }
 
-@media (max-width: 768px) {
+/* Responsivní styly pro mobilní zařízení */
+/* Styl pro zařízení s šířkou obrazovky od 769px do 1024px (např. tablety) */
+@media (min-width: 769px) and (max-width: 1024px) {
     .header-top {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .login {
-        margin-left: 0;
-        margin-top: 10px;
+        padding: 10px 0; /* Větší padding pro tablety */
+        flex-direction: column; /* Zarovnání prvků pod sebou */
+        text-align: center; /* Centrum textu */
     }
 
     .menu ul {
-        flex-direction: column;
-        align-items: center;
-        /*min-height: auto;*/
-        width: 100%
+        flex-direction: row; /* Zarovnání menu položek horizontálně */
+        justify-content: center; /* Centrum položek */
     }
 
     .menu li {
-        width: 100%;
-        margin: 5px 0;
-        /*height: auto;*/
+        margin: 0 10px; /* Větší mezera mezi položkami menu */
     }
 
     .menu a {
-        width: 100%;
-        padding: 10px 0;
-        justify-content: center;
-        /*height: auto;*/
+        padding: 10px 15px; /* Větší padding pro odkazy */
+        font-size: 16px; /* Větší velikost písma */
+    }
+}
+
+/* Styl pro zařízení s šířkou obrazovky menší než 480px (např. mobilní telefony) */
+@media (max-width: 480px) {
+    .header-top {
+        padding: 5px 0; /* Menší padding */
+    }
+
+    .menu a {
+        padding: 8px 0; /* Menší padding pro odkazy */
+        font-size: 14px; /* Menší velikost písma */
+    }
+
+    .button {
+        padding: 8px 16px; /* Menší padding pro tlačítka */
+        font-size: 14px; /* Menší velikost písma */
     }
 }

@@ -2,17 +2,20 @@
 
 {% block content %}
     <div class="content-wrapper">
+        <!-- Nadpis seznamu vyšetření -->
         <h1>Seznam lékařských vyšetření</h1>
-    
+
         <div class="filter">
+            <!-- Formulář pro filtrování vyšetření -->
             <form method="get" class="filter-form">
                 {{ filter_form.as_p }}
                 <button type="submit">Filtrovat</button>
-            </form>            
+            </form>
         </div>
         <table>
             <thead>
             <tr>
+                <!-- Hlavička tabulky s názvy sloupců -->
                 <th>Pacient</th>
                 <th>Sestřička</th>
                 <th>Lékař</th>
@@ -21,23 +24,29 @@
             </tr>
             </thead>
             <tbody>
+            <!-- Iterace přes všechna vyšetření -->
             {% for examination in examinations %}
                 <tr>
+                    <!-- Zobrazení informací o vyšetření v tabulce -->
                     <td>{{ examination.patient.surname }} {{ examination.patient.name }}</td>
                     <td>{{ examination.nurse.surname }} {{ examination.nurse.name }}</td>
                     <td>{{ examination.doctor.surname }} {{ examination.doctor.name }}</td>
                     <td>{{ examination.examination_date }}</td>
                     <td>
+                        <!-- Odkaz na detail vyšetření -->
                         <a href="{% url 'medical_examination_detail' examination.id %}">Detail</a>
+                        <!-- Odkaz na úpravu vyšetření, pokud má uživatel práva -->
                         {% if perms.medical_examination.change_medicalexamination %}
                             <a href="{% url 'medical_examination_edit' examination.id %}">Upravit</a>
                         {% endif %}
+                        <!-- Odkaz na smazání vyšetření, pokud má uživatel práva -->
                         {% if perms.medical_examination.delete_medicalexamination %}
                             <a href="{% url 'medical_examination_delete' examination.id %}">Smazat</a>
                         {% endif %}
                     </td>
                 </tr>
             {% empty %}
+                <!-- Zpráva v případě, že nejsou nalezena žádná vyšetření -->
                 <tr>
                     <td colspan="5">Žádná vyšetření nenalezena.</td>
                 </tr>

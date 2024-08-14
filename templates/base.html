@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psychiatrie Hnídek</title>
+    <!-- Načtení vlastního stylu z umístění ve statických souborech -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- Načtení externí knihovny stylů Font Awesome pro ikony -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
+<!-- Vložení obsahu navigačního menu z externí šablony -->
 {% include 'nav.html' %}
 <main>
     <div class="content-wrapper">
@@ -16,6 +19,7 @@
         {% endblock %}
     </div>
 </main>
+<!-- Vložení obsahu patičky z externí šablony -->
 {% include 'footer.html' %}
 </body>
 </html>

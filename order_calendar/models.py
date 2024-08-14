@@ -1,10 +1,8 @@
-# Create your models here.
 from django.db import models
 from datetime import datetime, date
-from django.contrib.auth.models import User
-from patients.models import User as Patient
+from patients.models import User as Patient  # Importuje model User jako Patient
 
-# Definice možností pro službu (service) v podobě dvojic (hodnota, zobrazený text)
+# Definice možných služeb
 SERVICE_CHOICES = (
     ("Vstupní vyšetření", "Vstupní vyšetření"),
     ("Kontrola", "Kontrola"),
@@ -13,7 +11,7 @@ SERVICE_CHOICES = (
     ("Jiný důvod", "Jiný důvod"),
 )
 
-# Definice možností pro čas v podobě dvojic (hodnota, zobrazený text)
+# Definice možných časů
 TIME_CHOICES = (
     ("08:00", "08:00"),
     ("08:30", "08:30"),
@@ -38,38 +36,42 @@ TIME_CHOICES = (
     ("18:00", "18:00"),
 )
 
-
-# Definice modelu Appointment (schůzky)
 class Appointment(models.Model):
+    # Doktor je cizí klíč na model Patient, může být prázdný
     doctor = models.ForeignKey(
         Patient,
-        on_delete=models.CASCADE,
+        on_delete=models.CASCADE,  # Při smazání doktora se smažou i jeho schůzky
         null=True,
         blank=True,
-        related_name="appointments_as_doctor",
+        related_name="appointments_as_doctor",  # Vztah pro získání všech schůzek tohoto doktora
     )
+    # Služba - výběr z předdefinovaných možností
     service = models.CharField(
         max_length=50, choices=SERVICE_CHOICES, default="Doctor care"
     )
+    # Pacient je cizí klíč na model Patient, může být prázdný
     patient = models.ForeignKey(
         Patient, on_delete=models.CASCADE, null=True, blank=True, related_name="patient"
     )
+    # Datum schůzky, výchozí hodnota je aktuální datum
     day = models.DateField(default=datetime.now)
+    # Čas schůzky - výběr z předdefinovaných možností
     time = models.CharField(max_length=10, choices=TIME_CHOICES, default="3 PM")
+    # Datum a čas vytvoření schůzky
     time_ordered = models.DateTimeField(default=datetime.now, blank=True)
 
     class Meta:
-        ordering = ["day"]
+        ordering = ["day"]  # Řadí schůzky podle data
 
     def save(self, *args, **kwargs):
-        self.delete_past_appointments()
-        super(Appointment, self).save(*args, **kwargs)
+        self.delete_past_appointments()  # Před uložením smaže minulá data
+        super(Appointment, self).save(*args, **kwargs)  # Uloží aktuální schůzku
 
     @staticmethod
     def delete_past_appointments():
-        # Vymaže všetky záznamy s dátumom v minulosti
+        # Vymaže všechny schůzky s datem v minulosti
         Appointment.objects.filter(day__lt=date.today()).delete()
 
-
-def __str__(self):
-    return f"{self.user.username} | Doktor: {self.doctor.username} | den: {self.day} | čas: {self.time}"
+    def __str__(self):
+        # Vypíše základní informace o schůzce
+        return f"{self.patient.username} | Doktor: {self.doctor.username} | den: {self.day} | čas: {self.time}"

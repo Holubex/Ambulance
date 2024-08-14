@@ -2,14 +2,18 @@
 <header>
     <div class="header-top">
         <div class="logo-name">
+            <!-- Vložení loga společnosti a textového popisu -->
             <img src="{% static 'images/psychiatry_512.png' %}" alt="Logo Psychiatrie Hnídek" width="50">
             <span>Psychiatrie Hnídek s.r.o., Ronovská 846/3, 470 01 Česká Lípa, ambulance@psychiatrie-hnidek.cz</span>
         </div>
         <div class="login">
+            <!-- Zobrazení přihlašovacího stavu uživatele -->
             {% if user.is_authenticated %}
                 <span>Dobrý den, {{ user.username }}!</span>
+                <!-- Odkaz na odhlášení -->
                 <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Odhlásit</a>
             {% else %}
+                <!-- Odkaz na přihlášení -->
                 <a href="{% url 'login' %}"><i class="fas fa-user"></i> Přihlásit</a>
             {% endif %}
         </div>
@@ -18,6 +22,7 @@
     <div class="header-bottom">
         <nav class="menu">
             <ul>
+                <!-- Hlavní navigační menu -->
                 <li><a href="{% url 'home' %}">Domovská stránka</a></li>
                 <li><a href="{% url 'announcement_list' %}">Aktuality</a></li>
                 <li><a href="{% url 'our_services' %}">Naše služby</a></li>
@@ -29,6 +34,7 @@
 
     <div class="content-wrapper">
         <div class="button-row">
+            <!-- Zobrazení akčních tlačítek podle oprávnění uživatele -->
             {% if user.is_authenticated %}
                 {% if perms.patients.add_user %}
                     <a href="{% url 'create_user' %}" class="button">Nový uživatel</a>
@@ -45,6 +51,7 @@
             {% endif %}
         </div>
         <div class="button-row">
+            <!-- Zobrazení seznamů a kalendáře podle oprávnění uživatele -->
             {% if user.is_authenticated %}
                 {% if perms.patients.view_user %}
                     <a href="{% url 'user_list' %}" class="button">Seznam uživatelů</a>
