@@ -22,8 +22,8 @@
             {% for user in patients %}
                 <li class="user-item {{ user.role_patient|lower }}">
                     <a href="{% url 'user_detail' user.id %}">
-                        <strong>{{ user.name }} {{ user.surname }}</strong>
-                    </a> - {{ user.role_patient }}
+                        <strong>{{ user.surname }} {{ user.name }}</strong>
+                    </a>
                 </li>
             {% endfor %}
         </ul>

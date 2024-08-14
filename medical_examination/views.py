@@ -6,24 +6,23 @@ from medical_examination.forms import MedicalExaminationForm, AnnouncementForm
 from medical_examination.models import MedicalExamination, Announcement
 from patients.models import User, Role
 
-
 # medical_examination
 
 class MedicalExaminationFilterForm(forms.Form):
     patient = forms.ModelChoiceField(
-        queryset=User.objects.filter(role_patient=Role.PATIENT),  # Přizpůsobte filtrování
+        queryset=User.objects.filter(role_patient=Role.PATIENT).order_by('surname', 'name'),  # Přizpůsobte filtrování
         required=False,
         label='Pacient',
         widget=forms.Select(attrs={'class': 'form-control'})
     )
     nurse = forms.ModelChoiceField(
-        queryset=User.objects.filter(role_patient=Role.NURSE),  # Přizpůsobte filtrování
+        queryset=User.objects.filter(role_patient=Role.NURSE).order_by('surname', 'name'),  # Přizpůsobte filtrování
         required=False,
         label='Sestřička',
         widget=forms.Select(attrs={'class': 'form-control'})
     )
     doctor = forms.ModelChoiceField(
-        queryset=User.objects.filter(role_patient=Role.DOCTOR),  # Přizpůsobte filtrování
+        queryset=User.objects.filter(role_patient=Role.DOCTOR).order_by('surname', 'name'),  # Přizpůsobte filtrování
         required=False,
         label='Lékař',
         widget=forms.Select(attrs={'class': 'form-control'})
@@ -47,7 +46,6 @@ class MedicalExaminationFilterForm(forms.Form):
                 queryset = queryset.filter(examination_date=data['examination_date'])
         return queryset
 
-
 class MedicalExaminationListView(ListView):
     template_name = 'medical_examination_list.html'
     model = MedicalExamination
@@ -56,9 +54,16 @@ class MedicalExaminationListView(ListView):
 
     def get_queryset(self):
         form = MedicalExaminationFilterForm(self.request.GET)
-        queryset = super().get_queryset()
+        queryset = super().get_queryset().select_related('patient', 'nurse', 'doctor')
+
         if form.is_valid():
             queryset = form.filter(queryset)
+
+        queryset = queryset.order_by(
+            'patient__surname', 'patient__name',
+            'nurse__surname', 'nurse__name',
+            'doctor__surname', 'doctor__name'
+        )
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -66,19 +71,16 @@ class MedicalExaminationListView(ListView):
         context['filter_form'] = MedicalExaminationFilterForm(self.request.GET)
         return context
 
-
 class MedicalExaminationCreateView(CreateView):
     template_name = 'medical_examination_form.html'
     form_class = MedicalExaminationForm
     success_url = reverse_lazy('medical_examination_list')
     permission_required = 'medical_examination.add_medical_examination'
 
-
 class MedicalExaminationDetailView(DetailView):
     template_name = 'medical_examination_detail.html'
     model = MedicalExamination
     context_object_name = 'medical_examination'
-
 
 class MedicalExaminationUpdateView(UpdateView):
     template_name = 'medical_examination_form.html'
@@ -92,7 +94,6 @@ class MedicalExaminationUpdateView(UpdateView):
         context['form_action'] = 'Upraviť vyšetření'
         return context
 
-
 class MedicalExaminationDeleteView(DeleteView):
     template_name = 'medical_examination_confirm_delete.html'
     model = MedicalExamination  # Definuje model, ktorý bude zmazaný
@@ -104,25 +105,21 @@ class MedicalExaminationDeleteView(DeleteView):
         context['form_action'] = 'Vymazat vyšetření'
         return context
 
-
 class AnnouncementListView(ListView):
     template_name = 'announcement_list.html'
     model = Announcement
     context_object_name = 'announcements'
-
 
 class AnnouncementCreateView(CreateView):
     template_name = 'announcement_form.html'
     form_class = AnnouncementForm
     success_url = reverse_lazy('announcement_list')
 
-
 class AnnouncementUpdateView(UpdateView):
     template_name = 'announcement_form.html'
     form_class = AnnouncementForm
     model = Announcement
     success_url = reverse_lazy('announcement_list')
-
 
 class AnnouncementDeleteView(DeleteView):
     template_name = 'announcement_confirm_delete.html'

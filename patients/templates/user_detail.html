@@ -3,7 +3,7 @@
 {% block content %}
     <div class="container">
         <h1>Detail uživatele</h1>
-        <p><strong>Jméno:</strong> {{ user.name }} {{ user.surname }}</p>
+        <p><strong>Jméno:</strong> {{ user.surname }} {{ user.name }}</p>
         <p><strong>Role uživatele:</strong> {{ user.get_role_patient_display }}</p>
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p><strong>Kontakt (telefon):</strong> {{ user.contact }}</p>
