@@ -1,3 +1,5 @@
+import locale
+
 from django.db import models
 from django.db.models import Model, TextChoices, IntegerChoices
 
@@ -41,8 +43,14 @@ class User(Model):
     contact = models.TextField()
 
     class Meta:
-        ordering = ['birth_date']
+        ordering = ['surname', 'name']  # Uspořádat primárně podle příjmení a pak jména
 
     def __str__(self):
         return f'{self.surname} {self.name}'
         # return f'{self.name} {self.surname} : {self.role_patient}'
+
+    @staticmethod
+    def get_sorted_users():
+        locale.setlocale(locale.LC_COLLATE, 'cs_CZ.UTF-8')
+        users = User.objects.all()
+        return sorted(users, key=lambda user: locale.strxfrm(user.surname))

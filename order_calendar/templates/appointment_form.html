@@ -6,7 +6,13 @@
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button class="button" type="submit">{% if form.instance.pk %}Upravit{% else %}Vytvořit{% endif %}</button>
+            <button class="button" type="submit">
+                {% if form.instance.pk %}
+                    Upravit
+                {% else %}
+                    Vytvořit
+                {% endif %}
+            </button>
         </form>
     </div>
 

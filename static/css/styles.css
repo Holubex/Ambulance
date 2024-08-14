@@ -276,7 +276,20 @@ input, textarea, select {
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    border: none; /* Odstranit defaultní okraje u button */
+    font-size: 16px; /* Nastavení velikosti písma */
     transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover efekt pro všechna tlačítka */
+.button:hover {
+    background-color: orange !important;
+    color: #ffffcc !important;
+}
+
+div .button:hover {
+    background-color: orange;
+    color: #ffffcc;
 }
 
 .content-wrapper .button-row:nth-child(1) .button:hover {

@@ -1,17 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="content-wrapper">
-    <h1>Registrace</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="button">Registrovat</button>
-    </form>
-    {% if form.errors %}
-        <div class="errors">
-            {{ form.errors }}
-        </div>
-    {% endif %}
-</div>
+    <div class="content-wrapper">
+        <h1>Registrace</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <!-- Tlačítko pro odeslání formuláře -->
+            <button type="submit" class="button">Registrovat</button>
+        </form>
+        {% if form.errors %}
+            <!-- Zobrazení chybových zpráv -->
+            <div class="errors">
+                {{ form.errors }}
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}

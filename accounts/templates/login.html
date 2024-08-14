@@ -6,9 +6,11 @@
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
+            <!-- Tlačítko pro odeslání formuláře -->
             <button type="submit" class="button">Přihlásit se</button>
         </form>
         {% if form.errors %}
+            <!-- Zobrazení chybových zpráv -->
             <div class="errors">
                 {{ form.errors }}
             </div>

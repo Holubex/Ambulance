@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
-from patients.views import UserCreateView, UserListView, UserDetailView
+from patients.views import UserCreateView, UserListView, UserDetailView, UserUpdateView
 from accounts.views import SubmittableLoginView, RegistrationForm, RegisterView
 from medical_examination.views import (
     MedicalExaminationListView,
@@ -46,6 +46,7 @@ urlpatterns = [
     path("create_user/", UserCreateView.as_view(), name="create_user"),
     path("user-list/", UserListView.as_view(), name="user_list"),
     path("patients/<int:pk>/", UserDetailView.as_view(), name="user_detail"),
+    path("patients/edit/<int:pk>/", UserUpdateView.as_view(), name="user_edit"),
     path(
         "medical-examination-list/",
         MedicalExaminationListView.as_view(),

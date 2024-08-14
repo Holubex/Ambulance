@@ -24,8 +24,8 @@
             {% for examination in examinations %}
                 <tr>
                     <td>{{ examination.patient.surname }} {{ examination.patient.name }}</td>
-                    <td>{{ examination.nurse.surname }} {{ examination.patient.name }}</td>
-                    <td>{{ examination.doctor.surname }} {{ examination.patient.name }}</td>
+                    <td>{{ examination.nurse.surname }} {{ examination.nurse.name }}</td>
+                    <td>{{ examination.doctor.surname }} {{ examination.doctor.name }}</td>
                     <td>{{ examination.examination_date }}</td>
                     <td>
                         <a href="{% url 'medical_examination_detail' examination.id %}">Detail</a>

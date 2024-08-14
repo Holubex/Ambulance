@@ -6,6 +6,7 @@ from medical_examination.forms import MedicalExaminationForm, AnnouncementForm
 from medical_examination.models import MedicalExamination, Announcement
 from patients.models import User, Role
 
+
 # medical_examination
 
 class MedicalExaminationFilterForm(forms.Form):
@@ -46,6 +47,7 @@ class MedicalExaminationFilterForm(forms.Form):
                 queryset = queryset.filter(examination_date=data['examination_date'])
         return queryset
 
+
 class MedicalExaminationListView(ListView):
     template_name = 'medical_examination_list.html'
     model = MedicalExamination
@@ -71,16 +73,19 @@ class MedicalExaminationListView(ListView):
         context['filter_form'] = MedicalExaminationFilterForm(self.request.GET)
         return context
 
+
 class MedicalExaminationCreateView(CreateView):
     template_name = 'medical_examination_form.html'
     form_class = MedicalExaminationForm
     success_url = reverse_lazy('medical_examination_list')
     permission_required = 'medical_examination.add_medical_examination'
 
+
 class MedicalExaminationDetailView(DetailView):
     template_name = 'medical_examination_detail.html'
     model = MedicalExamination
     context_object_name = 'medical_examination'
+
 
 class MedicalExaminationUpdateView(UpdateView):
     template_name = 'medical_examination_form.html'
@@ -93,6 +98,7 @@ class MedicalExaminationUpdateView(UpdateView):
         context = super().get_context_data(**kwargs)
         context['form_action'] = 'Upraviť vyšetření'
         return context
+
 
 class MedicalExaminationDeleteView(DeleteView):
     template_name = 'medical_examination_confirm_delete.html'

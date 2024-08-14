@@ -9,7 +9,12 @@
         <p><strong>Kontakt (telefon):</strong> {{ user.contact }}</p>
         <p><strong>Adresa:</strong> {{ user.address }}</p>
         <p><strong>Datum narození:</strong> {{ user.birth_date }}</p>
-        <p><strong>Rodné číslo</strong> {{ user.birth_number }}</p>
+        <p><strong>Rodné číslo:</strong> {{ user.birth_number }}</p>
         <p><strong>Pojišťovna:</strong> {{ user.get_insurance_display }}</p>
+    </div>
+   <div style="text-align: center;">
+        {% if perms.patients.change_user %}
+            <a class="button" href="{% url 'user_edit' user.id %}" role="button">Upravit</a>
+        {% endif %}
     </div>
 {% endblock %}
