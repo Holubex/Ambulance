@@ -8,7 +8,22 @@
         <div class="filter">
             <!-- Formulář pro filtrování vyšetření -->
             <form method="get" class="filter-form">
-                {{ filter_form.as_p }}
+                <input type="text" name="patient_name" placeholder="Příjmení pacienta"
+                       value="{{ request.GET.patient_name }}">
+                <select name="nurse_id">
+                    <option value="">--Vyberte zdravotní sestru--</option>
+                    {% for nurse in nurses %}
+                        <option value="{{ nurse.id }}"
+                                {% if nurse.id|stringformat:"s" == request.GET.nurse_id %}selected{% endif %}>{{ nurse.surname }} {{ nurse.name }}</option>
+                    {% endfor %}
+                </select>
+                <select name="doctor_id">
+                    <option value="">--Vyberte lékaře--</option>
+                    {% for doctor in doctors %}
+                        <option value="{{ doctor.id }}"
+                                {% if doctor.id|stringformat:"s" == request.GET.doctor_id %}selected{% endif %}>{{ doctor.surname }} {{ doctor.name }}</option>
+                    {% endfor %}
+                </select>
                 <button type="submit">Filtrovat</button>
             </form>
         </div>

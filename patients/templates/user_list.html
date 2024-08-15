@@ -1,49 +1,51 @@
 {% extends "base.html" %}
 
-{% load static %}  {# Načtení statických souborů #}
+{% load static %}
 
-{% block head %}  {# Začátek bloku pro hlavičku stránky #}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">  {# Přidání odkazu na CSS soubor #}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 {% endblock %}
 
-{% block content %}  {# Začátek bloku s obsahem #}
+{% block content %}
     <div class="container">
         <h1>Seznam uživatelů</h1>
 
+        <!-- Vyhledávací formulář -->
+        <div class="search">
+            <form method="get" action="{% url 'user_list' %}">
+                <input type="text" name="search" placeholder="hledej uživatele" value="{{ request.GET.search }}">
+                <p class="search-description">Zadejte prvních pár písmen příjmení pro vyhledání uživatelů.</p>
+                <button type="submit" class="button">Hledat</button>
+            </form>
+        </div>
+
         <!-- Filtr na položky seznamu uživatelů -->
         <div class="filter">
-            <button onclick="filterUsers('all')">Všichni uživatelé</button>  {# Tlačítko pro filtrování všech uživatelů #}
-            <button onclick="filterUsers('patient')">Pacienti</button>  {# Tlačítko pro filtrování pacientů #}
-            <button onclick="filterUsers('doctor')">Lékaři</button>  {# Tlačítko pro filtrování lékařů #}
-            <button onclick="filterUsers('nurse')">Sestry</button>  {# Tlačítko pro filtrování sester #}
+            <button onclick="filterUsers('patient')">Pacienti</button>
+            <button onclick="filterUsers('doctor')">Lékaři</button>
+            <button onclick="filterUsers('nurse')">Sestry</button>
+            <button onclick="filterUsers('')">Všichni uživatelé</button>
         </div>
 
         <!-- seznam uživatelů -->
         <ul class="user-list">
-            {% for user in patients %}  {# Prochází seznam uživatelů #}
-                <li class="user-item {{ user.role_patient|lower }}">  {# Zobrazení uživatele s třídou podle role #}
+            {% for user in patients %}
+                <li class="user-item {{ user.role_patient|lower }}">
                     <a href="{% url 'user_detail' user.id %}">
-                        <strong>{{ user.surname }} {{ user.name }}</strong>  {# Odkaz na detail uživatele #}
+                        <strong>{{ user.surname }} {{ user.name }}</strong>
                     </a>
                 </li>
+            {% empty %}
+                <li>Žádní uživatelé k zobrazení</li>
             {% endfor %}
         </ul>
     </div>
 
     <script>
         function filterUsers(role) {
-            var items = document.querySelectorAll('.user-item');
-            items.forEach(function (item) {
-                if (role === 'all') {
-                    item.style.display = 'block';  {# Zobrazení všech položek #}
-                } else {
-                    if (item.classList.contains(role)) {
-                        item.style.display = 'block';  {# Zobrazení položek s vybranou rolí #}
-                    } else {
-                        item.style.display = 'none';  {# Skrytí položek s jinou rolí #}
-                    }
-                }
-            });
+            var url = new URL(window.location.href);
+            url.searchParams.set('role', role);
+            window.location.href = url.href;
         }
     </script>
 {% endblock %}
