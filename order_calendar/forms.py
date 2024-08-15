@@ -2,6 +2,7 @@ from django import forms
 from .models import Appointment
 from patients.models import User as Patient  # Importuje model User jako Patient
 
+
 class AppointmentForm(forms.ModelForm):
     # Pole pro výběr doktora, pouze uživatelé s rolí 'Doctor'
     doctor = forms.ModelChoiceField(
