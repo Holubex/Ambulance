@@ -148,7 +148,7 @@ class UserListView(PermissionRequiredMixin, ListView):
 class UserDetailView(DetailView):
     model = User
     template_name = 'user_detail.html'  # Šablona pro zobrazení detailu uživatele
-    context_object_name = 'user'
+    context_object_name = 'user_detail'
 
     def get_object(self):
         # Načtení uživatele podle ID

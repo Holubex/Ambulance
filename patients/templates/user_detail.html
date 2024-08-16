@@ -3,14 +3,14 @@
 {% block content %}  {# Začátek bloku s obsahem #}
     <div class="container">
         <h1>Detail uživatele</h1>
-        <p><strong>Jméno:</strong> {{ user.surname }} {{ user.name }}</p>  {# Zobrazení příjmení a jména uživatele #}
-        <p><strong>Role uživatele:</strong> {{ user.get_role_patient_display }}</p>  {# Zobrazení role uživatele #}
-        <p><strong>Email:</strong> {{ user.email }}</p>  {# Zobrazení emailu uživatele #}
-        <p><strong>Kontakt (telefon):</strong> {{ user.contact }}</p>  {# Zobrazení kontaktu uživatele #}
-        <p><strong>Adresa:</strong> {{ user.address }}</p>  {# Zobrazení adresy uživatele #}
-        <p><strong>Datum narození:</strong> {{ user.birth_date }}</p>  {# Zobrazení data narození uživatele #}
-        <p><strong>Rodné číslo:</strong> {{ user.birth_number }}</p>  {# Zobrazení rodného čísla uživatele #}
-        <p><strong>Pojišťovna:</strong> {{ user.get_insurance_display }}</p>  {# Zobrazení pojišťovny uživatele #}
+        <p><strong>Jméno:</strong> {{ user_detail.surname }} {{ user_detail.name }}</p>  {# Zobrazení příjmení a jména uživatele #}
+        <p><strong>Role uživatele:</strong> {{ user_detail.get_role_patient_display }}</p>  {# Zobrazení role uživatele #}
+        <p><strong>Email:</strong> {{ user_detail.email }}</p>  {# Zobrazení emailu uživatele #}
+        <p><strong>Kontakt (telefon):</strong> {{ user_detail.contact }}</p>  {# Zobrazení kontaktu uživatele #}
+        <p><strong>Adresa:</strong> {{ user_detail.address }}</p>  {# Zobrazení adresy uživatele #}
+        <p><strong>Datum narození:</strong> {{ user_detail.birth_date }}</p>  {# Zobrazení data narození uživatele #}
+        <p><strong>Rodné číslo:</strong> {{ user_detail.birth_number }}</p>  {# Zobrazení rodného čísla uživatele #}
+        <p><strong>Pojišťovna:</strong> {{ user_detail.get_insurance_display }}</p>  {# Zobrazení pojišťovny uživatele #}
     </div>
     <div style="text-align: center;">
         {% if perms.patients.change_user %}  {# Kontrola oprávnění pro úpravu uživatele #}
